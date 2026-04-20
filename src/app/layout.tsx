@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Battle Labs | Async AI Automation Systems",
+  title: "Battle Labs | Lead Capture + Follow-Up Systems",
   description:
-    "Battle Labs builds lean websites, follow-up funnels, and AI automation systems that help online brands capture leads and close async.",
+    "Battle Labs builds solo-led lead capture, follow-up, website, and simple automation systems for founders, creators, and small businesses.",
 };
 
 export default function RootLayout({

@@ -181,6 +181,53 @@ body {
   box-shadow: 0 0 12px rgba(200,169,126,0.45);
 }
 
+.hero-offer {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  padding: 18px 20px;
+  border: 1px solid rgba(200,169,126,0.14);
+  border-radius: 18px;
+  background: rgba(10,10,10,0.42);
+  backdrop-filter: blur(12px);
+  animation: fadeInDown 1s ease 0.68s both;
+}
+
+.hero-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hero-offer-item {
+  padding: 14px;
+  border: 1px solid rgba(200,169,126,0.1);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.025);
+  text-align: left;
+}
+
+.hero-offer-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(200,169,126,0.78);
+}
+
+.hero-offer-item strong {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.hero-offer-note {
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: rgba(245,240,234,0.62);
+}
+
 /* === FORM === */
 .form-card {
   backdrop-filter: blur(24px);
@@ -1453,6 +1500,80 @@ body {
 .form-success { text-align: center; padding: 40px 20px; }
 .form-success h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; margin-bottom: 12px; }
 .form-success p { color: rgba(245,240,234,0.6); font-size: 0.95rem; }
+
+.workflow-card,
+.stack-card {
+  width: 100%;
+  padding: 20px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+  border: 1px solid rgba(200,169,126,0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.workflow-list {
+  display: grid;
+  gap: 10px;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+.workflow-step strong {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.workflow-step span {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200,169,126,0.72);
+}
+
+.stack-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stack-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(200,169,126,0.72);
+}
+
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stack-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(200,169,126,0.12);
+  background: rgba(255,255,255,0.035);
+  color: rgba(245,240,234,0.88);
+  font-size: 0.82rem;
+}
+
+.stack-footnote {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: rgba(245,240,234,0.62);
+}
 </style>
 </head>
 <body>
@@ -1468,13 +1589,30 @@ body {
 
   <div class="hero-content">
     <div class="hero-badge">Solo-Built AI Systems</div>
-    <h1 class="hero-title">Custom AI Agents for the Work You Want <em>Off Your Plate</em></h1>
-    <p class="hero-subtitle">I design and build custom AI agents, automations, and websites for founders, creators, and small businesses that want cleaner operations and less manual work.</p>
+    <h1 class="hero-title">Lead Capture, Follow-Up, and Simple Automation <em>Without the Bloat</em></h1>
+    <p class="hero-subtitle">I build focused systems for founders, creators, coaches, consultants, and small service businesses that need more qualified inquiries and less manual follow-up.</p>
+    <div class="hero-offer">
+      <div class="hero-offer-grid">
+        <div class="hero-offer-item">
+          <span class="hero-offer-label">Primary Offer</span>
+          <strong>Lead capture + follow-up systems that turn interest into qualified conversations.</strong>
+        </div>
+        <div class="hero-offer-item">
+          <span class="hero-offer-label">Fallback Offer</span>
+          <strong>Website rebuilds with inquiry flow, Stripe, forms, and simple automation baked in.</strong>
+        </div>
+        <div class="hero-offer-item">
+          <span class="hero-offer-label">Sales Model</span>
+          <strong>Async-only builds through email, forms, checkout links, and Loom. No calls required.</strong>
+        </div>
+      </div>
+      <div class="hero-offer-note">Pilot builds are available for the right first-fit projects, with clearer scope before moving into higher-ticket work.</div>
+    </div>
     <div class="hero-trust">Solo-built for founders, creators, and small businesses.</div>
 
     <div class="form-card" id="formCard">
-      <h2>Build Your AI Agent</h2>
-      <p>Tell me what you want automated, improved, or built. I’ll design the right system for your business.</p>
+      <h2>Start Your System</h2>
+      <p>Best fit for lead capture, follow-up, websites, and simple automations that can be sold and delivered async.</p>
       <form id="inquiryForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <input type="text" name="name" placeholder="Your name" required>
@@ -1544,49 +1682,34 @@ body {
 
   <div class="bento-grid-v2">
 
-    <!-- CARD A: Featured — Live Agent Dashboard (2 cols) -->
+    <!-- CARD A: Featured — Lead Flow Workflow -->
     <div class="bc bc-featured">
       <div class="bc-text">
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon>
         </div>
-        <div class="bc-title">Custom Operations Build</div>
-        <div class="bc-desc">One coordinated system for the repetitive work slowing your business down, from follow-up to content to admin.</div>
+        <div class="bc-title">Lead Capture + Follow-Up</div>
+        <div class="bc-desc">A tighter front-end flow for businesses that need better inquiry handling, faster follow-up, and fewer leads slipping through the cracks.</div>
       </div>
       <div class="bc-preview">
-        <div class="mini-dash">
-          <div class="mini-dash-row">
-            <div class="mdr-left">
-              <span class="mdr-pulse"></span>
-              <span class="mdr-name">Social Media Agent</span>
+        <div class="workflow-card">
+          <div class="workflow-list">
+            <div class="workflow-step">
+              <strong>Landing page or offer page</strong>
+              <span>Step 1</span>
             </div>
-            <span class="mdr-status" id="bd-s1">posted 3x today</span>
-          </div>
-          <div class="mini-dash-row">
-            <div class="mdr-left">
-              <span class="mdr-pulse"></span>
-              <span class="mdr-name">E-Commerce Agent</span>
+            <div class="workflow-step">
+              <strong>Inquiry form routed cleanly</strong>
+              <span>Step 2</span>
             </div>
-            <span class="mdr-status" id="bd-s2">2 orders processed</span>
-          </div>
-          <div class="mini-dash-row">
-            <div class="mdr-left">
-              <span class="mdr-pulse"></span>
-              <span class="mdr-name">Content Agent</span>
+            <div class="workflow-step">
+              <strong>Follow-up email or automation</strong>
+              <span>Step 3</span>
             </div>
-            <span class="mdr-status" id="bd-s3">script drafted</span>
-          </div>
-          <div class="mini-dash-row">
-            <div class="mdr-left">
-              <span class="mdr-pulse amber"></span>
-              <span class="mdr-name">Outreach Agent</span>
+            <div class="workflow-step">
+              <strong>Qualified lead ready for review</strong>
+              <span>Step 4</span>
             </div>
-            <span class="mdr-status" id="bd-s4">12 leads engaged</span>
-          </div>
-          <div class="mini-dash-footer">
-            <span class="mdf-label">Revenue today</span>
-            <span class="mdf-value" id="bd-rev">$1,284</span>
-            <span class="mdf-ping">&#9679; LIVE</span>
           </div>
         </div>
       </div>
@@ -1653,29 +1776,29 @@ body {
       </div>
     </div>
 
-    <!-- CARD D: Revenue Tracking -->
+    <!-- CARD D: Checkout + Delivery Flow -->
     <div class="bc">
       <div class="bc-text">
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:cart-linear"></iconify-icon>
         </div>
-        <div class="bc-title">Sales + Checkout Flow</div>
+        <div class="bc-title">Checkout + Delivery Flow</div>
         <div class="bc-desc">From forms to Stripe to product delivery, the customer path can be connected into one clean workflow.</div>
       </div>
       <div class="bc-preview">
-        <div class="always-on-visual">
-          <div style="text-align:center;">
-            <div style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:8px;">Monthly Revenue</div>
-            <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--accent);text-shadow:0 0 30px rgba(200,169,126,0.3);" id="rev-counter">$4,820</div>
+        <div class="stack-card">
+          <div>
+            <div class="stack-heading">Connected Stack</div>
           </div>
-          <div style="display:flex;gap:3px;align-items:flex-end;height:40px;margin-top:16px;">
-            <div style="flex:1;background:rgba(200,169,126,0.15);border-radius:3px 3px 0 0;height:40%;animation:barGrow 3s ease-in-out infinite;"></div>
-            <div style="flex:1;background:rgba(200,169,126,0.2);border-radius:3px 3px 0 0;height:60%;animation:barGrow 3s ease-in-out 0.2s infinite;"></div>
-            <div style="flex:1;background:rgba(200,169,126,0.25);border-radius:3px 3px 0 0;height:45%;animation:barGrow 3s ease-in-out 0.4s infinite;"></div>
-            <div style="flex:1;background:rgba(200,169,126,0.35);border-radius:3px 3px 0 0;height:80%;animation:barGrow 3s ease-in-out 0.6s infinite;"></div>
-            <div style="flex:1;background:rgba(200,169,126,0.4);border-radius:3px 3px 0 0;height:65%;animation:barGrow 3s ease-in-out 0.8s infinite;"></div>
-            <div style="flex:1;background:var(--accent);border-radius:3px 3px 0 0;height:100%;animation:barGrow 3s ease-in-out 1s infinite;box-shadow:0 0 8px rgba(200,169,126,0.4);"></div>
+          <div class="stack-list">
+            <span class="stack-pill">Landing Page</span>
+            <span class="stack-pill">Google Form</span>
+            <span class="stack-pill">Stripe</span>
+            <span class="stack-pill">Gumroad</span>
+            <span class="stack-pill">Email Follow-Up</span>
+            <span class="stack-pill">Delivery</span>
           </div>
+          <p class="stack-footnote">Useful for service inquiries, checkout handoff, digital product delivery, and simpler client onboarding flows.</p>
         </div>
       </div>
     </div>
@@ -1720,7 +1843,7 @@ body {
   </div>
   <div class="orbital-header">
     <div class="section-label">The Process</div>
-    <h2 class="section-title" style="text-align:center;max-width:100%;">From conversation to running agent</h2>
+    <h2 class="section-title" style="text-align:center;max-width:100%;">From bottleneck to working system</h2>
   </div>
 
   <div class="orbital-scene">
@@ -1756,18 +1879,18 @@ body {
   <div class="how-cols">
     <div class="how-col">
       <div class="how-step-num">1</div>
-      <h3>Tell Me What You Need</h3>
-      <p>Fill out the form or send a message. One conversation is enough to scope the right build.</p>
+      <h3>Point to the bottleneck</h3>
+      <p>Tell me where the breakdown is happening: no leads, weak follow-up, messy intake, or a site that is not converting.</p>
     </div>
     <div class="how-col">
       <div class="how-step-num">2</div>
-      <h3>I Build the System</h3>
-      <p>I connect the tools, configure the automation, and test the workflow end-to-end before it goes live.</p>
+      <h3>I scope and build the fix</h3>
+      <p>I connect the tools, tighten the front-end flow, and set up the automation needed to keep the system moving.</p>
     </div>
     <div class="how-col">
       <div class="how-step-num">3</div>
-      <h3>It Goes Live</h3>
-      <p>Your system launches, handles the work it was built for, and can be refined as your business changes.</p>
+      <h3>You run on a cleaner system</h3>
+      <p>The build goes live with fewer manual steps, clearer inquiry handling, and a setup you can refine over time.</p>
     </div>
   </div>
 </section>
@@ -1996,29 +2119,6 @@ body {
     entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
-})();
-
-/* === BENTO DASHBOARD LIVE UPDATES (pauses off-screen) === */
-(function() {
-  var posts = ['posted 3x today','posted 5x today','posted 2x today','4 posts scheduled'];
-  var orders = ['2 orders processed','3 orders processed','Etsy sale confirmed','Gumroad order #112'];
-  var content = ['script drafted','video queued','3 captions ready','blog post done'];
-  var leads = ['12 leads engaged','8 DMs sent','15 leads replied','follow-up queued'];
-  var revs = ['$1,284','$1,392','$847','$1,640','$2,108'];
-
-  var bentoActive = false;
-  var bentoEl = document.querySelector('.bento-grid-v2');
-  var bentoObs = new IntersectionObserver(function(e) { bentoActive = e[0].isIntersecting; }, { threshold: 0.1 });
-  if (bentoEl) bentoObs.observe(bentoEl);
-
-  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-  function upd(id, arr) { var el = document.getElementById(id); if (el && bentoActive) el.textContent = rand(arr); }
-
-  setInterval(function() { upd('bd-s1', posts); }, 4000);
-  setInterval(function() { upd('bd-s2', orders); }, 5500);
-  setInterval(function() { upd('bd-s3', content); }, 7000);
-  setInterval(function() { upd('bd-s4', leads); }, 6200);
-  setInterval(function() { upd('bd-rev', revs); }, 3500);
 })();
 
 /* === FEATURE CARD 2: PILL ANIMATION (pauses off-screen) === */
