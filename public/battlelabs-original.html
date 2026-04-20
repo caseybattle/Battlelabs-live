@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Battle Labs — AI Agents That Run Your Business</title>
-<meta name="description" content="We build autonomous AI agents that handle your social media, e-commerce, content creation, and more — while you sleep.">
+<title>Battle Labs — Custom AI Agents for Your Business</title>
+<meta name="description" content="Battle Labs is a solo AI build studio creating custom agents, automations, and websites for founders, creators, and small businesses.">
 <meta name="p:domain_verify" content="e392a37e9ae57de8331f1900a8eeb118"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1291,13 +1291,13 @@ body {
   <div class="particles" id="particles"></div>
 
   <div class="hero-content">
-    <div class="hero-badge">AI-Powered Automation</div>
-    <h1 class="hero-title">We Build Agents That <em>Run</em> Your Business</h1>
-    <p class="hero-subtitle">Autonomous AI systems that handle your social media, e-commerce, content, and customer outreach — 24/7, while you focus on what matters.</p>
+    <div class="hero-badge">Solo-Built AI Systems</div>
+    <h1 class="hero-title">Custom AI Agents for the Work You Want <em>Off Your Plate</em></h1>
+    <p class="hero-subtitle">I design and build custom AI agents, automations, and websites for founders, creators, and small businesses that want cleaner operations and less manual work.</p>
 
     <div class="form-card" id="formCard">
-      <h2>Get Your Agent</h2>
-      <p>Tell us what you need automated. We'll build it.</p>
+      <h2>Build Your AI Agent</h2>
+      <p>Tell me what you want automated, improved, or built. I’ll design the right system for your business.</p>
       <form id="inquiryForm" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <input type="text" name="name" placeholder="Your name" required>
@@ -1307,17 +1307,17 @@ body {
         </div>
         <div class="form-group">
           <select name="service" required>
-            <option value="" disabled selected>What do you need?</option>
-            <option value="social-media">Social Media Automation</option>
-            <option value="ecommerce">E-Commerce Management</option>
-            <option value="content">Content Creation</option>
-            <option value="website">Website + Deployment</option>
-            <option value="full-agent">Full Autonomous Agent</option>
+            <option value="" disabled selected>What do you need help with?</option>
+            <option value="lead-capture">Lead Capture + Follow-Up</option>
+            <option value="content-social">Content + Social</option>
+            <option value="website-chat">Website + AI Chat</option>
+            <option value="client-onboarding">Client Onboarding</option>
+            <option value="business-automation">Business Automation</option>
             <option value="custom">Something Custom</option>
           </select>
         </div>
         <div class="form-group">
-          <textarea name="details" placeholder="Tell us more about your business and what you want automated..."></textarea>
+          <textarea name="details" placeholder="Tell me a bit about your business and what you want automated, improved, or built..."></textarea>
         </div>
         <button type="submit" class="submit-btn">Send Inquiry</button>
       </form>
@@ -1580,17 +1580,17 @@ body {
     <div class="how-col">
       <div class="how-step-num">1</div>
       <h3>Tell Us What You Need</h3>
-      <p>Fill out the form or send a message. One conversation scopes your entire agent stack.</p>
+      <p>Fill out the form or send a message. One conversation is enough to scope the right build.</p>
     </div>
     <div class="how-col">
       <div class="how-step-num">2</div>
-      <h3>We Build Your Agent</h3>
-      <p>We connect your accounts, configure automations, and test everything end-to-end before launch.</p>
+      <h3>I Build the System</h3>
+      <p>I connect the tools, configure the automation, and test the workflow end-to-end before it goes live.</p>
     </div>
     <div class="how-col">
       <div class="how-step-num">3</div>
-      <h3>It Runs. You Watch.</h3>
-      <p>Your agent goes live. Daily Telegram reports. Adjust anything with a single text message.</p>
+      <h3>It Goes Live</h3>
+      <p>Your system launches, handles the work it was built for, and can be refined as your business changes.</p>
     </div>
   </div>
 </section>
@@ -1762,7 +1762,7 @@ body {
 
       <div class="terminal-cta">
         <a href="#formCard" class="btn-primary">Build My Agent</a>
-        <a href="mailto:casbattle19@gmail.com" class="btn-ghost">Talk to Casey</a>
+        <a href="mailto:casbattle19@gmail.com" class="btn-ghost">Email Casey</a>
       </div>
     </div>
   </div>
@@ -1894,7 +1894,7 @@ function handleSubmit(e) {
     service: form.service.value,
     details: form.details.value
   };
-  card.innerHTML = '<div class="form-success"><h2>We Got You</h2><p>Thanks, ' + data.name + '. We\'ll reach out within 24 hours to discuss your ' + data.service.replace(/-/g, ' ') + ' project.</p></div>';
+  card.innerHTML = '<div class="form-success"><h2>Got it</h2><p>Thanks, ' + data.name + '. I\'ll review this and reach out with next steps about your ' + data.service.replace(/-/g, ' ') + ' request.</p></div>';
   fetch('http://95.111.243.97:5678/webhook/4sAG5F1uJ8P2DssC/webhook/battle-labs-lead', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
