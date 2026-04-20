@@ -44,6 +44,8 @@ body {
 
 .bento-section, .orbital-section, .feature-cards-section, .cta-section {
   contain: layout style;
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
 }
 
 .bc-preview, .fc-visual {
@@ -151,6 +153,32 @@ body {
   max-width: 580px;
   margin: 0 auto 48px;
   animation: fadeInDown 1s ease 0.6s both;
+}
+
+.hero-trust {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  margin: 0 auto 28px;
+  border: 1px solid rgba(200,169,126,0.16);
+  border-radius: 999px;
+  background: rgba(10,10,10,0.48);
+  backdrop-filter: blur(10px);
+  color: rgba(245,240,234,0.78);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  animation: fadeInDown 1s ease 0.7s both;
+}
+
+.hero-trust::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(200,169,126,0.45);
 }
 
 /* === FORM === */
@@ -1106,6 +1134,113 @@ body {
   margin: 0 auto;
 }
 
+.proof-section {
+  padding: 96px 24px 112px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.proof-header {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.proof-card {
+  position: relative;
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(12,12,14,0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.proof-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(200,169,126,0.1), transparent 55%);
+  pointer-events: none;
+}
+
+.proof-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(200,169,126,0.8);
+}
+
+.proof-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.proof-card p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(245,240,234,0.56);
+}
+
+.proof-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.proof-link:hover {
+  text-decoration: underline;
+}
+
+.proof-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,169,126,0.12);
+}
+
+.proof-cta-copy {
+  max-width: 560px;
+}
+
+.proof-cta-copy h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.proof-cta-copy p {
+  color: rgba(245,240,234,0.54);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.proof-cta-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .terminal {
   background: #0d0d0d;
   border: 1px solid rgba(200,169,126,0.2);
@@ -1257,21 +1392,62 @@ body {
 
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
+  .hero { min-height: auto; padding: 96px 0 56px; }
+  .hero-content { max-width: 680px; padding: 56px 20px 24px; }
+  .form-card { padding: 30px 24px; }
+  .marquee-track { animation-duration: 28s; gap: 40px; }
   .bento-grid-v2 { grid-template-columns: 1fr 1fr; }
   .bc-featured { grid-column: span 2; }
   .fc-grid { grid-template-columns: 1fr; }
   .how-cols { grid-template-columns: 1fr; gap: 40px; }
   .how-cols::before { display: none; }
+  .proof-grid { grid-template-columns: 1fr; }
+  .proof-cta { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 600px) {
+  .hero-content { padding: 48px 18px 20px; }
+  .hero-title { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+  .hero-subtitle { margin-bottom: 22px; }
+  .hero-trust {
+    width: 100%;
+    max-width: 360px;
+    padding: 11px 14px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+  .form-card { max-width: 100%; padding: 24px 18px; }
+  .marquee-section { padding: 20px 0; }
+  .marquee-track { gap: 28px; animation-duration: 34s; }
   .bento-grid-v2 { grid-template-columns: 1fr; }
   .bc-featured { grid-column: span 1; }
+  .bento-section,
+  .orbital-section,
+  .feature-cards-section,
+  .proof-section,
+  .cta-section { padding-left: 20px; padding-right: 20px; }
   .orbital-scene { width: 260px; height: 260px; }
   .orbit-ring-3 { width: 240px; height: 240px; margin-left: -120px; margin-top: -120px; }
   .terminal-body { padding: 24px 20px 28px; }
   .footer-inner { justify-content: center; text-align: center; }
   .footer-links { justify-content: center; }
+  .proof-card { padding: 22px; }
+  .proof-cta { padding: 20px; }
+  .orbital-section iframe,
+  [data-us-project] { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .particles,
+  .hero-video video,
+  .marquee-track,
+  [data-us-project],
+  .orbital-section iframe { display: none !important; }
 }
 
 .form-success { text-align: center; padding: 40px 20px; }
@@ -1294,6 +1470,7 @@ body {
     <div class="hero-badge">Solo-Built AI Systems</div>
     <h1 class="hero-title">Custom AI Agents for the Work You Want <em>Off Your Plate</em></h1>
     <p class="hero-subtitle">I design and build custom AI agents, automations, and websites for founders, creators, and small businesses that want cleaner operations and less manual work.</p>
+    <div class="hero-trust">Solo-built for founders, creators, and small businesses.</div>
 
     <div class="form-card" id="formCard">
       <h2>Build Your AI Agent</h2>
@@ -1360,9 +1537,9 @@ body {
      ================================================ -->
 <section class="bento-section reveal">
   <div class="bento-header">
-    <div class="section-label">What We Build</div>
-    <h2 class="section-title">An agent for every part of your business</h2>
-    <p class="section-sub" style="margin-top:8px;">Custom-built for your stack. Plug it in and let it run.</p>
+    <div class="section-label">What I Build</div>
+    <h2 class="section-title">Custom systems for content, follow-up, websites, and operations</h2>
+    <p class="section-sub" style="margin-top:8px;">Built around your workflow, tools, and business model instead of forcing you into a template.</p>
   </div>
 
   <div class="bento-grid-v2">
@@ -1373,8 +1550,8 @@ body {
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon>
         </div>
-        <div class="bc-title">Full Autonomous Agent</div>
-        <div class="bc-desc">Every automation running in one system. Controlled from your phone via Telegram. You wake up to work already done.</div>
+        <div class="bc-title">Custom Operations Build</div>
+        <div class="bc-desc">One coordinated system for the repetitive work slowing your business down, from follow-up to content to admin.</div>
       </div>
       <div class="bc-preview">
         <div class="mini-dash">
@@ -1421,8 +1598,8 @@ body {
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:clock-circle-linear"></iconify-icon>
         </div>
-        <div class="bc-title">Always On</div>
-        <div class="bc-desc">No downtime. No days off. Your agent works while you sleep.</div>
+        <div class="bc-title">Always Working</div>
+        <div class="bc-desc">Useful for intake, content, follow-up, and internal workflows that need to keep moving without manual effort.</div>
       </div>
       <div class="bc-preview">
         <div class="always-on-visual">
@@ -1447,8 +1624,8 @@ body {
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:share-linear"></iconify-icon>
         </div>
-        <div class="bc-title">Social Media Agent</div>
-        <div class="bc-desc">Posts, engages, and grows every platform simultaneously.</div>
+        <div class="bc-title">Content + Distribution</div>
+        <div class="bc-desc">Systems that help create, organize, and publish content across the platforms you already use.</div>
       </div>
       <div class="bc-preview">
         <div class="platform-visual">
@@ -1482,8 +1659,8 @@ body {
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:cart-linear"></iconify-icon>
         </div>
-        <div class="bc-title">E-Commerce Agent</div>
-        <div class="bc-desc">Orders, listings, and sales tracked across every platform.</div>
+        <div class="bc-title">Sales + Checkout Flow</div>
+        <div class="bc-desc">From forms to Stripe to product delivery, the customer path can be connected into one clean workflow.</div>
       </div>
       <div class="bc-preview">
         <div class="always-on-visual">
@@ -1509,8 +1686,8 @@ body {
         <div class="bc-icon-wrap">
           <iconify-icon icon="solar:rocket-linear"></iconify-icon>
         </div>
-        <div class="bc-title">Live in 72 Hours</div>
-        <div class="bc-desc">From one conversation to a fully running agent. Fast.</div>
+        <div class="bc-title">Fast to Launch</div>
+        <div class="bc-desc">Simple builds can move quickly once the workflow, tools, and desired outcome are clear.</div>
       </div>
       <div class="bc-preview">
         <div class="always-on-visual" style="gap:8px;">
@@ -1579,7 +1756,7 @@ body {
   <div class="how-cols">
     <div class="how-col">
       <div class="how-step-num">1</div>
-      <h3>Tell Us What You Need</h3>
+      <h3>Tell Me What You Need</h3>
       <p>Fill out the form or send a message. One conversation is enough to scope the right build.</p>
     </div>
     <div class="how-col">
@@ -1609,8 +1786,8 @@ body {
      ================================================ -->
 <section class="feature-cards-section reveal" style="position:relative;z-index:2;padding-top:120px;">
   <div class="fc-header">
-    <div class="section-label">Built For You</div>
-    <h2 class="section-title">Every agent is a system,<br>not a tool</h2>
+    <div class="section-label">How It Connects</div>
+    <h2 class="section-title">Built to fit the tools and channels<br>you already use</h2>
   </div>
 
   <div class="fc-grid">
@@ -1624,7 +1801,7 @@ body {
           <iconify-icon icon="solar:link-circle-linear"></iconify-icon>
         </div>
         <div class="fc-title">Platform Integrations</div>
-        <div class="fc-desc">Your agent connects to every platform you use and manages them all from one place.</div>
+        <div class="fc-desc">Connect the channels, apps, and tools you already rely on without rebuilding your workflow from scratch.</div>
       </div>
       <div class="fc-visual">
         <div class="fc1-icons">
@@ -1669,8 +1846,8 @@ body {
         <div class="fc-icon-ring">
           <iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon>
         </div>
-        <div class="fc-title">AI Capabilities</div>
-        <div class="fc-desc">Writing, posting, selling, replying, researching — your agent handles the whole stack.</div>
+        <div class="fc-title">Content Workflows</div>
+        <div class="fc-desc">Support for writing, posting, research, asset prep, and repeatable content tasks that take too much manual time.</div>
       </div>
       <div class="fc-visual">
         <div class="fc2-pill-bg">
@@ -1710,8 +1887,8 @@ body {
         <div class="fc-icon-ring">
           <iconify-icon icon="solar:smartphone-vibration-linear"></iconify-icon>
         </div>
-        <div class="fc-title">Telegram Control</div>
-        <div class="fc-desc">Text your agent a command from anywhere. It executes immediately, no app required.</div>
+        <div class="fc-title">Simple Control Layer</div>
+        <div class="fc-desc">Stay close to the system with a lightweight control layer instead of a bloated dashboard you never use.</div>
       </div>
       <div class="fc-visual">
         <div class="fc3-content">
@@ -1742,30 +1919,45 @@ body {
   </div>
 </section>
 
-<!-- === TERMINAL CTA === -->
-<section class="cta-section reveal" style="position:relative;z-index:2;">
-  <div>
-  <div class="terminal">
-    <div class="terminal-bar">
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
-      <span class="terminal-title">battle-labs-agent — running</span>
-    </div>
-    <div class="terminal-body">
-      <div class="terminal-line prompt">$ agent --status --all</div>
-      <div class="terminal-line output">&#9679; social_media_agent &nbsp;&nbsp; RUNNING &nbsp; posted 3 times today</div>
-      <div class="terminal-line output">&#9679; ecommerce_agent &nbsp;&nbsp;&nbsp;&nbsp; RUNNING &nbsp; 2 new orders processed</div>
-      <div class="terminal-line output">&#9679; content_agent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RUNNING &nbsp; script drafted, graphics queued</div>
-      <div class="terminal-line output">&#9679; outreach_agent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RUNNING &nbsp; 12 leads responded to</div>
-      <div class="terminal-line success">&#10003; All systems operational. Revenue events logged: 4 today.</div>
-
-      <div class="terminal-cta">
-        <a href="#formCard" class="btn-primary">Build My Agent</a>
-        <a href="mailto:casbattle19@gmail.com" class="btn-ghost">Email Casey</a>
-      </div>
-    </div>
+<!-- === REAL PROOF === -->
+<section class="proof-section reveal">
+  <div class="proof-header">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Real projects and systems I’ve already built</h2>
+    <p class="section-sub">No inflated claims. Just a clearer picture of the kinds of websites, product flows, and automations I can build for you.</p>
   </div>
+
+  <div class="proof-grid">
+    <article class="proof-card">
+      <span class="proof-kicker">Live Project</span>
+      <h3>The Reset Method</h3>
+      <p>A live digital product site with product pages, Gumroad checkout, affiliate links, and a real path from landing page to purchase.</p>
+      <a class="proof-link" href="https://www.theresetmethod.live/" target="_blank" rel="noreferrer">View live site</a>
+    </article>
+
+    <article class="proof-card">
+      <span class="proof-kicker">Client Work</span>
+      <h3>Websites for service businesses and creators</h3>
+      <p>I’ve built websites for salon clients and social media influencers, shaping each build around the brand, offer, and customer flow they needed.</p>
+    </article>
+
+    <article class="proof-card">
+      <span class="proof-kicker">Automation</span>
+      <h3>Connected workflows that actually move work</h3>
+      <p>Forms, Stripe, Canva, social posting, landing pages, affiliate links, and content systems connected into practical workflows that reduce manual steps.</p>
+      <a class="proof-link" href="https://battlelabs.co/" target="_blank" rel="noreferrer">See Battle Labs Co</a>
+    </article>
+  </div>
+
+  <div class="proof-cta">
+    <div class="proof-cta-copy">
+      <h3>If you already know the bottleneck, I can help design the build.</h3>
+      <p>Use the form to describe the workflow, website, or automation you need. If the fit is right, I’ll map the next steps from there.</p>
+    </div>
+    <div class="proof-cta-actions">
+      <a href="#formCard" class="btn-primary">Start a Build</a>
+      <a href="mailto:casbattle19@gmail.com" class="btn-ghost">Email Casey</a>
+    </div>
   </div>
 </section>
 </div><!-- /unicorn studio wrapper -->
