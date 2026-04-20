@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battle Labs — AI Agents That Run Your Business</title>
+<meta name="description" content="We build autonomous AI agents that handle your social media, e-commerce, content creation, and more — while you sleep.">
+<meta name="p:domain_verify" content="e392a37e9ae57de8331f1900a8eeb118"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0a;
+  --text: #f5f0ea;
+  --accent: #c8a97e;
+  --accent-glow: rgba(200, 169, 126, 0.3);
+  --glass: rgba(10, 10, 10, 0.65);
+  --glass-border: rgba(200, 169, 126, 0.15);
+  --card-bg: rgba(255,255,255,0.03);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === PERFORMANCE === */
+.hero-video video,
+.orbit-ring,
+.ar-pulse, .mdr-pulse, .ao-dot, .ao-ring,
+.platform-bubble, .fc1-bubble,
+.wave-bar, .wave-bar-dim,
+.dfb-ping, .dash-live-badge {
+  will-change: transform, opacity;
+}
+
+.bento-section, .orbital-section, .feature-cards-section, .cta-section {
+  contain: layout style;
+}
+
+.bc-preview, .fc-visual {
+  transform: translateZ(0);
+}
+
+/* === VIDEO HERO === */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.hero-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(10,10,10,0.18) 100%),
+    linear-gradient(180deg, transparent 60%, rgba(10,10,10,0.3) 100%);
+}
+
+.particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% { opacity: 0; transform: translateY(100vh) scale(0); }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+}
+
+/* === HERO CONTENT === */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 24px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  backdrop-filter: blur(10px);
+  background: var(--glass);
+  margin-bottom: 32px;
+  animation: fadeInDown 1s ease 0.2s both;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  animation: fadeInDown 1s ease 0.4s both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(200,169,126,0.6), 0 2px 16px rgba(0,0,0,0.9), 0 0 40px rgba(200,169,126,0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 252, 248, 1);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5);
+  max-width: 580px;
+  margin: 0 auto 48px;
+  animation: fadeInDown 1s ease 0.6s both;
+}
+
+/* === FORM === */
+.form-card {
+  backdrop-filter: blur(24px);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 40px 36px;
+  max-width: 480px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+
+.form-card h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 8px; }
+.form-card p { font-size: 0.875rem; color: rgba(245,240,234,0.5); margin-bottom: 28px; }
+.form-group { margin-bottom: 16px; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(200,169,126,0.2);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(245,240,234,0.35); }
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.form-group select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8a97e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.form-group select option { background: #1a1a1a; color: var(--text); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent), #a88960);
+  border: none;
+  border-radius: 10px;
+  color: #0a0a0a;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+/* === MARQUEE === */
+.marquee-section {
+  padding: 32px 0;
+  border-top: 1px solid rgba(200,169,126,0.08);
+  border-bottom: 1px solid rgba(200,169,126,0.08);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: marqueeScroll 20s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(200,169,126,0.5);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.marquee-item::before {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* === SHARED === */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: rgba(245,240,234,0.5);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   SECTION 1: ANIMATED BENTO GRID
+   ============================================ */
+.bento-section {
+  padding: 100px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-header { margin-bottom: 56px; }
+
+.bento-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* Card base */
+.bc {
+  position: relative;
+  border-radius: 24px;
+  background: #0c0c0e;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  transition: border-color 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+.bc:hover { border-color: rgba(200,169,126,0.2); }
+
+/* Top shimmer on hover */
+.bc::before {
+  content: '';
+  position: absolute;
+  inset-x: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,126,0.35), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.bc:hover::before { opacity: 1; }
+
+/* Dot grid texture */
+.bc::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.bc-featured { grid-column: span 2; }
+
+.bc-text {
+  padding: 28px 28px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.bc-icon-wrap {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(200,169,126,0.1);
+  border: 1px solid rgba(200,169,126,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 0 14px rgba(200,169,126,0.15);
+}
+
+.bc-icon-wrap iconify-icon { color: var(--accent); font-size: 1.1rem; }
+
+.bc-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.bc-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+/* Preview area inside cards */
+.bc-preview {
+  margin: 0 14px 14px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #11101e 0%, #08080c 100%);
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-height: 180px;
+}
+
+/* Featured card: mini agent dashboard */
+.mini-dash { padding: 16px 20px; height: 100%; }
+
+.mini-dash-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.mini-dash-row:last-child { border-bottom: none; }
+
+.mdr-left { display: flex; align-items: center; gap: 10px; }
+
+.mdr-pulse {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #28c840;
+  box-shadow: 0 0 8px rgba(40,200,64,0.6);
+  animation: pulseG 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.mdr-pulse.amber {
+  background: #febc2e;
+  box-shadow: 0 0 8px rgba(254,188,46,0.6);
+  animation: pulseA 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseG {
+  0%,100% { box-shadow: 0 0 6px rgba(40,200,64,0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 14px rgba(40,200,64,0.9); transform: scale(1.3); }
+}
+@keyframes pulseA {
+  0%,100% { box-shadow: 0 0 6px rgba(254,188,46,0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 14px rgba(254,188,46,0.9); transform: scale(1.3); }
+}
+
+.mdr-name {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+.mdr-status {
+  font-size: 0.68rem;
+  color: rgba(200,169,126,0.7);
+  font-family: 'Courier New', monospace;
+}
+
+.mini-dash-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(200,169,126,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mdf-label { font-size: 0.68rem; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.08em; }
+.mdf-value { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--accent); font-weight: 700; }
+.mdf-ping { color: #28c840; font-size: 0.7rem; animation: livePulse 1.5s ease-in-out infinite; }
+
+@keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+/* Card: platform connections (adaptation of aura card 1) */
+.platform-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px;
+  height: 100%;
+}
+
+.platform-icons-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.platform-bubble {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  animation: floatBounce 3s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.platform-bubble iconify-icon { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+.platform-bubble:nth-child(2) { animation-delay: 0.3s; animation-duration: 3.2s; }
+.platform-bubble:nth-child(3) { animation-delay: 0.6s; animation-duration: 2.8s; }
+.platform-bubble:nth-child(4) { animation-delay: 0.2s; animation-duration: 3.5s; }
+.platform-bubble:nth-child(5) { animation-delay: 0.5s; animation-duration: 2.9s; }
+
+@keyframes floatBounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.platform-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.platform-center {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.platform-center-glow {
+  position: absolute;
+  inset: -8px;
+  background: rgba(200,169,126,0.25);
+  border-radius: 50%;
+  filter: blur(12px);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.platform-center-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #a88960);
+  border: 1px solid rgba(200,169,126,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 24px rgba(200,169,126,0.3);
+}
+.platform-center-icon iconify-icon { color: #0a0a0a; font-size: 1.1rem; }
+
+/* Card: always on 24/7 */
+.always-on-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+}
+
+.ao-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  text-shadow: 0 0 40px rgba(200,169,126,0.3);
+}
+
+.ao-slash {
+  font-size: 1.5rem;
+  color: rgba(200,169,126,0.5);
+  margin-left: 4px;
+}
+
+.ao-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.ao-rings {
+  position: relative;
+  width: 80px; height: 80px;
+  margin: 8px auto 0;
+}
+
+.ao-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,126,0.15);
+  animation: expandRing 3s ease-out infinite;
+}
+.ao-ring:nth-child(1) { inset: 0; animation-delay: 0s; }
+.ao-ring:nth-child(2) { inset: -12px; animation-delay: 1s; }
+.ao-ring:nth-child(3) { inset: -24px; animation-delay: 2s; }
+
+@keyframes expandRing {
+  0% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+.ao-dot {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #28c840;
+  box-shadow: 0 0 16px rgba(40,200,64,0.8);
+  animation: pulseG 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* ============================================
+   SECTION 2: ORBITAL / INNOVATION
+   ============================================ */
+.orbital-section {
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.orbital-section .orbital-header,
+.orbital-section .orbital-scene,
+.orbital-section .how-cols {
+  position: relative;
+  z-index: 2;
+}
+
+.orbital-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(200,169,126,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.orbital-header {
+  max-width: 600px;
+  margin: 0 auto 80px;
+}
+
+.orbital-scene {
+  position: relative;
+  width: 320px; height: 320px;
+  margin: 0 auto 100px;
+}
+
+.orbit-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(200,169,126,0.08);
+  border: 1px solid rgba(200,169,126,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(200,169,126,0.12), inset 0 0 20px rgba(200,169,126,0.05);
+  z-index: 4;
+}
+
+.orbit-center-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,126,0.1);
+}
+
+.orbit-ring-1 {
+  width: 140px; height: 140px;
+  margin-left: -70px; margin-top: -70px;
+  animation: orbitSpin 10s linear infinite;
+}
+.orbit-ring-2 {
+  width: 220px; height: 220px;
+  margin-left: -110px; margin-top: -110px;
+  animation: orbitSpin 16s linear infinite reverse;
+}
+.orbit-ring-3 {
+  width: 300px; height: 300px;
+  margin-left: -150px; margin-top: -150px;
+  animation: orbitSpin 22s linear infinite;
+  border-style: dashed;
+  border-color: rgba(200,169,126,0.06);
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-node {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #0c0c0e;
+  border: 1px solid rgba(200,169,126,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(200,169,126,0.2);
+}
+.orbit-node iconify-icon { color: var(--accent); font-size: 0.8rem; }
+
+.orbit-node-2 {
+  top: auto; bottom: -14px; left: 50%;
+  transform: translateX(-50%);
+}
+
+.orbit-node-r2 { top: -14px; left: 50%; transform: translateX(-50%); }
+.orbit-node-r2b { top: auto; bottom: -14px; left: 50%; transform: translateX(-50%); }
+
+/* How it works 3-col below orbital */
+.how-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.how-cols::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(16.66% + 20px);
+  right: calc(16.66% + 20px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,126,0.25), transparent);
+}
+
+.how-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.how-step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,126,0.25);
+  background: rgba(200,169,126,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.how-col:hover .how-step-num {
+  background: rgba(200,169,126,0.1);
+  box-shadow: 0 0 30px rgba(200,169,126,0.2);
+}
+
+.how-col h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.how-col p {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: rgba(245,240,234,0.45);
+}
+
+/* ============================================
+   SECTION 3: ANIMATED FEATURE CARDS
+   (adapted from Casey's Aura reference)
+   ============================================ */
+.feature-cards-section {
+  padding: 80px 24px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.fc-header {
+  margin-bottom: 48px;
+}
+
+.fc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Feature card base */
+.fc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: #0c0c0e;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  transition: border-color 0.5s;
+}
+
+.fc:hover { border-color: rgba(255,255,255,0.12); }
+
+.fc-top-shimmer {
+  position: absolute;
+  inset-x: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,126,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.fc:hover .fc-top-shimmer { opacity: 1; }
+
+.fc-dot-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.fc-body {
+  padding: 28px 28px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.fc-icon-ring {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(200,169,126,0.08);
+  border: 1px solid rgba(200,169,126,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 0 16px rgba(200,169,126,0.15);
+}
+.fc-icon-ring iconify-icon { color: var(--accent); font-size: 1.15rem; }
+
+.fc-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.fc-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.65;
+  max-width: 220px;
+}
+
+/* Visual preview area at bottom of each card */
+.fc-visual {
+  margin: 0 12px 12px;
+  height: 220px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, #11101e 0%, #08080c 100%);
+  border: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* FC1: Platform integrations - icons + SVG lines */
+.fc1-icons {
+  position: absolute;
+  top: 20px; left: 0; right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 12px;
+  z-index: 2;
+}
+
+.fc1-bubble {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  animation: floatBounce 3s ease-in-out infinite;
+}
+.fc1-bubble iconify-icon { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+.fc1-bubble:nth-child(2) { animation-delay: 0.3s; animation-duration: 3.2s; }
+.fc1-bubble:nth-child(3) { animation-delay: 0.6s; animation-duration: 2.8s; }
+.fc1-bubble:nth-child(4) { animation-delay: 0.2s; animation-duration: 3.5s; }
+.fc1-bubble:nth-child(5) { animation-delay: 0.5s; animation-duration: 2.9s; }
+.fc1-bubble:nth-child(6) { animation-delay: 0.4s; animation-duration: 3.1s; }
+
+.fc1-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.fc1-center {
+  position: absolute;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.fc1-center-glow {
+  position: absolute;
+  inset: -10px;
+  background: rgba(200,169,126,0.3);
+  border-radius: 50%;
+  filter: blur(14px);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.fc1-center-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #a88960);
+  border: 1px solid rgba(200,169,126,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 24px rgba(200,169,126,0.4);
+}
+.fc1-center-icon iconify-icon { color: #0a0a0a; font-size: 1.1rem; }
+
+/* FC2: Capability pills */
+.fc2-pill-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  opacity: 0.35;
+  justify-content: center;
+  transform: rotate(-2deg) scale(1.08);
+}
+
+.fc2-pill-row {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.fc2-pill {
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.4);
+  background: transparent;
+  transition: all 0.4s;
+  cursor: default;
+}
+.fc2-pill.lit {
+  opacity: 1 !important;
+  background: rgba(200,169,126,0.1);
+  border-color: rgba(200,169,126,0.3);
+  color: rgba(200,169,126,0.9);
+}
+
+.fc2-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.fc2-orb {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c8a97e, #7a6040);
+  border: 2px solid rgba(200,169,126,0.3);
+  box-shadow: 0 0 32px rgba(200,169,126,0.4), inset 0 0 16px rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.fc2-orb-glow {
+  position: absolute;
+  inset: -12px;
+  background: rgba(200,169,126,0.2);
+  border-radius: 50%;
+  filter: blur(16px);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.fc2-orb iconify-icon { color: #0a0a0a; font-size: 1.4rem; }
+
+/* FC3: Waveform */
+.fc3-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+}
+
+.fc3-tag {
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: var(--accent);
+  border: 1px solid rgba(200,169,126,0.4);
+  box-shadow: 0 4px 20px rgba(200,169,126,0.35);
+  position: relative;
+  animation: floatBounce 3s ease-in-out infinite;
+}
+
+.fc3-tag span {
+  color: #0a0a0a;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fc3-tag::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; left: 50%;
+  transform: translateX(-50%);
+  width: 8px; height: 8px;
+  background: var(--accent);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.fc3-wave-row {
+  width: 100%;
+  max-width: 200px;
+  height: 52px;
+  background: rgba(20,20,28,0.8);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.fc3-mic {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(200,169,126,0.3);
+}
+.fc3-mic iconify-icon { color: #0a0a0a; font-size: 1rem; }
+
+.fc3-bars {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+  padding: 10px 4px;
+}
+
+.wave-bar, .wave-bar-dim {
+  flex: 1;
+  border-radius: 2px;
+  transition: height 0.12s ease;
+  min-height: 4px;
+}
+
+.wave-bar { background: rgba(200,169,126,0.8); }
+.wave-bar-dim { background: rgba(255,255,255,0.15); }
+
+/* ============================================
+   TERMINAL CTA
+   ============================================ */
+.cta-section {
+  padding: 80px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.terminal {
+  background: #0d0d0d;
+  border: 1px solid rgba(200,169,126,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+}
+
+.terminal-bar {
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(200,169,126,0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green { background: #28c840; }
+
+.terminal-title {
+  font-size: 0.75rem;
+  color: rgba(245,240,234,0.3);
+  letter-spacing: 0.05em;
+  margin-left: 8px;
+}
+
+.terminal-body { padding: 32px 36px 40px; }
+
+.terminal-line {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: terminalFade 0.4s ease forwards;
+}
+
+.terminal-line.prompt { color: var(--accent); }
+.terminal-line.output { color: rgba(245,240,234,0.6); padding-left: 20px; }
+.terminal-line.success { color: #28c840; }
+
+.terminal-line:nth-child(1) { animation-delay: 0.3s; }
+.terminal-line:nth-child(2) { animation-delay: 0.7s; }
+.terminal-line:nth-child(3) { animation-delay: 1.1s; }
+.terminal-line:nth-child(4) { animation-delay: 1.5s; }
+.terminal-line:nth-child(5) { animation-delay: 1.9s; }
+.terminal-line:nth-child(6) { animation-delay: 2.3s; }
+
+@keyframes terminalFade {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.terminal-cta {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--accent), #a88960);
+  border: none;
+  border-radius: 10px;
+  color: #0a0a0a;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.3s;
+  display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+.btn-ghost {
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(200,169,126,0.3);
+  border-radius: 10px;
+  color: var(--accent);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.3s, background 0.3s;
+}
+.btn-ghost:hover { border-color: var(--accent); background: rgba(200,169,126,0.05); }
+
+/* === FOOTER === */
+.footer {
+  padding: 48px 24px;
+  border-top: 1px solid rgba(200,169,126,0.08);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--accent); }
+
+.footer-links { display: flex; gap: 24px; }
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: rgba(245,240,234,0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(245,240,234,0.2);
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .bento-grid-v2 { grid-template-columns: 1fr 1fr; }
+  .bc-featured { grid-column: span 2; }
+  .fc-grid { grid-template-columns: 1fr; }
+  .how-cols { grid-template-columns: 1fr; gap: 40px; }
+  .how-cols::before { display: none; }
+}
+
+@media (max-width: 600px) {
+  .bento-grid-v2 { grid-template-columns: 1fr; }
+  .bc-featured { grid-column: span 1; }
+  .orbital-scene { width: 260px; height: 260px; }
+  .orbit-ring-3 { width: 240px; height: 240px; margin-left: -120px; margin-top: -120px; }
+  .terminal-body { padding: 24px 20px 28px; }
+  .footer-inner { justify-content: center; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+
+.form-success { text-align: center; padding: 40px 20px; }
+.form-success h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; margin-bottom: 12px; }
+.form-success p { color: rgba(245,240,234,0.6); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+
+<!-- === HERO === -->
+<section class="hero">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="none">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="particles" id="particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">AI-Powered Automation</div>
+    <h1 class="hero-title">We Build Agents That <em>Run</em> Your Business</h1>
+    <p class="hero-subtitle">Autonomous AI systems that handle your social media, e-commerce, content, and customer outreach — 24/7, while you focus on what matters.</p>
+
+    <div class="form-card" id="formCard">
+      <h2>Get Your Agent</h2>
+      <p>Tell us what you need automated. We'll build it.</p>
+      <form id="inquiryForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email address" required>
+        </div>
+        <div class="form-group">
+          <select name="service" required>
+            <option value="" disabled selected>What do you need?</option>
+            <option value="social-media">Social Media Automation</option>
+            <option value="ecommerce">E-Commerce Management</option>
+            <option value="content">Content Creation</option>
+            <option value="website">Website + Deployment</option>
+            <option value="full-agent">Full Autonomous Agent</option>
+            <option value="custom">Something Custom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea name="details" placeholder="Tell us more about your business and what you want automated..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- === MARQUEE === -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Instagram</span>
+    <span class="marquee-item">Twitter / X</span>
+    <span class="marquee-item">TikTok</span>
+    <span class="marquee-item">YouTube</span>
+    <span class="marquee-item">Gumroad</span>
+    <span class="marquee-item">Etsy</span>
+    <span class="marquee-item">Pinterest</span>
+    <span class="marquee-item">Shopify</span>
+    <span class="marquee-item">n8n</span>
+    <span class="marquee-item">Telegram</span>
+    <span class="marquee-item">LinkedIn</span>
+    <span class="marquee-item">Notion</span>
+    <span class="marquee-item">Instagram</span>
+    <span class="marquee-item">Twitter / X</span>
+    <span class="marquee-item">TikTok</span>
+    <span class="marquee-item">YouTube</span>
+    <span class="marquee-item">Gumroad</span>
+    <span class="marquee-item">Etsy</span>
+    <span class="marquee-item">Pinterest</span>
+    <span class="marquee-item">Shopify</span>
+    <span class="marquee-item">n8n</span>
+    <span class="marquee-item">Telegram</span>
+    <span class="marquee-item">LinkedIn</span>
+    <span class="marquee-item">Notion</span>
+  </div>
+</div>
+
+<!-- ================================================
+     SECTION 1: ANIMATED BENTO GRID
+     ================================================ -->
+<section class="bento-section reveal">
+  <div class="bento-header">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">An agent for every part of your business</h2>
+    <p class="section-sub" style="margin-top:8px;">Custom-built for your stack. Plug it in and let it run.</p>
+  </div>
+
+  <div class="bento-grid-v2">
+
+    <!-- CARD A: Featured — Live Agent Dashboard (2 cols) -->
+    <div class="bc bc-featured">
+      <div class="bc-text">
+        <div class="bc-icon-wrap">
+          <iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon>
+        </div>
+        <div class="bc-title">Full Autonomous Agent</div>
+        <div class="bc-desc">Every automation running in one system. Controlled from your phone via Telegram. You wake up to work already done.</div>
+      </div>
+      <div class="bc-preview">
+        <div class="mini-dash">
+          <div class="mini-dash-row">
+            <div class="mdr-left">
+              <span class="mdr-pulse"></span>
+              <span class="mdr-name">Social Media Agent</span>
+            </div>
+            <span class="mdr-status" id="bd-s1">posted 3x today</span>
+          </div>
+          <div class="mini-dash-row">
+            <div class="mdr-left">
+              <span class="mdr-pulse"></span>
+              <span class="mdr-name">E-Commerce Agent</span>
+            </div>
+            <span class="mdr-status" id="bd-s2">2 orders processed</span>
+          </div>
+          <div class="mini-dash-row">
+            <div class="mdr-left">
+              <span class="mdr-pulse"></span>
+              <span class="mdr-name">Content Agent</span>
+            </div>
+            <span class="mdr-status" id="bd-s3">script drafted</span>
+          </div>
+          <div class="mini-dash-row">
+            <div class="mdr-left">
+              <span class="mdr-pulse amber"></span>
+              <span class="mdr-name">Outreach Agent</span>
+            </div>
+            <span class="mdr-status" id="bd-s4">12 leads engaged</span>
+          </div>
+          <div class="mini-dash-footer">
+            <span class="mdf-label">Revenue today</span>
+            <span class="mdf-value" id="bd-rev">$1,284</span>
+            <span class="mdf-ping">&#9679; LIVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD B: 24/7 Operation -->
+    <div class="bc">
+      <div class="bc-text">
+        <div class="bc-icon-wrap">
+          <iconify-icon icon="solar:clock-circle-linear"></iconify-icon>
+        </div>
+        <div class="bc-title">Always On</div>
+        <div class="bc-desc">No downtime. No days off. Your agent works while you sleep.</div>
+      </div>
+      <div class="bc-preview">
+        <div class="always-on-visual">
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span class="ao-number">24</span>
+            <span class="ao-slash">/7</span>
+          </div>
+          <span class="ao-label">Operational</span>
+          <div class="ao-rings">
+            <div class="ao-ring"></div>
+            <div class="ao-ring"></div>
+            <div class="ao-ring"></div>
+            <div class="ao-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD C: Platform Connections -->
+    <div class="bc">
+      <div class="bc-text">
+        <div class="bc-icon-wrap">
+          <iconify-icon icon="solar:share-linear"></iconify-icon>
+        </div>
+        <div class="bc-title">Social Media Agent</div>
+        <div class="bc-desc">Posts, engages, and grows every platform simultaneously.</div>
+      </div>
+      <div class="bc-preview">
+        <div class="platform-visual">
+          <div class="platform-icons-row" style="position:relative;">
+            <div class="platform-bubble"><iconify-icon icon="mdi:instagram"></iconify-icon></div>
+            <div class="platform-bubble"><iconify-icon icon="ic:baseline-tiktok"></iconify-icon></div>
+            <div class="platform-bubble"><iconify-icon icon="mdi:youtube"></iconify-icon></div>
+            <div class="platform-bubble"><iconify-icon icon="mdi:twitter"></iconify-icon></div>
+            <div class="platform-bubble"><iconify-icon icon="mdi:linkedin"></iconify-icon></div>
+            <svg class="platform-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 10 25 C 10 60, 50 65, 50 90" stroke="#c8a97e" stroke-opacity="0.25" stroke-width="0.6" fill="none" class="anim-path"></path>
+              <path d="M 28 25 C 28 60, 50 65, 50 90" stroke="#c8a97e" stroke-opacity="0.35" stroke-width="0.6" fill="none" class="anim-path"></path>
+              <path d="M 50 25 C 50 60, 50 65, 50 90" stroke="#c8a97e" stroke-opacity="0.45" stroke-width="0.6" fill="none" class="anim-path"></path>
+              <path d="M 72 25 C 72 60, 50 65, 50 90" stroke="#c8a97e" stroke-opacity="0.35" stroke-width="0.6" fill="none" class="anim-path"></path>
+              <path d="M 90 25 C 90 60, 50 65, 50 90" stroke="#c8a97e" stroke-opacity="0.25" stroke-width="0.6" fill="none" class="anim-path"></path>
+            </svg>
+          </div>
+          <div class="platform-center">
+            <div class="platform-center-glow"></div>
+            <div class="platform-center-icon">
+              <iconify-icon icon="solar:layers-minimalistic-linear"></iconify-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD D: Revenue Tracking -->
+    <div class="bc">
+      <div class="bc-text">
+        <div class="bc-icon-wrap">
+          <iconify-icon icon="solar:cart-linear"></iconify-icon>
+        </div>
+        <div class="bc-title">E-Commerce Agent</div>
+        <div class="bc-desc">Orders, listings, and sales tracked across every platform.</div>
+      </div>
+      <div class="bc-preview">
+        <div class="always-on-visual">
+          <div style="text-align:center;">
+            <div style="font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:8px;">Monthly Revenue</div>
+            <div style="font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--accent);text-shadow:0 0 30px rgba(200,169,126,0.3);" id="rev-counter">$4,820</div>
+          </div>
+          <div style="display:flex;gap:3px;align-items:flex-end;height:40px;margin-top:16px;">
+            <div style="flex:1;background:rgba(200,169,126,0.15);border-radius:3px 3px 0 0;height:40%;animation:barGrow 3s ease-in-out infinite;"></div>
+            <div style="flex:1;background:rgba(200,169,126,0.2);border-radius:3px 3px 0 0;height:60%;animation:barGrow 3s ease-in-out 0.2s infinite;"></div>
+            <div style="flex:1;background:rgba(200,169,126,0.25);border-radius:3px 3px 0 0;height:45%;animation:barGrow 3s ease-in-out 0.4s infinite;"></div>
+            <div style="flex:1;background:rgba(200,169,126,0.35);border-radius:3px 3px 0 0;height:80%;animation:barGrow 3s ease-in-out 0.6s infinite;"></div>
+            <div style="flex:1;background:rgba(200,169,126,0.4);border-radius:3px 3px 0 0;height:65%;animation:barGrow 3s ease-in-out 0.8s infinite;"></div>
+            <div style="flex:1;background:var(--accent);border-radius:3px 3px 0 0;height:100%;animation:barGrow 3s ease-in-out 1s infinite;box-shadow:0 0 8px rgba(200,169,126,0.4);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD E: Setup Time -->
+    <div class="bc">
+      <div class="bc-text">
+        <div class="bc-icon-wrap">
+          <iconify-icon icon="solar:rocket-linear"></iconify-icon>
+        </div>
+        <div class="bc-title">Live in 72 Hours</div>
+        <div class="bc-desc">From one conversation to a fully running agent. Fast.</div>
+      </div>
+      <div class="bc-preview">
+        <div class="always-on-visual" style="gap:8px;">
+          <div style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--accent);line-height:1;">72</div>
+          <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Hours to Live</div>
+          <div style="width:80%;max-width:120px;margin-top:12px;">
+            <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;">
+              <div style="height:100%;width:0;background:linear-gradient(90deg,rgba(200,169,126,0.4),var(--accent));border-radius:2px;animation:progressFill 3s ease-in-out infinite;"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:6px;">
+              <span style="font-size:0.6rem;color:rgba(255,255,255,0.2);">Consult</span>
+              <span style="font-size:0.6rem;color:rgba(255,255,255,0.2);">Build</span>
+              <span style="font-size:0.6rem;color:var(--accent);opacity:0.7;">Launch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================
+     SECTION 2: ORBITAL / HOW IT WORKS
+     ================================================ -->
+<section class="orbital-section reveal">
+  <!-- Spline background -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;">
+    <iframe src="https://my.spline.design/waveform-gm8Mc7BoEALZZ8ggTHi5kSGc" frameborder="0" width="100%" height="100%" loading="lazy" style="opacity:0.45;"></iframe>
+  </div>
+  <div class="orbital-header">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title" style="text-align:center;max-width:100%;">From conversation to running agent</h2>
+  </div>
+
+  <div class="orbital-scene">
+    <!-- Center -->
+    <div class="orbit-center">
+      <span class="orbit-center-text">BL</span>
+    </div>
+
+    <!-- Ring 1 -->
+    <div class="orbit-ring orbit-ring-1">
+      <div class="orbit-node">
+        <iconify-icon icon="solar:chat-round-linear"></iconify-icon>
+      </div>
+      <div class="orbit-node orbit-node-2">
+        <iconify-icon icon="solar:settings-linear"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Ring 2 -->
+    <div class="orbit-ring orbit-ring-2">
+      <div class="orbit-node orbit-node-r2">
+        <iconify-icon icon="solar:cpu-linear"></iconify-icon>
+      </div>
+      <div class="orbit-node orbit-node-r2b">
+        <iconify-icon icon="solar:graph-up-linear"></iconify-icon>
+      </div>
+    </div>
+
+    <!-- Ring 3 (dashed, decorative) -->
+    <div class="orbit-ring orbit-ring-3"></div>
+  </div>
+
+  <div class="how-cols">
+    <div class="how-col">
+      <div class="how-step-num">1</div>
+      <h3>Tell Us What You Need</h3>
+      <p>Fill out the form or send a message. One conversation scopes your entire agent stack.</p>
+    </div>
+    <div class="how-col">
+      <div class="how-step-num">2</div>
+      <h3>We Build Your Agent</h3>
+      <p>We connect your accounts, configure automations, and test everything end-to-end before launch.</p>
+    </div>
+    <div class="how-col">
+      <div class="how-step-num">3</div>
+      <h3>It Runs. You Watch.</h3>
+      <p>Your agent goes live. Daily Telegram reports. Adjust anything with a single text message.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Unicorn Studio full-bleed wrapper: covers Feature Cards + Terminal CTA -->
+<div style="position:relative;overflow:hidden;isolation:isolate;">
+  <!-- Unicorn Studio background -->
+  <div data-us-project="GE8mpmmCRgK6XBF57jgF" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></div>
+  <script type="text/javascript">
+    !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.33/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+  </script>
+
+<!-- ================================================
+     SECTION 3: ANIMATED FEATURE CARDS
+     (adapted from Aura component reference)
+     ================================================ -->
+<section class="feature-cards-section reveal" style="position:relative;z-index:2;padding-top:120px;">
+  <div class="fc-header">
+    <div class="section-label">Built For You</div>
+    <h2 class="section-title">Every agent is a system,<br>not a tool</h2>
+  </div>
+
+  <div class="fc-grid">
+
+    <!-- FC1: Platform Integrations -->
+    <div class="fc">
+      <div class="fc-top-shimmer"></div>
+      <div class="fc-dot-bg"></div>
+      <div class="fc-body">
+        <div class="fc-icon-ring">
+          <iconify-icon icon="solar:link-circle-linear"></iconify-icon>
+        </div>
+        <div class="fc-title">Platform Integrations</div>
+        <div class="fc-desc">Your agent connects to every platform you use and manages them all from one place.</div>
+      </div>
+      <div class="fc-visual">
+        <div class="fc1-icons">
+          <div class="fc1-bubble"><iconify-icon icon="mdi:instagram"></iconify-icon></div>
+          <div class="fc1-bubble"><iconify-icon icon="ic:baseline-tiktok"></iconify-icon></div>
+          <div class="fc1-bubble"><iconify-icon icon="mdi:youtube"></iconify-icon></div>
+          <div class="fc1-bubble"><iconify-icon icon="solar:shop-linear"></iconify-icon></div>
+          <div class="fc1-bubble"><iconify-icon icon="solar:mail-linear"></iconify-icon></div>
+          <div class="fc1-bubble"><iconify-icon icon="mdi:notion"></iconify-icon></div>
+        </div>
+        <svg class="fc1-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M 8 20 C 8 60, 50 62, 50 88" stroke="#c8a97e" stroke-opacity="0.2" stroke-width="0.5" fill="none">
+            <animate attributeName="stroke-opacity" values="0.2;0.45;0.2" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M 24 20 C 24 60, 50 62, 50 88" stroke="#c8a97e" stroke-opacity="0.3" stroke-width="0.5" fill="none">
+            <animate attributeName="stroke-opacity" values="0.3;0.55;0.3" dur="2.8s" repeatCount="indefinite"/>
+          </path>
+          <path d="M 50 20 C 50 60, 50 62, 50 88" stroke="#c8a97e" stroke-opacity="0.4" stroke-width="0.5" fill="none">
+            <animate attributeName="stroke-opacity" values="0.4;0.65;0.4" dur="2.2s" repeatCount="indefinite"/>
+          </path>
+          <path d="M 68 20 C 68 60, 50 62, 50 88" stroke="#c8a97e" stroke-opacity="0.3" stroke-width="0.5" fill="none">
+            <animate attributeName="stroke-opacity" values="0.3;0.55;0.3" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M 84 20 C 84 60, 50 62, 50 88" stroke="#c8a97e" stroke-opacity="0.2" stroke-width="0.5" fill="none">
+            <animate attributeName="stroke-opacity" values="0.2;0.4;0.2" dur="2.6s" repeatCount="indefinite"/>
+          </path>
+        </svg>
+        <div class="fc1-center">
+          <div class="fc1-center-glow"></div>
+          <div class="fc1-center-icon">
+            <iconify-icon icon="solar:layers-minimalistic-linear"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FC2: AI Capabilities (animated pills) -->
+    <div class="fc">
+      <div class="fc-top-shimmer"></div>
+      <div class="fc-dot-bg"></div>
+      <div class="fc-body">
+        <div class="fc-icon-ring">
+          <iconify-icon icon="solar:cpu-bolt-linear"></iconify-icon>
+        </div>
+        <div class="fc-title">AI Capabilities</div>
+        <div class="fc-desc">Writing, posting, selling, replying, researching — your agent handles the whole stack.</div>
+      </div>
+      <div class="fc-visual">
+        <div class="fc2-pill-bg">
+          <div class="fc2-pill-row" style="transform:translateX(-8%);">
+            <span class="fc2-pill">Social Posting</span>
+            <span class="fc2-pill">Order Tracking</span>
+            <span class="fc2-pill">Copywriting</span>
+            <span class="fc2-pill">Analytics</span>
+          </div>
+          <div class="fc2-pill-row" style="transform:translateX(-3%);">
+            <span class="fc2-pill">Lead Capture</span>
+            <span class="fc2-pill">DM Replies</span>
+            <span class="fc2-pill">SEO Research</span>
+            <span class="fc2-pill">Scheduling</span>
+          </div>
+          <div class="fc2-pill-row" style="transform:translateX(-12%);">
+            <span class="fc2-pill">Invoicing</span>
+            <span class="fc2-pill">Video Scripts</span>
+            <span class="fc2-pill">Email Drafts</span>
+            <span class="fc2-pill">Reporting</span>
+          </div>
+        </div>
+        <div class="fc2-center">
+          <div class="fc2-orb-glow"></div>
+          <div class="fc2-orb">
+            <iconify-icon icon="solar:star-linear"></iconify-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FC3: Telegram Control (waveform) -->
+    <div class="fc">
+      <div class="fc-top-shimmer"></div>
+      <div class="fc-dot-bg"></div>
+      <div class="fc-body">
+        <div class="fc-icon-ring">
+          <iconify-icon icon="solar:smartphone-vibration-linear"></iconify-icon>
+        </div>
+        <div class="fc-title">Telegram Control</div>
+        <div class="fc-desc">Text your agent a command from anywhere. It executes immediately, no app required.</div>
+      </div>
+      <div class="fc-visual">
+        <div class="fc3-content">
+          <div class="fc3-tag">
+            <span>Agent — ready for command</span>
+          </div>
+          <div class="fc3-wave-row">
+            <div class="fc3-mic">
+              <iconify-icon icon="solar:microphone-3-linear"></iconify-icon>
+            </div>
+            <div class="fc3-bars" id="waveformBars">
+              <div class="wave-bar" style="height:10px;"></div>
+              <div class="wave-bar" style="height:18px;"></div>
+              <div class="wave-bar" style="height:26px;"></div>
+              <div class="wave-bar" style="height:14px;"></div>
+              <div class="wave-bar" style="height:22px;"></div>
+              <div class="wave-bar-dim" style="height:8px;"></div>
+              <div class="wave-bar-dim" style="height:14px;"></div>
+              <div class="wave-bar-dim" style="height:10px;"></div>
+              <div class="wave-bar-dim" style="height:18px;"></div>
+              <div class="wave-bar-dim" style="height:6px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- === TERMINAL CTA === -->
+<section class="cta-section reveal" style="position:relative;z-index:2;">
+  <div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <span class="terminal-title">battle-labs-agent — running</span>
+    </div>
+    <div class="terminal-body">
+      <div class="terminal-line prompt">$ agent --status --all</div>
+      <div class="terminal-line output">&#9679; social_media_agent &nbsp;&nbsp; RUNNING &nbsp; posted 3 times today</div>
+      <div class="terminal-line output">&#9679; ecommerce_agent &nbsp;&nbsp;&nbsp;&nbsp; RUNNING &nbsp; 2 new orders processed</div>
+      <div class="terminal-line output">&#9679; content_agent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RUNNING &nbsp; script drafted, graphics queued</div>
+      <div class="terminal-line output">&#9679; outreach_agent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RUNNING &nbsp; 12 leads responded to</div>
+      <div class="terminal-line success">&#10003; All systems operational. Revenue events logged: 4 today.</div>
+
+      <div class="terminal-cta">
+        <a href="#formCard" class="btn-primary">Build My Agent</a>
+        <a href="mailto:casbattle19@gmail.com" class="btn-ghost">Talk to Casey</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+</div><!-- /unicorn studio wrapper -->
+
+<!-- === FOOTER === -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Battle Labs</div>
+    <div class="footer-links">
+      <a href="#">Services</a>
+      <a href="#">How It Works</a>
+      <a href="mailto:casbattle19@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Battle Labs. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* === PARTICLES === */
+(function() {
+  var c = document.getElementById('particles');
+  for (var i = 0; i < 30; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 8 + 's';
+    p.style.animationDuration = (6 + Math.random() * 6) + 's';
+    p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
+    c.appendChild(p);
+  }
+})();
+
+/* === SCROLL REVEAL === */
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+})();
+
+/* === BENTO DASHBOARD LIVE UPDATES (pauses off-screen) === */
+(function() {
+  var posts = ['posted 3x today','posted 5x today','posted 2x today','4 posts scheduled'];
+  var orders = ['2 orders processed','3 orders processed','Etsy sale confirmed','Gumroad order #112'];
+  var content = ['script drafted','video queued','3 captions ready','blog post done'];
+  var leads = ['12 leads engaged','8 DMs sent','15 leads replied','follow-up queued'];
+  var revs = ['$1,284','$1,392','$847','$1,640','$2,108'];
+
+  var bentoActive = false;
+  var bentoEl = document.querySelector('.bento-grid-v2');
+  var bentoObs = new IntersectionObserver(function(e) { bentoActive = e[0].isIntersecting; }, { threshold: 0.1 });
+  if (bentoEl) bentoObs.observe(bentoEl);
+
+  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function upd(id, arr) { var el = document.getElementById(id); if (el && bentoActive) el.textContent = rand(arr); }
+
+  setInterval(function() { upd('bd-s1', posts); }, 4000);
+  setInterval(function() { upd('bd-s2', orders); }, 5500);
+  setInterval(function() { upd('bd-s3', content); }, 7000);
+  setInterval(function() { upd('bd-s4', leads); }, 6200);
+  setInterval(function() { upd('bd-rev', revs); }, 3500);
+})();
+
+/* === FEATURE CARD 2: PILL ANIMATION (pauses off-screen) === */
+(function() {
+  var pillActive = false;
+  var pillSection = document.querySelector('.fc-grid');
+  var pillObs = new IntersectionObserver(function(e) { pillActive = e[0].isIntersecting; }, { threshold: 0.1 });
+  if (pillSection) pillObs.observe(pillSection);
+
+  setInterval(function() {
+    if (!pillActive) return;
+    var pills = document.querySelectorAll('.fc2-pill');
+    pills.forEach(function(p) { p.classList.remove('lit'); });
+    var count = Math.floor(Math.random() * 3) + 2;
+    var indices = [];
+    while (indices.length < count) {
+      var i = Math.floor(Math.random() * pills.length);
+      if (!indices.includes(i)) indices.push(i);
+    }
+    indices.forEach(function(i) { if (pills[i]) pills[i].classList.add('lit'); });
+  }, 900);
+})();
+
+/* === FEATURE CARD 3: WAVEFORM (rAF-based, pauses off-screen) === */
+(function() {
+  var lastWave = 0;
+  var waveActive = false;
+  var waveEl = document.querySelector('.fc-visual');
+
+  var waveObs = new IntersectionObserver(function(entries) {
+    waveActive = entries[0].isIntersecting;
+  }, { threshold: 0.1 });
+  if (waveEl) waveObs.observe(waveEl);
+
+  function animateWave(ts) {
+    if (waveActive && ts - lastWave > 140) {
+      lastWave = ts;
+      document.querySelectorAll('.wave-bar').forEach(function(b) {
+        b.style.height = (Math.floor(Math.random() * 22) + 6) + 'px';
+      });
+      document.querySelectorAll('.wave-bar-dim').forEach(function(b) {
+        b.style.height = (Math.floor(Math.random() * 10) + 4) + 'px';
+      });
+    }
+    requestAnimationFrame(animateWave);
+  }
+  requestAnimationFrame(animateWave);
+})();
+
+/* === CSS KEYFRAME ADDITIONS VIA JS === */
+(function() {
+  var s = document.createElement('style');
+  s.textContent = '@keyframes barGrow { 0%,100%{opacity:0.7;} 50%{opacity:1;} } @keyframes progressFill { 0%{width:0;} 70%{width:100%;} 100%{width:100%;opacity:0;} }';
+  document.head.appendChild(s);
+})();
+
+/* === FORM === */
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var card = document.getElementById('formCard');
+  var data = {
+    name: form.name.value,
+    email: form.email.value,
+    service: form.service.value,
+    details: form.details.value
+  };
+  card.innerHTML = '<div class="form-success"><h2>We Got You</h2><p>Thanks, ' + data.name + '. We\'ll reach out within 24 hours to discuss your ' + data.service.replace(/-/g, ' ') + ' project.</p></div>';
+  fetch('http://95.111.243.97:5678/webhook/4sAG5F1uJ8P2DssC/webhook/battle-labs-lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(function() {});
+}
+</script>
+
+</body>
+</html>
+
