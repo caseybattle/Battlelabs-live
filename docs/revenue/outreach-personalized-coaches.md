@@ -11,7 +11,7 @@ For speaker coaching and consulting offers like yours, that usually means some w
 
 I build solo-led lead capture and follow-up systems for businesses that need a cleaner front-end flow without adding a bloated setup.
 
-If useful, I can send a short async teardown with the one change I would make first.
+If useful, I can send a short async teardown with the one change I would make first, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -26,7 +26,7 @@ That usually creates friction for people who are interested but not ready to boo
 
 I help tighten lead capture, form routing, and follow-up so warm leads do not stall before the sale.
 
-If useful, I can send a short async breakdown of what I would change first.
+If useful, I can send a short async breakdown of what I would change first, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -41,7 +41,7 @@ There is likely room to tighten the qualification flow so founders, engineers, a
 
 I build websites and simple automation systems for businesses that need cleaner inquiry handling and less manual follow-up.
 
-If you want, I can send a short async teardown with the one fix I would start with.
+If you want, I can send a short async teardown with the one fix I would start with, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -56,7 +56,7 @@ That can work for strong intent traffic, but it also tends to lose warm leads wh
 
 I help tighten the front end with better inquiry flow, routing, and follow-up systems.
 
-If useful, I can send a short async teardown of what I would adjust first.
+If useful, I can send a short async teardown of what I would adjust first, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -71,7 +71,7 @@ That usually creates a drop-off point for interested people who are not ready to
 
 I build lead capture and follow-up systems that make that front-end path cleaner without adding complexity.
 
-If useful, I can send a short async teardown with the first improvement I would make.
+If useful, I can send a short async teardown with the first improvement I would make, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -86,7 +86,7 @@ That is usually where a simple async entry point and follow-up flow can recover 
 
 I build solo-led lead capture and follow-up systems for service businesses and experts who want cleaner inquiry flow.
 
-If useful, I can send a short async teardown with the first change I would test.
+If useful, I can send a short async teardown with the first change I would test, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -101,7 +101,7 @@ That usually creates friction, especially for warmer leads who want a simpler fi
 
 I help businesses tighten inquiry routing and follow-up so more interest turns into qualified conversations.
 
-If useful, I can send a short async breakdown of what I would change first.
+If useful, I can send a short async breakdown of what I would change first, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
@@ -116,7 +116,7 @@ That usually makes qualification harder than it needs to be and can slow down fo
 
 I build simple lead capture and routing systems for businesses that need a cleaner front-end flow without adding heavy tech.
 
-If useful, I can send a short async teardown with the first fix I would make.
+If useful, I can send a short async teardown with the first fix I would make, or you can request it here: `battlelabs.live/async-teardown`.
 
 Casey
 
