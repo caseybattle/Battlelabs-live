@@ -2184,6 +2184,7 @@ function handleSubmit(e) {
     name: form.name.value,
     email: form.email.value,
     service: form.service.value,
+    pageType: 'homepage-form',
     details: form.details.value
   };
   card.innerHTML = '<div class="form-success"><h2>Got it</h2><p>Thanks, ' + data.name + '. I\'ll review this and reach out with next steps about your ' + data.service.replace(/-/g, ' ') + ' request.</p></div>';

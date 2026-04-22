@@ -17,14 +17,19 @@ export async function POST(request: Request) {
 
   const projectType = PROJECT_TYPE_MAP[payload.service] ?? "Other (Please specify below)";
   const details = typeof payload.details === "string" ? payload.details.trim() : "";
+  const pageType =
+    typeof payload.pageType === "string" && payload.pageType.trim()
+      ? payload.pageType.trim()
+      : "unknown-entry";
+  const detailBody = [`Entry: ${pageType}`, details].filter(Boolean).join(" | ");
 
   const formData = new URLSearchParams({
     "entry.1043560953": SITE_SOURCE,
     "entry.611908730": payload.name ?? "",
     "entry.1847535132": payload.email ?? "",
     "entry.259762019": projectType,
-    "entry.1993641716": details,
-    "entry.2071675749": projectType === "Other (Please specify below)" ? details : "",
+    "entry.1993641716": detailBody,
+    "entry.2071675749": projectType === "Other (Please specify below)" ? detailBody : "",
   });
 
   const upstreamResponse = await fetch(GOOGLE_FORM_ACTION_URL, {

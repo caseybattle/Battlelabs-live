@@ -30,6 +30,7 @@ export default function PilotBuildPage() {
           name,
           email,
           service: "business-automation",
+          pageType: "pilot-build",
           details: [
             "Pilot build request",
             website ? `Website: ${website}` : "",

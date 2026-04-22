@@ -30,6 +30,7 @@ export default function AsyncTeardownPage() {
           name,
           email,
           service: "lead-capture",
+          pageType: "async-teardown",
           details: [
             "Async teardown request",
             website ? `Website: ${website}` : "",

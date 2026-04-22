@@ -14,6 +14,7 @@ describe("POST /api/inquiry", () => {
         name: "Casey",
         email: "casey@example.com",
         service: "website-chat",
+        pageType: "homepage-form",
         details: "Need a new website and AI chat.",
       }),
     });
@@ -31,7 +32,9 @@ describe("POST /api/inquiry", () => {
     expect(payload.get("entry.611908730")).toBe("Casey");
     expect(payload.get("entry.1847535132")).toBe("casey@example.com");
     expect(payload.get("entry.259762019")).toBe("Website Design & Development");
-    expect(payload.get("entry.1993641716")).toBe("Need a new website and AI chat.");
+    expect(payload.get("entry.1993641716")).toBe(
+      "Entry: homepage-form | Need a new website and AI chat.",
+    );
   });
 
   it("returns a 502 when the Google Form submission fails", async () => {
@@ -49,6 +52,7 @@ describe("POST /api/inquiry", () => {
         name: "Casey",
         email: "casey@example.com",
         service: "custom",
+        pageType: "reply-deck",
         details: "Custom workflow",
       }),
     });

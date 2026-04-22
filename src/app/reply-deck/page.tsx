@@ -29,6 +29,7 @@ export default function ReplyDeckPage() {
           name,
           email,
           service: "custom",
+          pageType: "reply-deck",
           details: [
             "Reply Deck waitlist",
             business ? `Business: ${business}` : "",
