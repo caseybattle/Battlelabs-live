@@ -19,6 +19,10 @@ These teardown briefs are pre-built for the highest-priority Battle Labs prospec
 - Creator Engines
 - Full Time Creator
 - Your Course Creation Lab
+- Lillian So
+- Speak as a Leader
+- Lindsay Maloney
+- Shay Johnson
 
 ## Reusable close
 Use this sentence at the end:

@@ -21,3 +21,7 @@ Reduce the time from:
 - Creator Engines
 - Full Time Creator
 - Your Course Creation Lab
+- Lillian So
+- Speak as a Leader
+- Lindsay Maloney
+- Shay Johnson
