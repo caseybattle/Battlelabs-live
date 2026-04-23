@@ -148,6 +148,39 @@ export default function PilotBuildPage() {
           {state === "error" ? <p style={errorStyle}>{errorMessage}</p> : null}
         </section>
       </div>
+
+      <section style={{ ...panelStyle, maxWidth: 1120, margin: "28px auto 0" }}>
+        <div style={eyebrowStyle}>Pilot Build FAQ</div>
+        <div style={faqGridStyle}>
+          {[
+            {
+              question: "How much does a pilot cost?",
+              answer:
+                "Most first-fit pilot builds start in the $250-$500 range depending on how much of the front-end flow needs to be tightened.",
+            },
+            {
+              question: "How long does it take?",
+              answer:
+                "Typical turnaround is 72 hours to 5 days once the scope is narrow and the required assets or access are ready.",
+            },
+            {
+              question: "Do we need a call?",
+              answer:
+                "No. Battle Labs is designed to run async through forms, email, Loom, scoped proposals, and payment links.",
+            },
+            {
+              question: "What is not included?",
+              answer:
+                "A pilot is not a full rebuild, rebrand, or custom app project. It is one focused fix first.",
+            },
+          ].map((item) => (
+            <article key={item.question} style={faqCardStyle}>
+              <h3 style={faqQuestionStyle}>{item.question}</h3>
+              <p style={faqAnswerStyle}>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
@@ -291,4 +324,29 @@ const errorStyle: CSSProperties = {
   marginTop: 16,
   color: "#f3b0a1",
   lineHeight: 1.7,
+};
+
+const faqGridStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+  gap: 16,
+  marginTop: 18,
+};
+
+const faqCardStyle: CSSProperties = {
+  padding: "18px 18px",
+  borderRadius: 18,
+  border: "1px solid rgba(200,169,126,0.1)",
+  background: "rgba(255,255,255,0.03)",
+};
+
+const faqQuestionStyle: CSSProperties = {
+  fontSize: 18,
+  marginBottom: 10,
+};
+
+const faqAnswerStyle: CSSProperties = {
+  color: "rgba(245,240,234,0.7)",
+  lineHeight: 1.7,
+  fontSize: 14,
 };
