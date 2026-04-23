@@ -18,3 +18,6 @@ Reduce the time from:
 - Sarah Raanan
 - Jonathan Dunnett
 - Mr. CTO
+- Creator Engines
+- Full Time Creator
+- Your Course Creation Lab

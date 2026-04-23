@@ -16,6 +16,9 @@ These teardown briefs are pre-built for the highest-priority Battle Labs prospec
 - Sarah Raanan
 - Jonathan Dunnett
 - Mr. CTO
+- Creator Engines
+- Full Time Creator
+- Your Course Creation Lab
 
 ## Reusable close
 Use this sentence at the end:
