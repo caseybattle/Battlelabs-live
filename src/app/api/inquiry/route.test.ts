@@ -66,4 +66,37 @@ describe("POST /api/inquiry", () => {
       error: "Google Form submission failed.",
     });
   });
+
+  it("preserves paid kickoff attribution in the Google Form detail body", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const request = new Request("http://localhost/api/inquiry", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Casey",
+        email: "casey@example.com",
+        service: "business-automation",
+        pageType: "kickoff-pilot-build",
+        details:
+          "Paid kickoff submission | Offer: pilot-build | Current URL or flow: https://battlelabs.live",
+      }),
+    });
+
+    const response = await POST(request);
+    const body = await response.json();
+
+    expect(body).toEqual({ ok: true });
+
+    const [, init] = fetchMock.mock.calls[0];
+    const payload = new URLSearchParams(String(init?.body));
+
+    expect(payload.get("entry.259762019")).toBe("Consultation");
+    expect(payload.get("entry.1993641716")).toBe(
+      "Entry: kickoff-pilot-build | Paid kickoff submission | Offer: pilot-build | Current URL or flow: https://battlelabs.live",
+    );
+  });
 });
