@@ -10,8 +10,11 @@ Handle the first 10 minutes after payment with zero ambiguity.
    - offer
    - segment
    - entry page
-3. send kickoff message
-4. create proof folder or note for before/after capture
+3. confirm the buyer landed on the correct success URL:
+   - `/success?offer=pilot-build`
+   - `/success?offer=reply-deck`
+4. send kickoff message
+5. create proof folder or note for before/after capture
 
 ## Data to log
 - client name
