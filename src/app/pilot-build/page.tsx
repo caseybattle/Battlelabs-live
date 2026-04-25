@@ -3,6 +3,7 @@
 import { startTransition, useState, type CSSProperties, type FormEvent } from "react";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
+const pilotCheckoutUrl = process.env.NEXT_PUBLIC_PILOT_BUILD_CHECKOUT_URL?.trim() ?? "";
 
 export default function PilotBuildPage() {
   const [state, setState] = useState<SubmissionState>("idle");
@@ -91,6 +92,19 @@ export default function PilotBuildPage() {
             </div>
           </div>
 
+          {pilotCheckoutUrl ? (
+            <div style={checkoutCardStyle}>
+              <span style={labelStyle}>Checkout ready</span>
+              <strong style={strongStyle}>Skip the back-and-forth and reserve the pilot now</strong>
+              <p style={smallCopyStyle}>
+                If the scope is already obvious, use the live payment link and move straight into async kickoff.
+              </p>
+              <a href={pilotCheckoutUrl} style={checkoutLinkStyle}>
+                Reserve the Pilot Build
+              </a>
+            </div>
+          ) : null}
+
           <div style={deliverablesStyle}>
             <h2 style={subheadStyle}>What a pilot can include</h2>
             <div style={bulletGridStyle}>
@@ -115,6 +129,11 @@ export default function PilotBuildPage() {
             If the teardown already made the problem obvious, use this form instead of starting over. The goal is
             to scope the smallest build that fixes the highest-leverage bottleneck.
           </p>
+          {pilotCheckoutUrl ? (
+            <p style={checkoutNoteStyle}>
+              Want to move faster? The live checkout link on this page goes straight to payment and async kickoff.
+            </p>
+          ) : null}
 
           <form onSubmit={handleSubmit} style={{ display: "grid", gap: 14, marginTop: 20 }}>
             <input name="name" required placeholder="Your name" style={inputStyle} />
@@ -253,6 +272,12 @@ const cardStyle: CSSProperties = {
   background: "rgba(255,255,255,0.03)",
 };
 
+const checkoutCardStyle: CSSProperties = {
+  ...cardStyle,
+  marginTop: 16,
+  background: "rgba(200,169,126,0.08)",
+};
+
 const labelStyle: CSSProperties = {
   display: "block",
   marginBottom: 8,
@@ -272,6 +297,17 @@ const smallCopyStyle: CSSProperties = {
   color: "rgba(245,240,234,0.68)",
   lineHeight: 1.7,
   fontSize: 14,
+};
+
+const checkoutLinkStyle: CSSProperties = {
+  display: "inline-flex",
+  marginTop: 14,
+  padding: "12px 16px",
+  borderRadius: 14,
+  background: "#c8a97e",
+  color: "#090909",
+  fontWeight: 700,
+  textDecoration: "none",
 };
 
 const deliverablesStyle: CSSProperties = {
@@ -317,6 +353,12 @@ const buttonStyle: CSSProperties = {
 const successStyle: CSSProperties = {
   marginTop: 16,
   color: "#c8a97e",
+  lineHeight: 1.7,
+};
+
+const checkoutNoteStyle: CSSProperties = {
+  marginTop: 12,
+  color: "rgba(200,169,126,0.92)",
   lineHeight: 1.7,
 };
 

@@ -61,3 +61,8 @@ This keeps the system simple:
 - one low-ticket product link
 
 That is enough to start collecting real buying behavior without overbuilding checkout infrastructure.
+
+## Deployment wiring
+Once the payment links exist, add them as public env vars in Vercel so the live pages switch from inquiry-only to checkout-ready without another code change:
+- `NEXT_PUBLIC_PILOT_BUILD_CHECKOUT_URL`
+- `NEXT_PUBLIC_REPLY_DECK_CHECKOUT_URL`

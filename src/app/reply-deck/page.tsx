@@ -3,6 +3,7 @@
 import { startTransition, useState, type CSSProperties, type FormEvent } from "react";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
+const replyDeckCheckoutUrl = process.env.NEXT_PUBLIC_REPLY_DECK_CHECKOUT_URL?.trim() ?? "";
 
 export default function ReplyDeckPage() {
   const [state, setState] = useState<SubmissionState>("idle");
@@ -162,6 +163,50 @@ export default function ReplyDeckPage() {
             <span>Built for async buyers</span>
             <span>Separate micro-brand test</span>
           </div>
+          {replyDeckCheckoutUrl ? (
+            <div
+              style={{
+                marginTop: 20,
+                padding: "18px 20px",
+                borderRadius: 18,
+                border: "1px solid rgba(200,169,126,0.12)",
+                background: "rgba(200,169,126,0.08)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 12,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "#c8a97e",
+                  marginBottom: 8,
+                }}
+              >
+                Checkout ready
+              </div>
+              <strong
+                style={{
+                  display: "block",
+                  fontSize: 18,
+                  marginBottom: 8,
+                }}
+              >
+                Buy the first release instead of joining the waitlist
+              </strong>
+              <p
+                style={{
+                  color: "rgba(245,240,234,0.7)",
+                  lineHeight: 1.7,
+                  marginBottom: 12,
+                }}
+              >
+                The payment link is live, so buyers can go straight from interest to checkout.
+              </p>
+              <a href={replyDeckCheckoutUrl} style={checkoutLinkStyle}>
+                Buy Reply Deck
+              </a>
+            </div>
+          ) : null}
         </section>
 
         <section
@@ -192,6 +237,17 @@ export default function ReplyDeckPage() {
             plan. If enough buyers signal demand, it graduates from waitlist to
             checkout.
           </p>
+          {replyDeckCheckoutUrl ? (
+            <p
+              style={{
+                color: "rgba(200,169,126,0.92)",
+                lineHeight: 1.7,
+                marginBottom: 20,
+              }}
+            >
+              Checkout is live on this page now, so the form stays useful for lower-intent interest and questions.
+            </p>
+          ) : null}
 
           <form
             onSubmit={handleSubmit}
@@ -279,4 +335,14 @@ const inputStyle: CSSProperties = {
   color: "#f5f0ea",
   fontSize: 15,
   outline: "none",
+};
+
+const checkoutLinkStyle: CSSProperties = {
+  display: "inline-flex",
+  padding: "12px 16px",
+  borderRadius: 14,
+  background: "#c8a97e",
+  color: "#090909",
+  fontWeight: 700,
+  textDecoration: "none",
 };
