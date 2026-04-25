@@ -9,6 +9,7 @@ type OfferConfig = {
   title: string;
   body: string;
   nextSteps: string[];
+  kickoffHref: string;
 };
 
 const offerConfigs: Record<string, OfferConfig> = {
@@ -22,6 +23,7 @@ const offerConfigs: Record<string, OfferConfig> = {
       "Send any relevant assets, access notes, or brand constraints.",
       "State the one bottleneck that matters most so the pilot stays focused.",
     ],
+    kickoffHref: "/kickoff?offer=pilot-build",
   },
   "reply-deck": {
     eyebrow: "Purchase Confirmed",
@@ -33,6 +35,7 @@ const offerConfigs: Record<string, OfferConfig> = {
       "Share the main follow-up gap you want the starter system to address.",
       "Watch for the delivery note and implementation instructions in email.",
     ],
+    kickoffHref: "/kickoff?offer=reply-deck",
   },
   default: {
     eyebrow: "Payment Received",
@@ -44,6 +47,7 @@ const offerConfigs: Record<string, OfferConfig> = {
       "Share any files, links, or notes that will speed up delivery.",
       "Keep the scope narrow so the first win lands quickly.",
     ],
+    kickoffHref: "/kickoff",
   },
 };
 
@@ -79,6 +83,10 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
             ))}
           </div>
         </div>
+
+        <a href={config.kickoffHref} style={ctaStyle}>
+          Send kickoff details now
+        </a>
 
         <div style={supportStyle}>
           Need to send context now? Email{" "}
@@ -168,6 +176,17 @@ const supportStyle: CSSProperties = {
   marginTop: 22,
   color: "rgba(245,240,234,0.72)",
   lineHeight: 1.7,
+};
+
+const ctaStyle: CSSProperties = {
+  display: "inline-flex",
+  marginTop: 20,
+  padding: "14px 18px",
+  borderRadius: 16,
+  background: "#c8a97e",
+  color: "#090909",
+  textDecoration: "none",
+  fontWeight: 700,
 };
 
 const linkStyle: CSSProperties = {
