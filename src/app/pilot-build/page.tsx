@@ -1,9 +1,15 @@
 "use client";
 
 import { startTransition, useState, type CSSProperties, type FormEvent } from "react";
+import { buildTrackedCheckoutUrl } from "@/lib/checkout";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
 const pilotCheckoutUrl = process.env.NEXT_PUBLIC_PILOT_BUILD_CHECKOUT_URL?.trim() ?? "";
+const trackedPilotCheckoutUrl = buildTrackedCheckoutUrl(pilotCheckoutUrl, {
+  source_page: "pilot-build",
+  offer_name: "battle-labs-pilot-build",
+  entry_tag: "pilot-build-page",
+});
 
 export default function PilotBuildPage() {
   const [state, setState] = useState<SubmissionState>("idle");
@@ -92,14 +98,14 @@ export default function PilotBuildPage() {
             </div>
           </div>
 
-          {pilotCheckoutUrl ? (
+          {trackedPilotCheckoutUrl ? (
             <div style={checkoutCardStyle}>
               <span style={labelStyle}>Checkout ready</span>
               <strong style={strongStyle}>Skip the back-and-forth and reserve the pilot now</strong>
               <p style={smallCopyStyle}>
                 If the scope is already obvious, use the live payment link and move straight into async kickoff.
               </p>
-              <a href={pilotCheckoutUrl} style={checkoutLinkStyle}>
+              <a href={trackedPilotCheckoutUrl} style={checkoutLinkStyle}>
                 Reserve the Pilot Build
               </a>
             </div>
@@ -129,7 +135,7 @@ export default function PilotBuildPage() {
             If the teardown already made the problem obvious, use this form instead of starting over. The goal is
             to scope the smallest build that fixes the highest-leverage bottleneck.
           </p>
-          {pilotCheckoutUrl ? (
+          {trackedPilotCheckoutUrl ? (
             <p style={checkoutNoteStyle}>
               Want to move faster? The live checkout link on this page goes straight to payment and async kickoff.
             </p>

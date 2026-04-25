@@ -1,9 +1,15 @@
 "use client";
 
 import { startTransition, useState, type CSSProperties, type FormEvent } from "react";
+import { buildTrackedCheckoutUrl } from "@/lib/checkout";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
 const replyDeckCheckoutUrl = process.env.NEXT_PUBLIC_REPLY_DECK_CHECKOUT_URL?.trim() ?? "";
+const trackedReplyDeckCheckoutUrl = buildTrackedCheckoutUrl(replyDeckCheckoutUrl, {
+  source_page: "reply-deck",
+  offer_name: "reply-deck",
+  entry_tag: "reply-deck-page",
+});
 
 export default function ReplyDeckPage() {
   const [state, setState] = useState<SubmissionState>("idle");
@@ -163,7 +169,7 @@ export default function ReplyDeckPage() {
             <span>Built for async buyers</span>
             <span>Separate micro-brand test</span>
           </div>
-          {replyDeckCheckoutUrl ? (
+          {trackedReplyDeckCheckoutUrl ? (
             <div
               style={{
                 marginTop: 20,
@@ -202,7 +208,7 @@ export default function ReplyDeckPage() {
               >
                 The payment link is live, so buyers can go straight from interest to checkout.
               </p>
-              <a href={replyDeckCheckoutUrl} style={checkoutLinkStyle}>
+              <a href={trackedReplyDeckCheckoutUrl} style={checkoutLinkStyle}>
                 Buy Reply Deck
               </a>
             </div>
@@ -237,7 +243,7 @@ export default function ReplyDeckPage() {
             plan. If enough buyers signal demand, it graduates from waitlist to
             checkout.
           </p>
-          {replyDeckCheckoutUrl ? (
+          {trackedReplyDeckCheckoutUrl ? (
             <p
               style={{
                 color: "rgba(200,169,126,0.92)",
