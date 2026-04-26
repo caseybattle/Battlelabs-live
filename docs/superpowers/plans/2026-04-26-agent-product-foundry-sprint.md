@@ -30,7 +30,7 @@
 - Create: `ops/agent-native-revenue/kdp-scorecard-launch-plan.md`
 - Modify: `ops/agent-native-revenue/portfolio-task-queue.csv`
 
-- [ ] **Step 1: Create the launch plan file**
+- [x] **Step 1: Create the launch plan file**
 
 Add this content:
 
@@ -83,7 +83,7 @@ Clone if there are checkout clicks, sales, or direct buyer requests.
 Kill if there are no tool uses or checkout clicks after targeted organic distribution.
 ```
 
-- [ ] **Step 2: Add task rows to `portfolio-task-queue.csv`**
+- [x] **Step 2: Add task rows to `portfolio-task-queue.csv`**
 
 Add rows with these fields, matching the existing CSV header:
 
@@ -95,7 +95,7 @@ KDP-SCORECARD-004,KDP Niche Scorecard,Create free and paid report sources,Build,
 KDP-SCORECARD-005,KDP Niche Scorecard,Prepare organic distribution,Distribution,Pending,ops/agent-native-revenue/distribution-task-list.md,Creates SEO and social launch tasks
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 Run:
 
@@ -112,7 +112,7 @@ git commit -m "docs: define kdp scorecard launch sku"
 - Create: `src/lib/kdp-scorecard.ts`
 - Create: `src/lib/kdp-scorecard.test.ts`
 
-- [ ] **Step 1: Write the test file**
+- [x] **Step 1: Write the test file**
 
 ```ts
 import { describe, expect, it } from "vitest";
@@ -248,7 +248,7 @@ export function calculateKdpScore(input: KdpScoreInput): KdpScoreResult {
 }
 ```
 
-- [ ] **Step 4: Verify tests pass**
+- [x] **Step 4: Verify tests pass**
 
 Run:
 
@@ -258,7 +258,7 @@ npm test -- src/lib/kdp-scorecard.test.ts
 
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```powershell
 git add src/lib/kdp-scorecard.ts src/lib/kdp-scorecard.test.ts
@@ -272,11 +272,11 @@ git commit -m "feat: add kdp niche scorecard logic"
 **Files:**
 - Create: `src/app/kdp-niche-scorecard/page.tsx`
 
-- [ ] **Step 1: Create the page**
+- [x] **Step 1: Create the page**
 
 Use a server-rendered page with a clear scoring table, example inputs, paid CTA, refund/disclaimer copy, and links to the free sample.
 
-- [ ] **Step 2: Include these visible sections**
+- [x] **Step 2: Include these visible sections**
 
 Required sections:
 - Headline: `KDP Niche Scorecard Generator`
@@ -288,11 +288,11 @@ Required sections:
 - FAQ
 - No-guarantee disclaimer
 
-- [ ] **Step 3: Add CTA routing**
+- [x] **Step 3: Add CTA routing**
 
 Use the existing checkout helper pattern in `src/lib/checkout.ts`. If no live checkout URL exists, route the paid CTA to the configured fallback and label it as checkout setup pending.
 
-- [ ] **Step 4: Verify page builds**
+- [x] **Step 4: Verify page builds**
 
 Run:
 
@@ -302,7 +302,7 @@ npm run build
 
 Expected: build completes successfully.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```powershell
 git add src/app/kdp-niche-scorecard/page.tsx
@@ -318,7 +318,7 @@ git commit -m "feat: publish kdp niche scorecard page"
 - Create: `public/products/kdp-niche-scorecard/free-sample.md`
 - Create: `public/products/kdp-niche-scorecard/paid-report-template.md`
 
-- [ ] **Step 1: Create asset README**
+- [x] **Step 1: Create asset README**
 
 Include:
 - asset names,
@@ -329,7 +329,7 @@ Include:
 - refund note,
 - checkout dependency.
 
-- [ ] **Step 2: Create free sample**
+- [x] **Step 2: Create free sample**
 
 Include:
 - one sample scorecard,
@@ -337,7 +337,7 @@ Include:
 - one sample listing description starter,
 - one sample launch checklist.
 
-- [ ] **Step 3: Create paid report template**
+- [x] **Step 3: Create paid report template**
 
 Include:
 - customer idea,
@@ -350,7 +350,7 @@ Include:
 - launch checklist,
 - compliance reminder.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```powershell
 git add public/products/kdp-niche-scorecard
@@ -365,7 +365,7 @@ git commit -m "docs: add kdp scorecard product assets"
 - Modify: `ops/agent-native-revenue/distribution-task-list.md`
 - Modify: `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv`
 
-- [ ] **Step 1: Add organic distribution tasks**
+- [x] **Step 1: Add organic distribution tasks**
 
 Add:
 - SEO title and meta description.
@@ -374,7 +374,7 @@ Add:
 - Three Reddit-safe value post drafts with no spammy links in the body.
 - One Indie Hackers/Product Hunt style launch note.
 
-- [ ] **Step 2: Add dashboard row**
+- [x] **Step 2: Add dashboard row**
 
 Track:
 - SKU,
@@ -388,7 +388,7 @@ Track:
 - build hours,
 - next action.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```powershell
 git add ops/agent-native-revenue/distribution-task-list.md ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv
@@ -402,7 +402,7 @@ git commit -m "ops: add kdp scorecard distribution tracking"
 **Files:**
 - Verify only.
 
-- [ ] **Step 1: Run tests**
+- [x] **Step 1: Run tests**
 
 ```powershell
 npm test
@@ -410,7 +410,7 @@ npm test
 
 Expected: all tests pass.
 
-- [ ] **Step 2: Run lint**
+- [x] **Step 2: Run lint**
 
 ```powershell
 npm run lint
@@ -418,7 +418,15 @@ npm run lint
 
 Expected: no lint errors.
 
-- [ ] **Step 3: Run production build**
+- [x] **Step 3: Run production build**
+
+- [x] **Step 3.5: Run product foundry eval gate**
+
+Run:
+
+```powershell
+npm run eval:products
+```
 
 ```powershell
 npm run build
