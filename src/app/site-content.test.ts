@@ -24,6 +24,7 @@ describe("battlelabs site content", () => {
     expect(html).toContain("Selected Work");
     expect(html).toContain("The Reset Method");
     expect(html).toContain("No inflated claims.");
+    expect(html).toContain('href="/selected-work"');
   });
 
   it("uses the internal inquiry endpoint instead of the legacy webhook", () => {
