@@ -16,9 +16,10 @@ The scorecard is a planning tool. It does not predict Amazon search rank, sales 
 ## Delivery Method
 
 - The free sample can be served as a public Markdown page, converted to PDF, or linked from the free scorecard page.
-- The paid report template is intended to be copied into a customer-specific Markdown, PDF, Google Doc, or Google Drive delivery folder.
-- Delivery should include the completed report plus any optional CSV score breakdown, listing-copy starter, and launch checklist files.
-- Customer files should use this naming pattern: `kdp-scorecard-report-[customer-slug]-[yyyy-mm-dd]`.
+- The public `paid-report-template.md` file is a preview only.
+- The buyer-ready paid package lives outside the public website directory at `deliverables/kdp-launch-report-kit.zip`.
+- Delivery should include the ZIP package after payment through Drive, PayPal return flow, Payhip/Gumroad delivery, or another tested checkout delivery path.
+- Customer files should use this naming pattern when customized: `kdp-scorecard-report-[customer-slug]-[yyyy-mm-dd]`.
 
 ## License Terms
 
@@ -45,4 +46,4 @@ Recommended refund language: because this is a digital planning asset, refunds a
 
 ## Checkout Dependency
 
-The paid CTA should remain labeled as checkout setup pending until a live checkout URL exists. Acceptable no-paid-spend checkout options include an existing digital-product storefront, a payment link, or a manual invoice workflow that delivers the final report through Drive. Do not publish a payment button that suggests instant delivery until the fulfillment path has been tested.
+The paid CTA can collect payment through the configured PayPal Hosted Button, but the fulfillment path still needs to be tested end to end before claiming instant delivery. Upload `deliverables/kdp-launch-report-kit.zip` to Drive or a checkout platform and verify that a buyer receives the package after payment.

@@ -528,6 +528,28 @@ Status (2026-04-26 10:00 ET): updated the scorecard page link text to avoid lead
 
 Status (2026-04-26 11:11 ET): added a public-friendly checklist URL (`/kdp-niche-scorecard/checklist`) and redirected the old `/kdp-niche-scorecard/rubric` path, then updated Product Hunt + placement artifacts to reference the checklist URL. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
 
+Status (2026-04-26 12:04 ET): added a copy/paste post-text template to the interactive widget share section and shipped `ops/agent-native-revenue/kdp-scorecard-clean-share-examples.md` (linked from PH prep). Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
+Status (2026-04-26 14:05 ET): added dedicated Open Graph + Twitter images for `/kdp-niche-scorecard/checklist` to improve link previews ahead of Product Hunt. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
+- [x] **Step 2.6: Prepare Product Hunt listing fields packet**
+
+Status (2026-04-26 ET): shipped paste-ready Product Hunt listing fields + maker comment and verification checklist: `ops/agent-native-revenue/producthunt-listing-fields-kdp-scorecard.md` (linked from `ops/agent-native-revenue/producthunt-launch-day-prep.md`).
+
+- [x] **Step 2.7: Add no-spend metric tracking (views + clicks)**
+
+Status (2026-04-26 ET): added `POST /api/metrics/event` and instrumented:
+- page views (`page_view`)
+- free sample clicks (`free_sample_click`)
+- checkout clicks (`checkout_click`)
+for `/kdp-niche-scorecard` and `/memory-journal-gift-kit`. Measurement instructions: `ops/agent-native-revenue/metrics-playbook.md`.
+
+- [x] **Step 2.8: Add deterministic metric counting helper (no-spend)**
+
+Status (2026-04-26 ET): shipped `scripts/summarize-metric-events.ps1` and added an optional log-pull + 24h-window counting recipe to `ops/agent-native-revenue/metrics-playbook.md` so launch-day metrics updates are fast and reproducible.
+
+Status (2026-04-26 18:13 ET): normalized metric page IDs to route paths (leading `/`) and allowed `download_click` so the ops counting recipes match live `[METRIC_EVENT]` logs.
+
 - [ ] **Step 3: Update metrics after posting**
 
 Note (2026-04-26 ET): waiting on live placement URLs/timestamps (PH scheduled for 2026-04-28 03:01 ET); after posting, update dashboard + 24h counters.
@@ -536,3 +558,30 @@ Update `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv` with:
 - Views
 - Free sample clicks
 - Checkout clicks
+
+---
+
+### Task 8: Activate Memory Journal Checkout (SKU 001)
+
+**Goal:** Remove the last blocker on SKU 001 measurement (checkout clicks + sales) without paid spend or account-gated provider setup.
+
+**Files:**
+- Create: `src/app/memory-journal-gift-kit/checkout/page.tsx`
+- Create: `src/app/memory-journal-gift-kit/checkout/ui.tsx`
+- Modify: `src/app/memory-journal-gift-kit/page.tsx`
+- Modify: `ops/agent-native-revenue/portfolio-task-queue.csv`
+- Modify: `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv`
+
+- [x] **Step 1: Ship internal checkout route**
+
+Status (2026-04-26 ET): added `/memory-journal-gift-kit/checkout` with PayPal Buttons capture for the $9 intro kit and download links.
+
+- [x] **Step 2: Wire the landing CTA**
+
+Status (2026-04-26 ET): `/memory-journal-gift-kit` now routes to the checkout page by default (env var can still override).
+
+- [x] **Step 3: Update ops tracking**
+
+Status (2026-04-26 ET): marked `BL-005`/`BL-006` as `Accepted`, moved `BL-012` to `Pending`, and added a dashboard row for SKU 001.
+
+Status (2026-04-26 ET): shipped no-spend metric tracking and moved `BL-012` to `Done` (see `ops/agent-native-revenue/metrics-playbook.md`).

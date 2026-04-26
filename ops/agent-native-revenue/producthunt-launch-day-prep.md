@@ -12,6 +12,8 @@ Canonical URLs:
 - Product page: `https://battlelabs.live/kdp-niche-scorecard`
 - Scoring checklist page: `https://battlelabs.live/kdp-niche-scorecard/checklist`
 - Example share link: `https://battlelabs.live/kdp-niche-scorecard?bi=5&g=5&cc=4&ps=5&ed=4`
+- Clean share examples: `ops/agent-native-revenue/kdp-scorecard-clean-share-examples.md`
+- Listing fields (paste-ready): `ops/agent-native-revenue/producthunt-listing-fields-kdp-scorecard.md`
 
 Example to Mention if Asked:
 
@@ -56,5 +58,6 @@ Launch-Day Checklist:
 - Capture final Product Hunt URL once live.
 - Add final URL and timestamp to `ops/agent-native-revenue/placement-tracking-log.csv`.
 - Check the product page and example share link from a fresh browser session.
+- Verify `[METRIC_EVENT]` logging is present in deployment logs (see `ops/agent-native-revenue/metrics-playbook.md`).
 - Monitor comments for buyer language, objections, and feature requests.
 - After 24 hours, record Product Hunt views, free sample clicks, checkout clicks, sales, refunds, and useful comments.

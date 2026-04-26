@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import PayPalHostedButton from "@/components/paypal-hosted-button";
+import MetricsPageView from "@/components/metrics-page-view";
+import TrackedLink from "@/components/tracked-link";
 import { buildTrackedCheckoutUrl } from "@/lib/checkout";
 import { KDP_SCORECARD_OFFER } from "@/lib/kdp-scorecard";
 import KdpScorecardWidget from "./scorecard-widget";
@@ -35,6 +37,7 @@ export const metadata = {
 export default function KdpNicheScorecardPage() {
   return (
     <main style={pageStyle}>
+      <MetricsPageView page="/kdp-niche-scorecard" />
       <section style={heroStyle}>
         <div style={heroCopyStyle}>
           <p style={eyebrowStyle}>Battlelabs Agent Product Foundry / SKU 002</p>
@@ -44,23 +47,41 @@ export default function KdpNicheScorecardPage() {
             testing before you spend hours building the full asset.
           </p>
           <div style={ctaRowStyle}>
-            <a href="/products/kdp-niche-scorecard/free-sample.md" style={primaryLinkStyle}>
+            <TrackedLink
+              href="/products/kdp-niche-scorecard/free-sample.md"
+              style={primaryLinkStyle}
+              event="free_sample_click"
+              page="/kdp-niche-scorecard"
+            >
               Open Free Sample
-            </a>
+            </TrackedLink>
             {trackedCheckoutUrl ? (
-              <a href={trackedCheckoutUrl} style={secondaryLinkStyle}>
+              <TrackedLink
+                href={trackedCheckoutUrl}
+                style={secondaryLinkStyle}
+                event="checkout_click"
+                page="/kdp-niche-scorecard"
+              >
                 {KDP_SCORECARD_OFFER.checkoutLabel}
-              </a>
+              </TrackedLink>
             ) : hasPayPalHostedButton ? (
               <PayPalHostedButton
                 clientId={paypalClientId}
                 hostedButtonId={paypalHostedButtonId}
                 label="Buy the KDP Launch Report with PayPal"
+                metricEvent="checkout_click"
+                metricPage="/kdp-niche-scorecard"
               />
             ) : (
-              <a href="/products/kdp-niche-scorecard/paid-report-template.md" style={secondaryLinkStyle}>
+              <TrackedLink
+                href="/products/kdp-niche-scorecard/paid-report-template.md"
+                style={secondaryLinkStyle}
+                event="free_sample_click"
+                page="/kdp-niche-scorecard"
+                meta={{ asset: "paid-report-template-preview" }}
+              >
                 Preview Report Template
-              </a>
+              </TrackedLink>
             )}
           </div>
           <p style={microcopyStyle}>

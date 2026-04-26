@@ -25,12 +25,27 @@ def export_sheet_to_csv(workbook_path: Path, sheet_name: str, out_path: Path) ->
         out_path.write_text("", encoding="utf-8")
         return
 
-    max_cols = max((len(row) for row in rows), default=0)
+    def is_empty(value: object) -> bool:
+        if value is None:
+            return True
+        if isinstance(value, str) and value.strip() == "":
+            return True
+        return False
+
+    max_cols = 0
+    for row in rows:
+        last_non_empty = 0
+        for idx, value in enumerate(row, start=1):
+            if not is_empty(value):
+                last_non_empty = idx
+        if last_non_empty > max_cols:
+            max_cols = last_non_empty
 
     with out_path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle, quoting=csv.QUOTE_MINIMAL)
         for row in rows:
-            padded = list(row) + [None] * (max_cols - len(row))
+            trimmed = list(row[:max_cols])
+            padded = trimmed + [None] * (max_cols - len(trimmed))
             writer.writerow([cell_to_str(value) for value in padded])
 
 
@@ -66,4 +81,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

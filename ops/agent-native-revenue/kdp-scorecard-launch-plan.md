@@ -27,6 +27,13 @@ KDP Launch Report Kit:
 - Cover/mockup direction
 - Launch checklist
 
+Buyer-ready package:
+- Source folder: `deliverables/kdp-launch-report-kit/`
+- Delivery ZIP: `deliverables/kdp-launch-report-kit.zip`
+- Includes Markdown report, printable PDF, score CSV, keyword CSV, listing starter, launch checklist, and license/refund/disclosure notes
+- Public preview only: `public/products/kdp-niche-scorecard/paid-report-template.md`
+- Drive delivery handoff: `ops/agent-native-revenue/kdp-report-delivery-handoff.md`
+
 ## Price
 
 Intro price: $19
@@ -40,6 +47,8 @@ The $19 KDP Launch Report uses a PayPal Hosted Button:
 - Public SDK client ID is wired in `src/app/kdp-niche-scorecard/page.tsx`
 - Public page CTA renders PayPal checkout when no `NEXT_PUBLIC_KDP_SCORECARD_CHECKOUT_URL` override is set
 - Memory Journal checkout remains separate and is not connected to this PayPal button
+- Drive fulfillment file is uploaded and link-download verified.
+- Fulfillment still needs one end-to-end PayPal test: buy/test checkout and verify the buyer sees or receives the Drive ZIP link after payment.
 
 ## Compliance
 

@@ -1,9 +1,12 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import MetricsPageView from "@/components/metrics-page-view";
+import TrackedLink from "@/components/tracked-link";
 import { buildTrackedCheckoutUrl } from "@/lib/checkout";
 import { memoryJournalProduct } from "@/lib/memory-journal-product";
 
-const checkoutUrl = process.env.NEXT_PUBLIC_MEMORY_JOURNAL_CHECKOUT_URL?.trim() ?? "";
+const checkoutUrl =
+  process.env.NEXT_PUBLIC_MEMORY_JOURNAL_CHECKOUT_URL?.trim() || "/memory-journal-gift-kit/checkout";
 const trackedCheckoutUrl = buildTrackedCheckoutUrl(checkoutUrl, {
   source_page: "memory-journal-gift-kit",
   offer_name: memoryJournalProduct.sku,
@@ -19,19 +22,30 @@ export const metadata = {
 export default function MemoryJournalGiftKitPage() {
   return (
     <main style={pageStyle}>
+      <MetricsPageView page="/memory-journal-gift-kit" />
       <section style={heroStyle}>
         <div style={heroCopyStyle}>
           <p style={eyebrowStyle}>Battlelabs Agent Product Foundry / SKU 001</p>
           <h1 style={titleStyle}>{memoryJournalProduct.angle}</h1>
           <p style={leadStyle}>{memoryJournalProduct.promise}</p>
           <div style={ctaRowStyle}>
-            <a href={memoryJournalProduct.freeSamplePath} style={primaryLinkStyle}>
+            <TrackedLink
+              href={memoryJournalProduct.freeSamplePath}
+              style={primaryLinkStyle}
+              event="free_sample_click"
+              page="/memory-journal-gift-kit"
+            >
               Download Free Sample
-            </a>
+            </TrackedLink>
             {trackedCheckoutUrl ? (
-              <a href={trackedCheckoutUrl} style={secondaryLinkStyle}>
+              <TrackedLink
+                href={trackedCheckoutUrl}
+                style={secondaryLinkStyle}
+                event="checkout_click"
+                page="/memory-journal-gift-kit"
+              >
                 Buy Intro Kit ${memoryJournalProduct.introPrice}
-              </a>
+              </TrackedLink>
             ) : (
               <a href={memoryJournalProduct.previewPath} style={secondaryLinkStyle}>
                 View Product Preview

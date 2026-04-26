@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { calculateKdpScore, type KdpScoreInput } from "@/lib/kdp-scorecard";
+import { trackMetricEvent } from "@/lib/metrics-client";
 
 type ScoreField = {
   key: keyof KdpScoreInput;
@@ -89,7 +90,9 @@ export default function KdpScorecardWidget() {
     return next;
   });
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const [copyTextStatus, setCopyTextStatus] = useState<"idle" | "copied" | "failed">("idle");
   const shareInputRef = useRef<HTMLInputElement | null>(null);
+  const shareTextRef = useRef<HTMLTextAreaElement | null>(null);
 
   const score = useMemo(() => calculateKdpScore(input), [input]);
   const shareUrl = useMemo(() => {
@@ -99,6 +102,17 @@ export default function KdpScorecardWidget() {
 
     return buildShareUrl(window.location.href, input);
   }, [input]);
+  const shareText = useMemo(() => {
+    if (!shareUrl) return "";
+
+    return [
+      `KDP niche scorecard result: ${score.score}/100 (${score.band} band).`,
+      "5 factors: buyer intent, giftability, competition clarity, production simplicity, evergreen demand.",
+      "Planning aid only (not an Amazon ranking predictor).",
+      "",
+      shareUrl,
+    ].join("\n");
+  }, [score.band, score.score, shareUrl]);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -110,11 +124,13 @@ export default function KdpScorecardWidget() {
 
   const handleChange = useCallback((key: keyof KdpScoreInput, value: number) => {
     setCopyStatus("idle");
+    setCopyTextStatus("idle");
     setInput((current) => ({ ...current, [key]: value }));
   }, []);
 
   const handleReset = useCallback(() => {
     setCopyStatus("idle");
+    setCopyTextStatus("idle");
     setInput(DEFAULT_INPUT);
   }, []);
 
@@ -122,6 +138,7 @@ export default function KdpScorecardWidget() {
     try {
       await navigator.clipboard.writeText(shareUrl);
       setCopyStatus("copied");
+      trackMetricEvent({ event: "share_url_copy", page: "/kdp-niche-scorecard" });
     } catch {
       const inputEl = shareInputRef.current;
       if (!inputEl) {
@@ -133,8 +150,33 @@ export default function KdpScorecardWidget() {
       inputEl.select();
       const success = document.execCommand("copy");
       setCopyStatus(success ? "copied" : "failed");
+      if (success) {
+        trackMetricEvent({ event: "share_url_copy", page: "/kdp-niche-scorecard" });
+      }
     }
   }, [shareUrl]);
+
+  const handleCopyText = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(shareText);
+      setCopyTextStatus("copied");
+      trackMetricEvent({ event: "share_text_copy", page: "/kdp-niche-scorecard" });
+    } catch {
+      const textEl = shareTextRef.current;
+      if (!textEl) {
+        setCopyTextStatus("failed");
+        return;
+      }
+
+      textEl.focus();
+      textEl.select();
+      const success = document.execCommand("copy");
+      setCopyTextStatus(success ? "copied" : "failed");
+      if (success) {
+        trackMetricEvent({ event: "share_text_copy", page: "/kdp-niche-scorecard" });
+      }
+    }
+  }, [shareText]);
 
   return (
     <aside style={panelStyle} aria-label="KDP niche scorecard widget">
@@ -196,6 +238,26 @@ export default function KdpScorecardWidget() {
           </button>
         </div>
         {copyStatus === "failed" ? <p style={shareHintStyle}>Copy manually from the box.</p> : null}
+
+        <div style={shareTextStyle}>
+          <span style={shareTextLabelStyle}>Copy/paste post text</span>
+          <div style={shareTextRowStyle}>
+            <textarea
+              ref={shareTextRef}
+              readOnly
+              value={shareText}
+              rows={5}
+              style={shareTextAreaStyle}
+              aria-label="Share text template"
+            />
+            <button type="button" onClick={handleCopyText} style={copyTextButtonStyle}>
+              {copyTextStatus === "copied" ? "Copied" : "Copy text"}
+            </button>
+          </div>
+          {copyTextStatus === "failed" ? (
+            <p style={shareHintStyle}>Copy manually from the text box.</p>
+          ) : null}
+        </div>
       </div>
     </aside>
   );
@@ -396,4 +458,46 @@ const shareHintStyle: CSSProperties = {
   color: "#51655e",
   fontSize: 13,
   lineHeight: 1.5,
+};
+
+const shareTextStyle: CSSProperties = {
+  display: "grid",
+  gap: 10,
+};
+
+const shareTextLabelStyle: CSSProperties = {
+  color: "#66746d",
+  fontSize: 12,
+  fontWeight: 820,
+  textTransform: "uppercase",
+  letterSpacing: "0.08em",
+};
+
+const shareTextRowStyle: CSSProperties = {
+  display: "grid",
+  gridTemplateColumns: "minmax(0, 1fr) auto",
+  gap: 10,
+  alignItems: "start",
+};
+
+const shareTextAreaStyle: CSSProperties = {
+  width: "100%",
+  borderRadius: 8,
+  border: "1px solid rgba(23,63,53,0.2)",
+  padding: "12px 12px",
+  fontSize: 13,
+  color: "#173f35",
+  background: "#ffffff",
+  resize: "vertical",
+};
+
+const copyTextButtonStyle: CSSProperties = {
+  borderRadius: 8,
+  border: "1px solid rgba(23,63,53,0.2)",
+  background: "#173f35",
+  color: "#ffffff",
+  padding: "12px 14px",
+  fontWeight: 840,
+  cursor: "pointer",
+  minWidth: 92,
 };

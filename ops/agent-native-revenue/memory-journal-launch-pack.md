@@ -12,7 +12,12 @@
 
 ## Checkout Setup
 
-Create a PayPal, Payhip, or Gumroad product with this title:
+Default checkout route (shipped):
+
+- Landing CTA routes to: `/memory-journal-gift-kit/checkout`
+- Optional override via env var: `NEXT_PUBLIC_MEMORY_JOURNAL_CHECKOUT_URL`
+
+If you want automated file delivery + receipts, create a PayPal, Payhip, or Gumroad product with this title:
 
 `Memory Journal Gift Launch Kit`
 
