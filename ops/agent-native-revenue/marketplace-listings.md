@@ -14,6 +14,15 @@ Short description:
 
 `A practical launch kit for creators building a narrow memory journal gift product. Includes a free sample, full printable interior, product preview, KDP niche scorecard, listing copy, launch checklist, and promo graphics.`
 
+Who it's for:
+
+- Creators who want a fast, narrow test product to publish as a keepsake-style guided journal.
+- Sellers who want paste-ready listing copy, a launch checklist, and promo graphics for organic distribution.
+
+Not for:
+
+- Anyone looking for income guarantees, bestseller strategies, or marketplace policy workarounds.
+
 Price:
 
 - Intro: `$9`
@@ -36,6 +45,19 @@ Refund language:
 Usage language:
 
 `Use this kit as a starting point for your own product research and publishing workflow. Review, edit, and QA all files before publishing to any marketplace. Platform policies and AI-disclosure requirements remain your responsibility.`
+
+Suggested tags / keywords (marketplace):
+
+- memory journal gift
+- grandma memory journal
+- guided memory journal
+- family keepsake journal
+- printable journal template
+- KDP interior template
+- printable launch kit
+- family story prompts
+- questions for grandma
+- keepsake journal template
 
 ## KDP Listing Draft For Later
 
