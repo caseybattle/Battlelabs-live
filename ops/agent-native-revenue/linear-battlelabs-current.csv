@@ -1,0 +1,41 @@
+"Issue ID","Linear ID","Title","Description"
+"BL-KDP-001","LEA-5","Add $19 checkout link for KDP Launch Report","Create a PayPal, Payhip, Gumroad, or Stripe checkout link for the KDP Niche Scorecard Launch Report. Add it as NEXT_PUBLIC_KDP_SCORECARD_CHECKOUT_URL and verify tracked checkout parameters work.
+
+Status: Ready
+Priority: High
+Labels: checkout,revenue,kdp"
+"BL-KDP-002","LEA-6","Publish /kdp-niche-scorecard to production","Deploy the Battlelabs site so /kdp-niche-scorecard is public. Acceptance: page loads, free sample opens, report preview opens, no-guarantee language is visible, and npm run eval:products passes after deploy.
+
+Status: Ready
+Priority: High
+Labels: publish,web,revenue"
+"BL-KDP-003","LEA-7","Execute organic distribution for KDP Scorecard","Use ops/agent-native-revenue/distribution-task-list.md to prepare and publish no-spend organic launch placements. Do not spam or send cold email at scale. Track every placement URL and result.
+
+Status: Ready
+Priority: High
+Labels: distribution,organic,kdp"
+"BL-KDP-004","LEA-9","Track KDP Scorecard product metrics","Update ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv with views, free sample clicks, checkout clicks, sales, refunds, revenue, build hours, and next action.
+
+Status: Ready
+Priority: Medium
+Labels: metrics,ops,kdp"
+"BL-KDP-005","LEA-10","Run eval-gated self-improvement loop","For every product change, run npm test, npm run lint, npm run build, and npm run eval:products. If evals fail, repair the failed check before expanding the funnel.
+
+Status: Ready
+Priority: High
+Labels: evals,automation,quality"
+"BL-KDP-006","LEA-11","Create KDP report delivery workflow","Decide the first no-spend delivery path for paid KDP Launch Reports: Drive file, hosted markdown/PDF, or manual download link from checkout platform. Do not use paid APIs.
+
+Status: Backlog
+Priority: Medium
+Labels: fulfillment,kdp,ops"
+"BL-KDP-007","LEA-12","Decide next SKU after buyer signal","Use the decision rules: clone only after sales, repeated checkout clicks, direct buyer request, or 5%+ free sample click rate from targeted traffic. Record keep/improve/clone/kill decision.
+
+Status: Backlog
+Priority: Medium
+Labels: controller,decision,portfolio"
+"BL-KDP-008","LEA-8","Investigate Linear API connection","Connect Linear through Rube/Composio or a Linear API key so future issue creation and updates can be done through tools instead of browser automation. Current state: browser login works, Rube reports no active Linear connection.
+
+Status: Ready
+Priority: Medium
+Labels: linear,automation,integration"
