@@ -8,9 +8,17 @@ Live URL:
 
 `https://battlelabs-live.vercel.app/kdp-niche-scorecard`
 
+Tracked live URL:
+
+`https://battlelabs-live.vercel.app/kdp-niche-scorecard?utm_source=community&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
+
 Rubric URL (value-first checklist, easier to paste in communities):
 
 `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric`
+
+Tracked rubric URL:
+
+`https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric?utm_source=community&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
 
 Rules:
 
@@ -53,6 +61,7 @@ Backup (if posting access is gated): use the rubric URL as the shared link targe
 
 Tracking fields:
 
+- Tracked URL: `https://battlelabs-live.vercel.app/kdp-niche-scorecard?utm_source=producthunt&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
 - Placement URL:
 - Published at:
 - Views after 24h:
@@ -78,6 +87,7 @@ Optional first comment:
 
 Tracking fields:
 
+- Tracked URL: `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric?utm_source=hackernews&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
 - Placement URL:
 - Published at:
 - HN points / comments after 24h:
@@ -124,6 +134,7 @@ I would appreciate feedback on the scoring model: are these the right five dimen
 
 Tracking fields:
 
+- Tracked URL: `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric?utm_source=reddit&utm_medium=organic&utm_campaign=kdp_scorecard_launch&utm_content=sideproject`
 - Placement URL:
 - Published at:
 - Upvotes / comments after 24h:
@@ -138,6 +149,7 @@ After posting, update:
 
 - `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv`
 - `ops/agent-native-revenue/community-opportunities.csv`
+- `ops/agent-native-revenue/placement-tracking-log.csv`
 
 Decision after 24-48 hours:
 
