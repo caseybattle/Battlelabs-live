@@ -6,25 +6,33 @@ Ship the first no-spend distribution test for the live KDP Niche Scorecard funne
 
 Live URL:
 
-`https://battlelabs-live.vercel.app/kdp-niche-scorecard`
+`https://battlelabs.live/kdp-niche-scorecard`
 
 Tracked live URL:
 
-`https://battlelabs-live.vercel.app/kdp-niche-scorecard?utm_source=community&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
+`https://battlelabs.live/kdp-niche-scorecard?utm_source=community&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
 
-Rubric URL (value-first checklist, easier to paste in communities):
+Checklist URL (public-friendly; do not lead public posts with internal terminology):
 
-`https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric`
+`https://battlelabs.live/kdp-niche-scorecard/checklist`
 
-Tracked rubric URL:
+Tracked checklist URL:
 
-`https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric?utm_source=community&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
+Use clean canonical URLs for community posts unless platform analytics are explicitly needed:
+
+`https://battlelabs.live/kdp-niche-scorecard`
+
+Preview note (2026-04-26 ET):
+
+- The scorecard route now ships route-level Open Graph + Twitter images, so link previews render a clean share card on platforms that support it.
 
 Rules:
 
 - No paid boosts, ads, paid APIs, or vote solicitation.
 - No sales, ranking, income, royalty, or bestseller claims.
 - If a community discourages links, post the value-first text without a link and only share the URL when requested.
+- For Reddit, do not post links until the exact subreddit rules are checked in the logged-in UI or the moderators approve it.
+- Public copy should call this a scorecard/checklist/tool; avoid unnecessary internal terminology.
 - Track every placement URL, publish time, views, sample clicks, checkout clicks, and comments.
 
 ## Auth preflight (2026-04-26)
@@ -35,23 +43,25 @@ Posting requires authenticated sessions:
 - Hacker News: `/submit` requires login. Evidence: `outputs/hn-login.png`.
 - Reddit: `/r/SideProject/submit` redirects to login. Evidence: `outputs/reddit-login.png`.
 
-## Current execution status (2026-04-26 04:51 ET)
+## Current execution status (2026-04-26 ET)
 
-All 3 placements are currently **blocked by auth/access** and require a human logged-in session:
+Product Hunt is no longer blocked. It was submitted through the authenticated browser session and Product Hunt confirmed it is **successfully scheduled**:
 
-- Product Hunt: blocked (non-auth request to `/posts/new` returned HTTP 403; previous preflight redirected to access article).
-- Hacker News: blocked (submit page explicitly says you must be logged in).
-- Reddit: blocked (submit flow requires a logged-in Reddit session).
+- Product Hunt: scheduled for April 28, 2026 at 12:01am PT / 03:01am ET. Evidence: `outputs/producthunt-scheduled-after-invoke.png`.
+- Hacker News: blocked after authentication by HN's Show HN limit page (`/showlim`). Do not repost or evade. Defer until the account has normal participation history.
+- Reddit: submitted to r/SideProject as a text-first feedback post with one clean link, then removed by Reddit's filters. Placement URL: `https://www.reddit.com/r/SideProject/comments/1sw788w/i_built_a_free_kdp_niche_scorecard_and_want/`. Do not immediately repost.
 
 Tracking state:
 
-- `ops/agent-native-revenue/placement-tracking-log.csv` status set to `Blocked` for these 3 rows.
+- `ops/agent-native-revenue/placement-tracking-log.csv` status set to `Scheduled` for Product Hunt, `Blocked` for Hacker News, and `Filtered` for Reddit.
 
 Next action (human, no-spend):
 
-1. Log into each platform in a normal browser session (Product Hunt + HN + Reddit).
-2. Publish using the drafts below (prefer the rubric URL when communities dislike “tool launch” links).
-3. Paste the final placement URLs + timestamps into this packet and into `ops/agent-native-revenue/placement-tracking-log.csv`.
+1. On April 28, capture the final Product Hunt URL and monitor comments without asking for upvotes.
+2. Do not immediately retry Reddit or HN; that would look like filter evasion.
+3. If Reddit is worth recovering, send one concise modmail asking whether the filtered post is acceptable for r/SideProject. Otherwise move to lower-risk organic placements.
+4. Continue no-spend distribution through Product Hunt launch-day monitoring, SEO improvements, and non-Reddit placement opportunities already listed in `community-opportunities.csv`.
+5. Before any future community post, verify the exact subreddit/community rules in the live logged-in UI, use the canonical `battlelabs.live` URL, and stop before posting if the page preview points anywhere except the KDP scorecard.
 
 ## Placement 1: Product Hunt
 
@@ -73,19 +83,19 @@ First comment:
 
 URL:
 
-`https://battlelabs-live.vercel.app/kdp-niche-scorecard`
+`https://battlelabs.live/kdp-niche-scorecard`
 
-Backup (if posting access is gated): use the rubric URL as the shared link target.
+Backup (if posting access is gated): use the checklist page only if the main product page preview is wrong.
 
 Tracking fields:
 
-- Tracked URL: `https://battlelabs-live.vercel.app/kdp-niche-scorecard?utm_source=producthunt&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
+- Tracked URL: `https://battlelabs.live/kdp-niche-scorecard?utm_source=producthunt&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
 - Placement URL:
-- Published at:
+- Published at: scheduled for 2026-04-28 03:01 ET (12:01am PT)
 - Views after 24h:
 - Free sample clicks after 24h:
 - Checkout clicks after 24h:
-- Comments / buyer language:
+- Comments / buyer language: waiting for launch day
 
 ## Placement 2: Hacker News Show HN
 
@@ -95,9 +105,9 @@ Title:
 
 URL:
 
-`https://battlelabs-live.vercel.app/kdp-niche-scorecard`
+`https://battlelabs.live/kdp-niche-scorecard`
 
-Backup (if direct tool link feels too promotional): submit the rubric write-up instead.
+Backup (if direct tool link feels too promotional): submit a non-promotional checklist write-up instead, without sales wording.
 
 Optional first comment:
 
@@ -105,9 +115,9 @@ Optional first comment:
 
 Tracking fields:
 
-- Tracked URL: `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric?utm_source=hackernews&utm_medium=organic&utm_campaign=kdp_scorecard_launch`
-- Placement URL:
-- Published at:
+- Tracked URL: `https://battlelabs.live/kdp-niche-scorecard`
+- Placement URL: blocked by HN `/showlim`
+- Published at: not published
 - HN points / comments after 24h:
 - Views after 24h:
 - Free sample clicks after 24h:
@@ -136,9 +146,9 @@ It does not predict Amazon rankings or sales. It is just a structured go/no-go p
 
 I would appreciate feedback on the scoring model: are these the right five dimensions, or is there a better signal I should add before calling a niche worth testing?
 
-Tool: https://battlelabs-live.vercel.app/kdp-niche-scorecard`
+Tool: https://battlelabs.live/kdp-niche-scorecard`
 
-Alternative link target (value-first): `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric`
+Alternative link target (value-first): `https://battlelabs.live/kdp-niche-scorecard`
 
 Fallback no-link body:
 
@@ -152,9 +162,9 @@ I would appreciate feedback on the scoring model: are these the right five dimen
 
 Tracking fields:
 
-- Tracked URL: `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric?utm_source=reddit&utm_medium=organic&utm_campaign=kdp_scorecard_launch&utm_content=sideproject`
-- Placement URL:
-- Published at:
+- Tracked URL: `https://battlelabs.live/kdp-niche-scorecard`
+- Placement URL: `https://www.reddit.com/r/SideProject/comments/1sw788w/i_built_a_free_kdp_niche_scorecard_and_want/`
+- Published at: 2026-04-26 ET; removed by Reddit filters
 - Upvotes / comments after 24h:
 - Views after 24h:
 - Free sample clicks after 24h:

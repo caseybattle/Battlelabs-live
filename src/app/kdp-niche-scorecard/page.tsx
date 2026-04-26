@@ -1,21 +1,22 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+import PayPalHostedButton from "@/components/paypal-hosted-button";
 import { buildTrackedCheckoutUrl } from "@/lib/checkout";
-import { calculateKdpScore, KDP_SCORECARD_OFFER } from "@/lib/kdp-scorecard";
+import { KDP_SCORECARD_OFFER } from "@/lib/kdp-scorecard";
+import KdpScorecardWidget from "./scorecard-widget";
 
 const checkoutUrl = process.env.NEXT_PUBLIC_KDP_SCORECARD_CHECKOUT_URL?.trim() ?? "";
+const paypalClientId =
+  process.env.NEXT_PUBLIC_KDP_SCORECARD_PAYPAL_CLIENT_ID?.trim() ??
+  "BAAPf7AyT_PxWaBjzceuUyxXp528DaJC_qUQvsp0NMGavqVmEJZqNwKdy-7AsjwwP2tcQMdPPqdrScFCKk";
+const paypalHostedButtonId =
+  process.env.NEXT_PUBLIC_KDP_SCORECARD_PAYPAL_HOSTED_BUTTON_ID?.trim() ?? "XBV9JNJS6SPJE";
 const trackedCheckoutUrl = buildTrackedCheckoutUrl(checkoutUrl, {
   source_page: "kdp-niche-scorecard",
   offer_name: "kdp-launch-report",
   entry_tag: "agent-product-foundry",
 });
-
-const sampleScore = calculateKdpScore({
-  buyerIntent: 5,
-  giftability: 5,
-  competitionClarity: 4,
-  productionSimplicity: 5,
-  evergreenDemand: 4,
-});
+const hasPayPalHostedButton = Boolean(paypalClientId && paypalHostedButtonId);
 
 const scoreDimensions = [
   ["Buyer intent", "Is there a clear person searching for this book or gift?"],
@@ -26,10 +27,10 @@ const scoreDimensions = [
 ] as const;
 
 export const metadata = {
-  title: "KDP Niche Scorecard Generator | Battlelabs",
+  title: "KDP Niche Scorecard Generator - Free KDP Idea Test | Battlelabs",
   description:
-    "Score a KDP niche idea, inspect the weak points, and get a self-serve launch report template built by the Battlelabs agent product foundry.",
-};
+    "Score a KDP niche idea by buyer intent, giftability, competition clarity, production simplicity, and evergreen demand before building a full book or launch report.",
+} satisfies Metadata;
 
 export default function KdpNicheScorecardPage() {
   return (
@@ -50,6 +51,12 @@ export default function KdpNicheScorecardPage() {
               <a href={trackedCheckoutUrl} style={secondaryLinkStyle}>
                 {KDP_SCORECARD_OFFER.checkoutLabel}
               </a>
+            ) : hasPayPalHostedButton ? (
+              <PayPalHostedButton
+                clientId={paypalClientId}
+                hostedButtonId={paypalHostedButtonId}
+                label="Buy the KDP Launch Report with PayPal"
+              />
             ) : (
               <a href="/products/kdp-niche-scorecard/paid-report-template.md" style={secondaryLinkStyle}>
                 Preview Report Template
@@ -62,19 +69,7 @@ export default function KdpNicheScorecardPage() {
           </p>
         </div>
 
-        <aside style={scoreCardStyle} aria-label="Example KDP score">
-          <span style={scoreLabelStyle}>Example score</span>
-          <strong style={scoreNumberStyle}>{sampleScore.score}</strong>
-          <span style={scoreBandStyle}>{sampleScore.band} niche</span>
-          <div style={meterOuterStyle}>
-            <div style={{ ...meterInnerStyle, width: `${sampleScore.score}%` }} />
-          </div>
-          <ul style={recommendationListStyle}>
-            {sampleScore.recommendations.map((recommendation) => (
-              <li key={recommendation}>{recommendation}</li>
-            ))}
-          </ul>
-        </aside>
+        <KdpScorecardWidget />
       </section>
 
       <section style={bandStyle}>
@@ -87,8 +82,8 @@ export default function KdpNicheScorecardPage() {
           </p>
           <p style={rubricLinkStyle}>
             Prefer the checklist version?{" "}
-            <a href="/kdp-niche-scorecard/rubric" style={inlineLinkStyle}>
-              Read the 5-factor rubric
+            <a href="/kdp-niche-scorecard/checklist" style={inlineLinkStyle}>
+              Read the scoring checklist
             </a>
             .
           </p>
@@ -169,6 +164,12 @@ export default function KdpNicheScorecardPage() {
             <a href={trackedCheckoutUrl} style={secondaryLinkStyle}>
               Buy Launch Report
             </a>
+          ) : hasPayPalHostedButton ? (
+            <PayPalHostedButton
+              clientId={paypalClientId}
+              hostedButtonId={paypalHostedButtonId}
+              label="Buy the KDP Launch Report with PayPal"
+            />
           ) : (
             <span style={disabledCtaStyle}>Add checkout URL to sell this report</span>
           )}
@@ -276,59 +277,6 @@ const microcopyStyle: CSSProperties = {
   color: "#66746d",
   fontSize: 14,
   lineHeight: 1.6,
-};
-
-const scoreCardStyle: CSSProperties = {
-  padding: 28,
-  borderRadius: 8,
-  background: "#ffffff",
-  border: "1px solid rgba(23,63,53,0.12)",
-  boxShadow: "0 24px 70px rgba(23,63,53,0.14)",
-};
-
-const scoreLabelStyle: CSSProperties = {
-  display: "block",
-  color: "#66746d",
-  fontSize: 13,
-  fontWeight: 800,
-  textTransform: "uppercase",
-};
-
-const scoreNumberStyle: CSSProperties = {
-  display: "block",
-  marginTop: 12,
-  color: "#173f35",
-  fontSize: 96,
-  lineHeight: 0.9,
-};
-
-const scoreBandStyle: CSSProperties = {
-  display: "block",
-  marginTop: 8,
-  color: "#b4432d",
-  fontWeight: 850,
-  fontSize: 20,
-};
-
-const meterOuterStyle: CSSProperties = {
-  height: 12,
-  marginTop: 22,
-  overflow: "hidden",
-  borderRadius: 999,
-  background: "#e6ece5",
-};
-
-const meterInnerStyle: CSSProperties = {
-  height: "100%",
-  borderRadius: 999,
-  background: "#2e7a68",
-};
-
-const recommendationListStyle: CSSProperties = {
-  margin: "22px 0 0",
-  paddingLeft: 20,
-  color: "#3e5d55",
-  lineHeight: 1.65,
 };
 
 const bandStyle: CSSProperties = {

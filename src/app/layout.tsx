@@ -12,7 +12,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const metadataBase = (() => {
+  const explicitSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (explicitSiteUrl) {
+    return new URL(
+      explicitSiteUrl.startsWith("http") ? explicitSiteUrl : `https://${explicitSiteUrl}`
+    );
+  }
+
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) {
+    return new URL(`https://${vercelUrl}`);
+  }
+
+  return new URL("http://localhost:3000");
+})();
+
 export const metadata: Metadata = {
+  metadataBase,
   title: "Battle Labs | Lead Capture + Follow-Up Systems",
   description:
     "Battle Labs builds solo-led lead capture, follow-up, website, and simple automation systems for founders, creators, and small businesses.",

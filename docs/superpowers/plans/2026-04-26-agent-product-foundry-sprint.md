@@ -162,7 +162,7 @@ describe("kdp scorecard", () => {
 });
 ```
 
-- [ ] **Step 2: Run the failing test**
+- [x] **Step 2: Run the failing test**
 
 Run:
 
@@ -172,7 +172,7 @@ npm test -- src/lib/kdp-scorecard.test.ts
 
 Expected: FAIL because `src/lib/kdp-scorecard.ts` does not exist yet.
 
-- [ ] **Step 3: Create `src/lib/kdp-scorecard.ts`**
+- [x] **Step 3: Create `src/lib/kdp-scorecard.ts`**
 
 ```ts
 export type KdpScoreInput = {
@@ -464,7 +464,9 @@ Evidence screenshots (Playwright, production URL):
 - `outputs/kdp-scorecard-desktop.png`
 - `outputs/kdp-scorecard-mobile.png`
 
-- [ ] **Step 6: Commit launch polish**
+- [x] **Step 6: Commit launch polish**
+
+Note (2026-04-26 ET): working tree is clean; no additional commit required for “launch polish”.
 
 ```powershell
 git status --short
@@ -511,14 +513,24 @@ Rules:
 - No outbound email for this step.
 
 Note: posting requires existing authenticated accounts; see `ops/agent-native-revenue/first-three-organic-placement-packet.md` auth preflight.
-Status: Recorded as blocked by auth/access at 2026-04-26 04:51 ET; see `ops/agent-native-revenue/first-three-organic-placement-packet.md` and `ops/agent-native-revenue/placement-tracking-log.csv`.
+Status (2026-04-26 ET): Hacker News + Reddit recorded as blocked (login required). Product Hunt is scheduled for 2026-04-28 03:01 ET; capture the final live URL on launch day (see `ops/agent-native-revenue/placement-tracking-log.csv`).
 
 Recommended starting placements:
 - Product Hunt (post product)
 - Hacker News (Show HN)
 - Reddit r/SideProject (I built this)
 
+- [x] **Step 2.5: Improve the free tool UX while placements are blocked**
+
+Status (2026-04-26 08:00 ET): shipped interactive score sliders + shareable link on `/kdp-niche-scorecard` and repaired `npm run eval:products` distribution-gate check. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
+Status (2026-04-26 10:00 ET): updated the scorecard page link text to avoid leading with internal "rubric" wording, and aligned Product Hunt tracking artifacts to use canonical `https://battlelabs.live/kdp-niche-scorecard`. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
+Status (2026-04-26 11:11 ET): added a public-friendly checklist URL (`/kdp-niche-scorecard/checklist`) and redirected the old `/kdp-niche-scorecard/rubric` path, then updated Product Hunt + placement artifacts to reference the checklist URL. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
 - [ ] **Step 3: Update metrics after posting**
+
+Note (2026-04-26 ET): waiting on live placement URLs/timestamps (PH scheduled for 2026-04-28 03:01 ET); after posting, update dashboard + 24h counters.
 
 Update `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv` with:
 - Views

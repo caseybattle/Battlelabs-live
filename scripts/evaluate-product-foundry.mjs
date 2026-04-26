@@ -83,6 +83,7 @@ function evaluateProductFoundrySku(input) {
   const addCheck = (name, passed, detail) => checks.push({ name, passed, detail });
   const combinedPublicText = `${input.pageText}\n${input.assetText}`;
   const dashboardRow = input.dashboardRows.find((row) => row.SKU === input.sku);
+  const taskQueueRows = parseSimpleCsv(input.taskQueueText);
   const riskyClaimPatterns = [
     /\bguarantee(?:d|s)?\s+(?:sales|revenue|ranking|rankings|income)\b/i,
     /\bguarantee\s+(?:you\s+)?(?:will\s+)?(?:rank|sell|earn)\b/i,
@@ -131,10 +132,18 @@ function evaluateProductFoundrySku(input) {
     !riskyMatch,
     riskyMatch ? `Matched risky claim pattern ${riskyMatch}.` : "No risky claim patterns found.",
   );
+
+  const gateStatuses = new Set(["Ready", "Pending", "Blocked"]);
+  const gateRows = taskQueueRows.filter(
+    (row) => row["Task ID"] === "KDP-SCORECARD-007" || row["Task ID"] === "KDP-SCORECARD-008",
+  );
+  const gateRow = gateRows.find((row) => gateStatuses.has((row.Status || "").trim()));
   addCheck(
-    "task queue has ready distribution gate",
-    /KDP-SCORECARD-005.*Ready/.test(input.taskQueueText),
-    "The next autonomous action should be distribution/tracking, not more infrastructure.",
+    "task queue has distribution/tracking gate",
+    Boolean(gateRow),
+    gateRow
+      ? `Found gate ${gateRow["Task ID"]} with status ${(gateRow.Status || "(blank)").trim()}.`
+      : "Expected KDP-SCORECARD-007 or KDP-SCORECARD-008 to be Ready/Pending/Blocked.",
   );
 
   return { passed: checks.every((check) => check.passed), checks };

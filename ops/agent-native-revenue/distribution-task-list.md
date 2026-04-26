@@ -33,14 +33,9 @@ Tasks:
 
 Acceptance criteria: every asset has audience, hook, image idea, caption, CTA, and destination placeholder.
 
-Tasks:
+Shipped (2026-04-26 ET):
 
-- Create 25 pin concepts: 10 gift-guide, 5 questions-to-ask, 5 occasion, 5 product preview.
-- Create 8 board names.
-- Create 10 short captions.
-- Create 5 short-form video scripts.
-- Create 5 carousel outlines.
-- Use soft CTAs: "See the preview", "Save this gift idea", "Use this question tonight".
+- `ops/agent-native-revenue/pinterest-social-post-queue-memory-journal.md`
 
 ## Warm Gmail Drafts
 
@@ -120,6 +115,10 @@ Acceptance criteria: page metadata is ready to paste into the public scorecard p
 - Meta description: `Score a KDP niche idea by buyer intent, giftability, competition clarity, production simplicity, and evergreen demand before building a full book or launch report.`
 - Primary keyword: `KDP niche scorecard`
 - Secondary keywords: `KDP niche research tool`, `low content book idea test`, `KDP launch report`, `self publishing niche score`, `Amazon KDP idea validator`
+
+Status (2026-04-26 ET):
+
+- Metadata + share images are implemented in the app route (`src/app/kdp-niche-scorecard/*`).
 
 ## Pinterest-Style Post Prompts
 

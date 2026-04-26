@@ -32,6 +32,15 @@ KDP Launch Report Kit:
 Intro price: $19
 Regular price target: $39-$49 after proof.
 
+## Checkout
+
+The $19 KDP Launch Report uses a PayPal Hosted Button:
+
+- Hosted Button ID: `XBV9JNJS6SPJE`
+- Public SDK client ID is wired in `src/app/kdp-niche-scorecard/page.tsx`
+- Public page CTA renders PayPal checkout when no `NEXT_PUBLIC_KDP_SCORECARD_CHECKOUT_URL` override is set
+- Memory Journal checkout remains separate and is not connected to this PayPal button
+
 ## Compliance
 
 - No guaranteed sales claims.

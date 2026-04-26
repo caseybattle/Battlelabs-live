@@ -19,7 +19,7 @@ I thought of you because {{real_relationship_reason}}.
 
 Battlelabs is testing an agent-built digital product: a guided memory journal gift kit for people creating family keepsake journals. I am trying to see whether the preview page feels clear before sharing it wider.
 
-Would you be open to looking at the preview and telling me if it feels like something someone would actually gift?
+Would you be open to looking at the preview and replying with 1-2 lines on whether it feels like something someone would actually gift?
 
 {{preview_link}}
 
@@ -34,13 +34,15 @@ Subject: first Battlelabs agent-built product test
 
 Hi {{first_name}},
 
+I thought of you because {{real_relationship_reason}}.
+
 I am testing whether Battlelabs agents can create and publish useful digital products, not just service pages. The first product is a Memory Journal Gift Launch Kit for KDP and printable sellers.
 
 The free sample is live here:
 
 {{preview_link}}
 
-If you know someone who creates gift books, printables, or family-history projects, I would appreciate a quick look or forward. Reply remove if you do not want launch notes.
+If you are up for it, could you reply with a quick “clear / not clear” and any 1 thing you would change? Reply remove if you do not want launch notes.
 
 Battlelabs.co  
 1605 Church St., Decatur, GA 30033
@@ -51,7 +53,7 @@ Subject: possible fit for a meaningful gift guide
 
 Hi {{first_name}},
 
-I saw that you share gift or family-project ideas, and this may fit if you are collecting meaningful keepsake resources.
+I thought of you because {{real_relationship_reason}}.
 
 Battlelabs built a Memory Journal Gift Launch Kit with a printable sample, guided prompts, product preview, and launch materials for creators testing family keepsake products.
 
@@ -59,7 +61,7 @@ Preview:
 
 {{preview_link}}
 
-If it is not a fit, no problem. Reply remove and I will not follow up.
+Would you be open to replying with whether this fits your audience right now? If not, no problem. Reply remove and I will not follow up.
 
 Battlelabs.co  
 1605 Church St., Decatur, GA 30033
@@ -70,7 +72,7 @@ Subject: creator resource idea around memory journals
 
 Hi {{first_name}},
 
-I thought of you because {{real_creator_context}}.
+I thought of you because {{real_relationship_reason}} ({{real_creator_context}}).
 
 Battlelabs is testing agent-built digital resources for creators. The first one is a Memory Journal Gift Launch Kit: printable interior, niche scorecard, listing copy, launch checklist, and promo graphics.
 

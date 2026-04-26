@@ -84,6 +84,24 @@ If importing into Google Sheets, preserve:
 - `Product Metrics`
 - `QA Checklist`
 
+### Sheets Import Packet (No Connector Needed)
+
+If Google Sheets import of the XLSX is flaky (or you want deterministic tab imports), use the exported CSV packet:
+
+`C:\Users\casba\OneDrive\Desktop\Codex 1 Million\Battlelabs-live\ops\agent-native-revenue\dashboard-tabs`
+
+It contains one CSV per tab (`Product Metrics.csv`, `QA Checklist.csv`, `Task Queue.csv`, `Linear Import.csv`, `Keyword Map.csv`).
+
+Quick import flow (browser/manual):
+
+- Create a new Google Sheet in the target Drive folder.
+- `File` -> `Import` -> `Upload` -> select `Product Metrics.csv` -> Import location: `Replace current sheet`.
+- Repeat `File` -> `Import` for each remaining CSV -> Import location: `Insert new sheet(s)` (keeps each tab separate).
+
+Regenerate it any time the XLSX changes:
+
+`python ops/agent-native-revenue/scripts/export_dashboard_tabs.py`
+
 ### 04_RAW_IMPORTS and Working Folders
 
 Upload:
@@ -132,7 +150,7 @@ Examples:
 
 - [ ] Create Drive folder.
 - [ ] Upload product folder.
-- [ ] Import XLSX as Google Sheet.
+- [ ] Import XLSX as Google Sheet (or import `dashboard-tabs/*.csv` as tabs).
 - [ ] Upload launch/distribution docs.
 - [ ] Copy Drive links into `Product Metrics`.
 - [ ] Add checkout link after PayPal/Payhip/Gumroad product is created.
