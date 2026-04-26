@@ -85,6 +85,13 @@ export default function KdpNicheScorecardPage() {
             The scorecard is intentionally simple. It turns a vague idea into a visible quality gate
             so agents can build only the niches with enough buyer intent and production leverage.
           </p>
+          <p style={rubricLinkStyle}>
+            Prefer the checklist version?{" "}
+            <a href="/kdp-niche-scorecard/rubric" style={inlineLinkStyle}>
+              Read the 5-factor rubric
+            </a>
+            .
+          </p>
         </div>
         <div style={dimensionGridStyle}>
           {scoreDimensions.map(([title, copy], index) => (
@@ -348,6 +355,20 @@ const sectionCopyStyle: CSSProperties = {
   color: "#51655e",
   fontSize: 17,
   lineHeight: 1.7,
+};
+
+const rubricLinkStyle: CSSProperties = {
+  margin: "14px 0 0",
+  color: "#51655e",
+  fontSize: 15,
+  lineHeight: 1.7,
+};
+
+const inlineLinkStyle: CSSProperties = {
+  color: "#173f35",
+  fontWeight: 800,
+  textDecoration: "underline",
+  textUnderlineOffset: 4,
 };
 
 const dimensionGridStyle: CSSProperties = {

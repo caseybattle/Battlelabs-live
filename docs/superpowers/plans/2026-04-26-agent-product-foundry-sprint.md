@@ -434,7 +434,7 @@ npm run build
 
 Expected: build completes successfully.
 
-- [ ] **Step 4: Start dev server**
+- [x] **Step 4: Start dev server**
 
 ```powershell
 npm run dev
@@ -442,7 +442,9 @@ npm run dev
 
 Expected: local site serves the new route at `/kdp-niche-scorecard`.
 
-- [ ] **Step 5: Browser QA**
+Note: dev server was already running on `http://localhost:3027` during this run; routes returned 200.
+
+- [x] **Step 5: Browser QA**
 
 Open:
 
@@ -457,6 +459,10 @@ Check:
 - paid CTA is visible,
 - disclaimer is visible,
 - no text overlaps.
+
+Evidence screenshots (Playwright, production URL):
+- `outputs/kdp-scorecard-desktop.png`
+- `outputs/kdp-scorecard-mobile.png`
 
 - [ ] **Step 6: Commit launch polish**
 
@@ -503,6 +509,8 @@ Rules:
 - Value-first (post must stand alone without a link if rules are strict).
 - No spam, no vote solicitation, no sales/ranking/income guarantees.
 - No outbound email for this step.
+
+Note: posting requires existing authenticated accounts; see `ops/agent-native-revenue/first-three-organic-placement-packet.md` auth preflight.
 
 Recommended starting placements:
 - Product Hunt (post product)

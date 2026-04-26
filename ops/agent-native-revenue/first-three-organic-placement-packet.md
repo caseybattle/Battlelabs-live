@@ -8,12 +8,24 @@ Live URL:
 
 `https://battlelabs-live.vercel.app/kdp-niche-scorecard`
 
+Rubric URL (value-first checklist, easier to paste in communities):
+
+`https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric`
+
 Rules:
 
 - No paid boosts, ads, paid APIs, or vote solicitation.
 - No sales, ranking, income, royalty, or bestseller claims.
 - If a community discourages links, post the value-first text without a link and only share the URL when requested.
 - Track every placement URL, publish time, views, sample clicks, checkout clicks, and comments.
+
+## Auth preflight (2026-04-26)
+
+Posting requires authenticated sessions:
+
+- Product Hunt: `/posts/new` redirects to “How can I get access to post?” (personal accounts may need an age/wait period). Evidence: `outputs/ph-access-help.png`.
+- Hacker News: `/submit` requires login. Evidence: `outputs/hn-login.png`.
+- Reddit: `/r/SideProject/submit` redirects to login. Evidence: `outputs/reddit-login.png`.
 
 ## Placement 1: Product Hunt
 
@@ -37,6 +49,8 @@ URL:
 
 `https://battlelabs-live.vercel.app/kdp-niche-scorecard`
 
+Backup (if posting access is gated): use the rubric URL as the shared link target.
+
 Tracking fields:
 
 - Placement URL:
@@ -55,6 +69,8 @@ Title:
 URL:
 
 `https://battlelabs-live.vercel.app/kdp-niche-scorecard`
+
+Backup (if direct tool link feels too promotional): submit the rubric write-up instead.
 
 Optional first comment:
 
@@ -93,6 +109,8 @@ It does not predict Amazon rankings or sales. It is just a structured go/no-go p
 I would appreciate feedback on the scoring model: are these the right five dimensions, or is there a better signal I should add before calling a niche worth testing?
 
 Tool: https://battlelabs-live.vercel.app/kdp-niche-scorecard`
+
+Alternative link target (value-first): `https://battlelabs-live.vercel.app/kdp-niche-scorecard/rubric`
 
 Fallback no-link body:
 
