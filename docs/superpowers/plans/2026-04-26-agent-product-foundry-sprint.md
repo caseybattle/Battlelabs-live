@@ -482,3 +482,36 @@ Do not build n8n, wallets, paid APIs, or high-ticket service automation until th
 - repeated checkout clicks,
 - direct buyer request,
 - 5%+ free sample click rate from targeted traffic.
+
+---
+
+### Task 7: No-Spend Distribution + Measurement
+
+**Goal:** Get first real traffic and clicks. Distribution is the bottleneck until `Views > 0`.
+
+**Files:**
+- Create/Modify: `ops/agent-native-revenue/community-opportunities.csv`
+- Modify: `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv`
+
+- [x] **Step 1: Create a placement list (30 opportunities)**
+
+Artifact: `ops/agent-native-revenue/community-opportunities.csv`
+
+- [ ] **Step 2: Publish 3 organic placements**
+
+Rules:
+- Value-first (post must stand alone without a link if rules are strict).
+- No spam, no vote solicitation, no sales/ranking/income guarantees.
+- No outbound email for this step.
+
+Recommended starting placements:
+- Product Hunt (post product)
+- Hacker News (Show HN)
+- Reddit r/SideProject (I built this)
+
+- [ ] **Step 3: Update metrics after posting**
+
+Update `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv` with:
+- Views
+- Free sample clicks
+- Checkout clicks
