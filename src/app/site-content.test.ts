@@ -31,4 +31,10 @@ describe("battlelabs site content", () => {
     expect(html).toContain("fetch('/api/inquiry'");
     expect(html).not.toContain("95.111.243.97:5678/webhook");
   });
+
+  it("does not leave dead placeholder footer links in the page", () => {
+    expect(html).not.toContain('<a href="#">');
+    expect(html).toContain('href="/pilot-build"');
+    expect(html).toContain('href="/selected-work"');
+  });
 });
