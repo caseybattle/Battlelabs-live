@@ -1,4 +1,11 @@
 import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Selected Work | Battle Labs",
+  description:
+    "See real Battle Labs work across digital products, client websites, and connected automation systems.",
+};
 
 const workItems = [
   {
@@ -12,8 +19,11 @@ const workItems = [
       "Amazon affiliate links",
       "Live public site",
     ],
+    bestFit: "Best fit for creators or digital sellers who need a cleaner path from landing page to purchase.",
     href: "https://www.theresetmethod.live/",
     linkLabel: "View The Reset Method",
+    ctaLabel: "Need a similar product flow?",
+    ctaHref: "/async-teardown",
   },
   {
     kicker: "Client Work",
@@ -26,8 +36,11 @@ const workItems = [
       "Offer clarity and page structure",
       "Custom front-end implementation",
     ],
+    bestFit: "Best fit for service businesses or personal brands that need stronger credibility and clearer inquiry flow.",
     href: "https://battlelabs.co/",
     linkLabel: "View Battle Labs Co",
+    ctaLabel: "Need a site or rebuild like this?",
+    ctaHref: "/pilot-build",
   },
   {
     kicker: "Automation",
@@ -40,8 +53,11 @@ const workItems = [
       "Canva and content workflow support",
       "Social posting automation",
     ],
+    bestFit: "Best fit for operators who already have tools in place but need the steps connected into one usable system.",
     href: "/async-teardown",
     linkLabel: "Request an async teardown",
+    ctaLabel: "Need your current stack mapped first?",
+    ctaHref: "/async-teardown",
   },
 ];
 
@@ -70,6 +86,10 @@ export default function SelectedWorkPage() {
                 </div>
               ))}
             </div>
+            <div style={fitCardStyle}>
+              <span style={fitLabelStyle}>Best fit</span>
+              <p style={fitCopyStyle}>{item.bestFit}</p>
+            </div>
             <a
               href={item.href}
               {...(item.href.startsWith("http")
@@ -78,6 +98,9 @@ export default function SelectedWorkPage() {
               style={linkStyle}
             >
               {item.linkLabel}
+            </a>
+            <a href={item.ctaHref} style={secondaryLinkStyle}>
+              {item.ctaLabel}
             </a>
           </article>
         ))}
@@ -202,6 +225,37 @@ const linkStyle: CSSProperties = {
   color: "#c8a97e",
   textDecoration: "none",
   fontWeight: 700,
+};
+
+const fitCardStyle: CSSProperties = {
+  marginTop: 18,
+  padding: "14px 16px",
+  borderRadius: 16,
+  border: "1px solid rgba(200,169,126,0.08)",
+  background: "rgba(200,169,126,0.06)",
+};
+
+const fitLabelStyle: CSSProperties = {
+  display: "block",
+  marginBottom: 8,
+  fontSize: 12,
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  color: "#c8a97e",
+};
+
+const fitCopyStyle: CSSProperties = {
+  color: "rgba(245,240,234,0.82)",
+  lineHeight: 1.68,
+  fontSize: 14,
+};
+
+const secondaryLinkStyle: CSSProperties = {
+  display: "inline-flex",
+  marginTop: 12,
+  color: "rgba(245,240,234,0.86)",
+  textDecoration: "none",
+  fontWeight: 600,
 };
 
 const ctaWrapStyle: CSSProperties = {
