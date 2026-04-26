@@ -1,0 +1,7 @@
+Stage,Task,Owner Agent,Status
+Research,Validate narrow recipient angle,Opportunity Agent,Ready
+Product,Review interior for duplicate or low-value pages,QA Agent,Ready
+Listing,Select title/subtitle without income or ranking claims,Build Agent,Ready
+Mockups,Export cover and preview graphics,Design Agent,Ready
+Launch,Publish landing page and connect checkout,Controller Agent,Ready
+Measure,"Track views, opt-ins, checkout clicks, and sales",Controller Agent,Ready

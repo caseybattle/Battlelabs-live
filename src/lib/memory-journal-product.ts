@@ -1,0 +1,45 @@
+export const memoryJournalProduct = {
+  sku: "grandma-memory-journal-gift-kit",
+  name: "Memory Journal Gift Launch Kit",
+  angle: "Grandma Memory Journal Gift Kit",
+  introPrice: 9,
+  regularPrice: 19,
+  bundlePriceRange: "$29-$49",
+  audience: "KDP sellers, printable sellers, and creators testing giftable family keepsake products.",
+  promise:
+    "Package a narrow family memory journal concept with a printable interior, launch checklist, listing copy, and niche scorecard.",
+  checkoutEnvVar: "NEXT_PUBLIC_MEMORY_JOURNAL_CHECKOUT_URL",
+  freeSamplePath: "/products/memory-journal-gift-kit/grandma-memory-journal-free-sample.pdf",
+  fullInteriorPath: "/products/memory-journal-gift-kit/grandma-memory-journal-full-interior.pdf",
+  previewPath: "/products/memory-journal-gift-kit/product-preview.pdf",
+  scorecardPath: "/products/memory-journal-gift-kit/kdp-niche-scorecard.csv",
+  checklistPath: "/products/memory-journal-gift-kit/launch-checklist.csv",
+  listingCopyPath: "/products/memory-journal-gift-kit/listing-copy.md",
+  heroMockupPath: "/products/memory-journal-gift-kit/gift-kit-pin-01.svg",
+  deliverables: [
+    "20-page free sample PDF",
+    "120-page printable memory journal interior",
+    "KDP niche scorecard CSV",
+    "Title, subtitle, and listing copy angles",
+    "Launch checklist for publishing and testing",
+    "Preview PDF and five promo graphics",
+  ],
+  compliance: [
+    "Review all generated text and design before publishing to any marketplace.",
+    "Disclose AI-generated content on platforms that require it, including KDP.",
+    "Do not use trademarked phrases, copied competitor listings, fake reviews, or income claims.",
+    "Battlelabs provides a creator launch kit, not legal, tax, publishing, or income advice.",
+  ],
+  metrics: [
+    "Landing page views",
+    "Free sample downloads",
+    "Checkout clicks",
+    "Sales",
+    "Refunds",
+    "Net revenue",
+    "Revenue per build hour",
+    "Conversion rate",
+  ],
+} as const;
+
+export type MemoryJournalProduct = typeof memoryJournalProduct;
