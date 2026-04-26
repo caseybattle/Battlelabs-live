@@ -35,6 +35,24 @@ Posting requires authenticated sessions:
 - Hacker News: `/submit` requires login. Evidence: `outputs/hn-login.png`.
 - Reddit: `/r/SideProject/submit` redirects to login. Evidence: `outputs/reddit-login.png`.
 
+## Current execution status (2026-04-26 04:51 ET)
+
+All 3 placements are currently **blocked by auth/access** and require a human logged-in session:
+
+- Product Hunt: blocked (non-auth request to `/posts/new` returned HTTP 403; previous preflight redirected to access article).
+- Hacker News: blocked (submit page explicitly says you must be logged in).
+- Reddit: blocked (submit flow requires a logged-in Reddit session).
+
+Tracking state:
+
+- `ops/agent-native-revenue/placement-tracking-log.csv` status set to `Blocked` for these 3 rows.
+
+Next action (human, no-spend):
+
+1. Log into each platform in a normal browser session (Product Hunt + HN + Reddit).
+2. Publish using the drafts below (prefer the rubric URL when communities dislike “tool launch” links).
+3. Paste the final placement URLs + timestamps into this packet and into `ops/agent-native-revenue/placement-tracking-log.csv`.
+
 ## Placement 1: Product Hunt
 
 Product name:

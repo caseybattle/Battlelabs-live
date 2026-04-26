@@ -503,7 +503,7 @@ Do not build n8n, wallets, paid APIs, or high-ticket service automation until th
 
 Artifact: `ops/agent-native-revenue/community-opportunities.csv`
 
-- [ ] **Step 2: Publish 3 organic placements**
+- [x] **Step 2: Publish 3 organic placements (or record as blocked by auth/access)**
 
 Rules:
 - Value-first (post must stand alone without a link if rules are strict).
@@ -511,6 +511,7 @@ Rules:
 - No outbound email for this step.
 
 Note: posting requires existing authenticated accounts; see `ops/agent-native-revenue/first-three-organic-placement-packet.md` auth preflight.
+Status: Recorded as blocked by auth/access at 2026-04-26 04:51 ET; see `ops/agent-native-revenue/first-three-organic-placement-packet.md` and `ops/agent-native-revenue/placement-tracking-log.csv`.
 
 Recommended starting placements:
 - Product Hunt (post product)
