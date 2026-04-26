@@ -119,6 +119,7 @@ Acceptance criteria: page metadata is ready to paste into the public scorecard p
 Status (2026-04-26 ET):
 
 - Metadata + share images are implemented in the app route (`src/app/kdp-niche-scorecard/*`).
+- Shipped `robots.txt` + `sitemap.xml` via `src/app/robots.ts` and `src/app/sitemap.ts` to help crawl/index the canonical scorecard URLs.
 
 ## Pinterest-Style Post Prompts
 

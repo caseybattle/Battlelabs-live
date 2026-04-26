@@ -532,6 +532,8 @@ Status (2026-04-26 12:04 ET): added a copy/paste post-text template to the inter
 
 Status (2026-04-26 14:05 ET): added dedicated Open Graph + Twitter images for `/kdp-niche-scorecard/checklist` to improve link previews ahead of Product Hunt. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
 
+Status (2026-04-26 19:12 ET): added `robots.txt` + `sitemap.xml` for SEO crawl/indexing (`src/app/robots.ts`, `src/app/sitemap.ts`). Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
 - [x] **Step 2.6: Prepare Product Hunt listing fields packet**
 
 Status (2026-04-26 ET): shipped paste-ready Product Hunt listing fields + maker comment and verification checklist: `ops/agent-native-revenue/producthunt-listing-fields-kdp-scorecard.md` (linked from `ops/agent-native-revenue/producthunt-launch-day-prep.md`).
