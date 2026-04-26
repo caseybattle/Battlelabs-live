@@ -25,4 +25,9 @@ describe("battlelabs site content", () => {
     expect(html).toContain("The Reset Method");
     expect(html).toContain("No inflated claims.");
   });
+
+  it("uses the internal inquiry endpoint instead of the legacy webhook", () => {
+    expect(html).toContain("fetch('/api/inquiry'");
+    expect(html).not.toContain("95.111.243.97:5678/webhook");
+  });
 });

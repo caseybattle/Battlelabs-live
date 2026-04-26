@@ -2188,7 +2188,7 @@ function handleSubmit(e) {
     details: form.details.value
   };
   card.innerHTML = '<div class="form-success"><h2>Got it</h2><p>Thanks, ' + data.name + '. I\'ll review this and reach out with next steps about your ' + data.service.replace(/-/g, ' ') + ' request.</p></div>';
-  fetch('http://95.111.243.97:5678/webhook/4sAG5F1uJ8P2DssC/webhook/battle-labs-lead', {
+  fetch('/api/inquiry', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
