@@ -23,7 +23,7 @@ const workItems = [
     href: "https://www.theresetmethod.live/",
     linkLabel: "View The Reset Method",
     ctaLabel: "Need a similar product flow?",
-    ctaHref: "/async-teardown",
+    ctaHref: "/async-teardown?source=selected-work-reset-method",
   },
   {
     kicker: "Client Work",
@@ -40,7 +40,7 @@ const workItems = [
     href: "https://battlelabs.co/",
     linkLabel: "View Battle Labs Co",
     ctaLabel: "Need a site or rebuild like this?",
-    ctaHref: "/pilot-build",
+    ctaHref: "/pilot-build?source=selected-work-client-sites",
   },
   {
     kicker: "Automation",
@@ -54,10 +54,10 @@ const workItems = [
       "Social posting automation",
     ],
     bestFit: "Best fit for operators who already have tools in place but need the steps connected into one usable system.",
-    href: "/async-teardown",
+    href: "/async-teardown?source=selected-work-automation",
     linkLabel: "Request an async teardown",
     ctaLabel: "Need your current stack mapped first?",
-    ctaHref: "/async-teardown",
+    ctaHref: "/async-teardown?source=selected-work-automation",
   },
 ];
 
@@ -114,10 +114,10 @@ export default function SelectedWorkPage() {
             path before committing to a build.
           </p>
           <div style={ctaActionsStyle}>
-            <a href="/async-teardown" style={primaryLinkStyle}>
+            <a href="/async-teardown?source=selected-work-cta" style={primaryLinkStyle}>
               Request Async Teardown
             </a>
-            <a href="/pilot-build" style={ghostLinkStyle}>
+            <a href="/pilot-build?source=selected-work-cta" style={ghostLinkStyle}>
               View Pilot Build
             </a>
           </div>
