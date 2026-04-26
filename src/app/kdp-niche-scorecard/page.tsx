@@ -128,7 +128,7 @@ export default function KdpNicheScorecardPage() {
         </div>
         <div style={faqGridStyle}>
           <article style={faqItemStyle}>
-            <h3 style={faqTitleStyle}>Does this guarantee KDP sales?</h3>
+            <h3 style={faqTitleStyle}>Does this predict KDP sales?</h3>
             <p style={faqCopyStyle}>{KDP_SCORECARD_OFFER.disclaimer}</p>
           </article>
           <article style={faqItemStyle}>
