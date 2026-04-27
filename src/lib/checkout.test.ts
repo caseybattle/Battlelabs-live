@@ -29,6 +29,18 @@ describe("buildTrackedCheckoutUrl", () => {
     expect(url.searchParams.get("offer_name")).toBe("reply-deck");
   });
 
+  it("adds referral context when the checkout came from another proof asset", () => {
+    const result = buildTrackedCheckoutUrl("https://buy.stripe.com/test_123", {
+      source_page: "pilot-build",
+      referral_source: "selected-work-client-sites",
+    });
+
+    const url = new URL(result);
+
+    expect(url.searchParams.get("source_page")).toBe("pilot-build");
+    expect(url.searchParams.get("referral_source")).toBe("selected-work-client-sites");
+  });
+
   it("returns the original string when the URL is invalid", () => {
     expect(
       buildTrackedCheckoutUrl("not-a-url", {

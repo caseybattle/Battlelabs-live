@@ -10,11 +10,6 @@ type PilotBuildClientProps = {
 };
 
 const pilotCheckoutUrl = process.env.NEXT_PUBLIC_PILOT_BUILD_CHECKOUT_URL?.trim() ?? "";
-const trackedPilotCheckoutUrl = buildTrackedCheckoutUrl(pilotCheckoutUrl, {
-  source_page: "pilot-build",
-  offer_name: "battle-labs-pilot-build",
-  entry_tag: "pilot-build-page",
-});
 
 function getSourceLabel(source: string): string {
   switch (source) {
@@ -33,6 +28,12 @@ export function PilotBuildClient({ source }: PilotBuildClientProps) {
   const [state, setState] = useState<SubmissionState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const sourceLabel = getSourceLabel(source);
+  const trackedPilotCheckoutUrl = buildTrackedCheckoutUrl(pilotCheckoutUrl, {
+    source_page: "pilot-build",
+    offer_name: "battle-labs-pilot-build",
+    entry_tag: "pilot-build-page",
+    referral_source: source !== "direct" ? source : "",
+  });
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
