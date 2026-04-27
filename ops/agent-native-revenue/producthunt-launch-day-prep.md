@@ -15,6 +15,12 @@ Canonical URLs:
 - Clean share examples: `ops/agent-native-revenue/kdp-scorecard-clean-share-examples.md`
 - Listing fields (paste-ready): `ops/agent-native-revenue/producthunt-listing-fields-kdp-scorecard.md`
 
+Preflight (2026-04-27 ET):
+
+- `NEXT_PUBLIC_SITE_URL` is set in Vercel production and `battlelabs.live` is aliased to the latest production deployment.
+- Verified: `/kdp-niche-scorecard` and `/kdp-niche-scorecard/checklist` return `200`, ship `<link rel="canonical">`, and `og:image` resolves under `https://battlelabs.live/...`.
+- Verified: `https://battlelabs.live/robots.txt` and `https://battlelabs.live/sitemap.xml` return `200`.
+
 Example to Mention if Asked:
 
 - Example idea: `Grandma Memory Journal Gift Kit`
@@ -61,3 +67,14 @@ Launch-Day Checklist:
 - Verify `[METRIC_EVENT]` logging is present in deployment logs (see `ops/agent-native-revenue/metrics-playbook.md`).
 - Monitor comments for buyer language, objections, and feature requests.
 - After 24 hours, record Product Hunt views, free sample clicks, checkout clicks, sales, refunds, and useful comments.
+
+Optional log capture (no-spend, for deterministic counting):
+
+```powershell
+vercel inspect https://battlelabs.live
+
+powershell -ExecutionPolicy Bypass -File scripts/capture-vercel-logs.ps1 `
+  -Target https://battlelabs.live `
+  -OutPath outputs/producthunt-launch-logs.txt `
+  -Minutes 30
+```

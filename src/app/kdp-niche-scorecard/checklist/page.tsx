@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "KDP Niche Scorecard Checklist - Free Checklist | Battlelabs",
   description:
     "A plain-English KDP niche checklist: score buyer intent, giftability, competition clarity, production simplicity, and evergreen demand before building a full book or launch report.",
+  alternates: {
+    canonical: "/kdp-niche-scorecard/checklist",
+  },
 };
 
 const sample = calculateKdpScore({

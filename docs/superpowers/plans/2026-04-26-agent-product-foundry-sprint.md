@@ -558,6 +558,8 @@ Status (2026-04-26 18:13 ET): normalized metric page IDs to route paths (leading
 
 Note (2026-04-26 ET): waiting on live placement URLs/timestamps (PH scheduled for 2026-04-28 03:01 ET); after posting, update dashboard + 24h counters.
 
+Status (2026-04-27 ET): preflight hardened link previews + SEO by adding canonical metadata for `/kdp-niche-scorecard` + `/kdp-niche-scorecard/checklist`, setting `NEXT_PUBLIC_SITE_URL` in Vercel production, deploying, and re-aliasing `battlelabs.live` + `www.battlelabs.live` to the latest production deployment. Updated the no-spend metrics playbook for the current Vercel CLI and added `scripts/capture-vercel-logs.ps1` for optional log capture. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
 Update `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv` with:
 - Views
 - Free sample clicks

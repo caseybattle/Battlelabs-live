@@ -32,6 +32,9 @@ export const metadata = {
   title: "KDP Niche Scorecard Generator - Free KDP Idea Test | Battlelabs",
   description:
     "Score a KDP niche idea by buyer intent, giftability, competition clarity, production simplicity, and evergreen demand before building a full book or launch report.",
+  alternates: {
+    canonical: "/kdp-niche-scorecard",
+  },
 } satisfies Metadata;
 
 export default function KdpNicheScorecardPage() {

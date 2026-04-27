@@ -28,19 +28,32 @@ Each event logs as a single line containing `[METRIC_EVENT]` in the deployment l
 
 ## Optional: automated counting (PowerShell, no-spend)
 
-If you can pull logs locally (ex: Vercel CLI from this repo), you can count deterministically with:
+If you can capture logs locally (ex: Vercel CLI from this repo), you can count deterministically with:
 
 ```powershell
-# Example: pull recent logs to a file (adjust --since as needed)
-vercel logs --since 24h --output raw > outputs/vercel-logs-24h.txt
+# Vercel CLI v50 streams logs forward from "now" for up to ~5 minutes per run.
+# For a placement window, start a capture near publish time and let it run.
+
+# Optional: confirm which production deployment battlelabs.live points to
+vercel inspect https://battlelabs.live
+
+# Example: capture ~30 minutes of runtime logs to a local file
+powershell -ExecutionPolicy Bypass -File scripts/capture-vercel-logs.ps1 `
+  -Target https://battlelabs.live `
+  -OutPath outputs/vercel-logs-capture.txt `
+  -Minutes 30
 
 # Example: count metrics for a 24h window after Product Hunt goes live (EDT)
 powershell -ExecutionPolicy Bypass -File scripts/summarize-metric-events.ps1 `
-  -LogPath outputs/vercel-logs-24h.txt `
+  -LogPath outputs/vercel-logs-capture.txt `
   -Page /kdp-niche-scorecard `
   -Start "2026-04-28 03:01:00 -04:00" `
   -End "2026-04-29 03:01:00 -04:00"
 ```
+
+If you need a 24h snapshot but do not have a running local capture, use the Vercel Dashboard Logs UI:
+filter for `[METRIC_EVENT]`, export/copy the window into a local file, then run
+`scripts/summarize-metric-events.ps1` against that file.
 
 ## Allowed event names
 
