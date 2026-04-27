@@ -16,9 +16,23 @@ const trackedPilotCheckoutUrl = buildTrackedCheckoutUrl(pilotCheckoutUrl, {
   entry_tag: "pilot-build-page",
 });
 
+function getSourceLabel(source: string): string {
+  switch (source) {
+    case "homepage-proof":
+      return "You came from the homepage proof section.";
+    case "selected-work-cta":
+      return "You came from the Selected Work call-to-action.";
+    case "selected-work-client-sites":
+      return "You came from the client-sites proof card.";
+    default:
+      return "";
+  }
+}
+
 export function PilotBuildClient({ source }: PilotBuildClientProps) {
   const [state, setState] = useState<SubmissionState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const sourceLabel = getSourceLabel(source);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -141,6 +155,7 @@ export function PilotBuildClient({ source }: PilotBuildClientProps) {
             If the teardown already made the problem obvious, use this form instead of starting over. The goal is
             to scope the smallest build that fixes the highest-leverage bottleneck.
           </p>
+          {sourceLabel ? <p style={checkoutNoteStyle}>{sourceLabel}</p> : null}
           {trackedPilotCheckoutUrl ? (
             <p style={checkoutNoteStyle}>
               Want to move faster? The live checkout link on this page goes straight to payment and async kickoff.

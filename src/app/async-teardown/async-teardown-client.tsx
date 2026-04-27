@@ -8,9 +8,25 @@ type AsyncTeardownClientProps = {
   source: string;
 };
 
+function getSourceLabel(source: string): string {
+  switch (source) {
+    case "homepage-proof":
+      return "You came from the homepage proof section.";
+    case "selected-work-cta":
+      return "You came from the Selected Work call-to-action.";
+    case "selected-work-reset-method":
+      return "You came from the Reset Method proof card.";
+    case "selected-work-automation":
+      return "You came from the automation proof card.";
+    default:
+      return "";
+  }
+}
+
 export function AsyncTeardownClient({ source }: AsyncTeardownClientProps) {
   const [state, setState] = useState<SubmissionState>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const sourceLabel = getSourceLabel(source);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -129,6 +145,7 @@ export function AsyncTeardownClient({ source }: AsyncTeardownClientProps) {
             Send the page and the bottleneck. If the fit is right, the teardown
             turns into a scoped pilot build instead of a vague conversation.
           </p>
+          {sourceLabel ? <p style={sourceNoteStyle}>{sourceLabel}</p> : null}
 
           <form onSubmit={handleSubmit} style={{ display: "grid", gap: 14, marginTop: 20 }}>
             <input name="name" required placeholder="Your name" style={inputStyle} />
@@ -233,4 +250,11 @@ const buttonStyle: CSSProperties = {
   cursor: "pointer",
   background: "linear-gradient(135deg, rgba(200,169,126,1), rgba(168,137,96,1))",
   color: "#0a0a0a",
+};
+
+const sourceNoteStyle: CSSProperties = {
+  marginTop: 12,
+  color: "rgba(200,169,126,0.92)",
+  lineHeight: 1.7,
+  fontSize: 14,
 };
