@@ -2,9 +2,13 @@
 
 ## Current Access Status
 
-The local product assets are ready, but Google Drive write actions through the connector returned `403 Forbidden`. Until the Drive OAuth scope is refreshed, use browser/manual upload or import these files from the local workspace.
+Google Drive connector access is working again (verified 2026-04-27 via connector search that can see `battlelabs-agent-product-dashboard.xlsx` and the `Battlelabs` folder in My Drive).
 
-Evidence (2026-04-26 ET): the Codex in-app browser hit the Google account sign-in gate when attempting to open Drive. Screenshot: `outputs/google-drive-signin-blocker-2026-04-26.png`.
+The remaining work for `BL-004` is still a **manual** Google Sheets import step (create the Sheet + import tabs) so the dashboard exists as a single Google Sheet with tabs preserved.
+
+## Past Blockers (For Context)
+
+- 2026-04-26 ET: the Codex in-app browser hit a Google sign-in gate when attempting to open Drive. Screenshot: `outputs/google-drive-signin-blocker-2026-04-26.png`.
 
 ## BL-004 Quick Runbook (Manual, No Connector)
 
@@ -14,8 +18,8 @@ Fastest path: use the deterministic CSV packet (avoids XLSX import quirks).
 
 1) In your normal Chrome session (already logged into Google), open Drive:
    - `https://drive.google.com/drive/my-drive`
-2) Create (or open) the folder:
-   - `Battlelabs Agent-Native Revenue Portfolio/00_COMMAND_CENTER/`
+2) Create (or open) the folder (recommended):
+   - `My Drive/Battlelabs/Agent-Native Revenue Portfolio/00_COMMAND_CENTER/`
 3) Create a new Google Sheet named:
    - `Battlelabs - Dashboard - Agent Product Portfolio - 2026-04-26`
 4) Import the CSV tabs, in order, from:
