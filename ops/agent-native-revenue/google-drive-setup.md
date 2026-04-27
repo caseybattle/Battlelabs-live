@@ -4,6 +4,39 @@
 
 The local product assets are ready, but Google Drive write actions through the connector returned `403 Forbidden`. Until the Drive OAuth scope is refreshed, use browser/manual upload or import these files from the local workspace.
 
+Evidence (2026-04-26 ET): the Codex in-app browser hit the Google account sign-in gate when attempting to open Drive. Screenshot: `outputs/google-drive-signin-blocker-2026-04-26.png`.
+
+## BL-004 Quick Runbook (Manual, No Connector)
+
+Goal: import the dashboard into Google Sheets with tabs preserved, then paste the resulting Sheet URL into your command center notes (or wherever you track ops links).
+
+Fastest path: use the deterministic CSV packet (avoids XLSX import quirks).
+
+1) In your normal Chrome session (already logged into Google), open Drive:
+   - `https://drive.google.com/drive/my-drive`
+2) Create (or open) the folder:
+   - `Battlelabs Agent-Native Revenue Portfolio/00_COMMAND_CENTER/`
+3) Create a new Google Sheet named:
+   - `Battlelabs - Dashboard - Agent Product Portfolio - 2026-04-26`
+4) Import the CSV tabs, in order, from:
+   - `C:\Users\casba\OneDrive\Desktop\Codex 1 Million\Battlelabs-live\ops\agent-native-revenue\dashboard-tabs`
+   - Or upload/extract: `ops/agent-native-revenue/dashboard-tabs-import-pack-2026-04-26.zip`
+
+Recommended import order:
+- `Product Metrics.csv` (Replace current sheet)
+- `QA Checklist.csv` (Insert new sheet)
+- `Task Queue.csv` (Insert new sheet)
+- `Linear Import.csv` (Insert new sheet)
+- `Keyword Map.csv` (Insert new sheet)
+
+Verification checklist (BL-004 Acceptance):
+- [ ] Each tab exists and looks sane (no huge blank columns).
+- [ ] Values render as expected (no obvious delimiter issues).
+- [ ] Share settings are correct for your workflow (view-only unless actively editing).
+
+If you see “phantom blank columns” after import:
+- Re-export tabs with `python ops/agent-native-revenue/scripts/export_dashboard_tabs.py` (it trims trailing empty columns).
+
 ## Recommended Drive Folder
 
 Create this folder:

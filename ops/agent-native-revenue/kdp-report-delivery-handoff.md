@@ -16,73 +16,65 @@ Local ZIP:
 
 `deliverables/kdp-launch-report-kit.zip`
 
-## Google Drive Delivery File
+Website-hosted ZIP:
 
-Drive file name:
-
-`KDP Launch Report Kit - Battlelabs - v1.zip`
-
-Drive file ID:
-
-`1c1E1XahWjvQ2T8Ea6z0Ovp6as1H6stMp`
-
-Viewer link:
-
-`https://drive.google.com/file/d/1c1E1XahWjvQ2T8Ea6z0Ovp6as1H6stMp/view?usp=drivesdk`
-
-Direct download link:
-
-`https://drive.google.com/uc?export=download&id=1c1E1XahWjvQ2T8Ea6z0Ovp6as1H6stMp`
-
-Permission state:
-
-- `anyoneWithLink`
-- role: `reader`
-- direct permission verified through Google Drive permission listing
-
-## Download Verification
-
-Verification method:
-
-1. Uploaded `deliverables/kdp-launch-report-kit.zip` to Drive.
-2. Set Drive permission to `anyone` / `reader`.
-3. Downloaded the file back through the unauthenticated direct download URL.
-4. Compared byte size against the local ZIP.
-5. Opened downloaded ZIP and verified expected package entries.
-
-Result:
-
-- local ZIP bytes: `87073`
-- downloaded ZIP bytes: `87073`
-- size match: `true`
-- ZIP entries verified:
-  - `kdp-launch-report-grandma-memory-journal.md`
-  - `kdp-launch-report-grandma-memory-journal.pdf`
-  - `kdp-launch-report.html`
-  - `keyword-clusters.csv`
-  - `launch-checklist.md`
-  - `license-refund-disclosure.md`
-  - `listing-copy-starter.md`
-  - `README.md`
-  - `score-breakdown.csv`
-
-## PayPal Delivery Setup Needed
-
-The PayPal Hosted Button is live for payment collection, but instant delivery is only fully true after PayPal is configured to expose the Drive delivery link after payment.
+`public/products/kdp-niche-scorecard/kdp-launch-report-kit-battlelabs-v1.zip`
 
 Private delivery page:
 
 `https://battlelabs.live/kdp-launch-report-delivery?access=kdp-report-delivery-XBV9JNJS6SPJE-v1`
 
-Local test URL:
+Direct ZIP path exposed by the approved delivery page:
 
-`http://localhost:3027/kdp-launch-report-delivery?access=kdp-report-delivery-XBV9JNJS6SPJE-v1`
+`/products/kdp-niche-scorecard/kdp-launch-report-kit-battlelabs-v1.zip`
 
-Use one of these no-spend delivery paths:
+## Buyer ZIP Contents
 
-1. Add the Drive viewer or direct download link to the PayPal post-payment confirmation/instructions if the hosted button supports it.
-2. Add the private delivery page above as the PayPal return URL / successful payment redirect.
-3. If PayPal hosted buttons cannot deliver a file/link directly, move this SKU to Payhip/Gumroad-style delivery later, or manually email the Drive link until the first sale proves demand.
+The buyer ZIP is now professional-format first. Raw Markdown source files are not included.
+
+- `START-HERE.pdf`
+- `START-HERE.html`
+- `kdp-launch-report-grandma-memory-journal.pdf`
+- `kdp-launch-report.html`
+- `launch-checklist.pdf`
+- `launch-checklist.html`
+- `listing-copy-starter.pdf`
+- `listing-copy-starter.html`
+- `license-refund-disclosure.pdf`
+- `license-refund-disclosure.html`
+- `keyword-clusters.pdf`
+- `keyword-clusters.html`
+- `keyword-clusters.csv`
+- `score-breakdown.pdf`
+- `score-breakdown.html`
+- `score-breakdown.csv`
+
+## Verification
+
+Verification method:
+
+1. Regenerated the main report PDF with browser print headers/footers disabled.
+2. Converted the previous Markdown support documents into polished HTML and PDF versions.
+3. Rebuilt the buyer ZIP with PDFs, HTML files, and useful CSVs only.
+4. Copied the audited ZIP into the website public product directory.
+5. Ran the public deliverable privacy audit against the local kit, website ZIP, and downloaded test copy.
+6. Confirmed no raw Markdown entries exist in the buyer ZIP.
+
+Result:
+
+- local ZIP bytes: `424775`
+- website-hosted ZIP bytes: `424775`
+- public package audit: `PASS`
+- PDF privacy scan: `PASS`
+- raw Markdown in buyer ZIP: `false`
+
+## PayPal Delivery Setup Needed
+
+The PayPal Hosted Button is live for payment collection, but instant delivery is only fully true after PayPal is configured to return buyers to the private delivery page after payment.
+
+Use this return/success URL:
+
+`https://battlelabs.live/kdp-launch-report-delivery?access=kdp-report-delivery-XBV9JNJS6SPJE-v1`
 
 PayPal account setting path, if configuring account-level Auto Return:
 
@@ -98,8 +90,9 @@ If the hosted button editor exposes a button-specific return/success URL, use th
 ## Final Test Before Claiming Instant Delivery
 
 - Complete one checkout test through PayPal.
-- Confirm the buyer sees or receives the delivery link after payment.
+- Confirm the buyer lands on the private delivery page after payment.
 - Download the ZIP from the buyer path.
+- Confirm the ZIP contents match the audited list above.
 - Record test evidence in this file and the product dashboard.
 
 Do not claim "instant delivery" publicly until that final payment-to-download path is verified.

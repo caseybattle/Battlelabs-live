@@ -534,6 +534,8 @@ Status (2026-04-26 14:05 ET): added dedicated Open Graph + Twitter images for `/
 
 Status (2026-04-26 19:12 ET): added `robots.txt` + `sitemap.xml` for SEO crawl/indexing (`src/app/robots.ts`, `src/app/sitemap.ts`). Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
 
+Status (2026-04-27 ET): instrumented `/kdp-niche-scorecard/checklist` with no-spend metrics (`page_view` and `free_sample_click`) so checklist landing traffic is measurable ahead of Product Hunt.
+
 - [x] **Step 2.6: Prepare Product Hunt listing fields packet**
 
 Status (2026-04-26 ET): shipped paste-ready Product Hunt listing fields + maker comment and verification checklist: `ops/agent-native-revenue/producthunt-listing-fields-kdp-scorecard.md` (linked from `ops/agent-native-revenue/producthunt-launch-day-prep.md`).

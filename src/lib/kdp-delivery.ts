@@ -1,11 +1,10 @@
 export const KDP_REPORT_DELIVERY = {
   productName: "KDP Launch Report Kit",
   sku: "KDP-SCORECARD-REPORT-001",
-  fileName: "KDP Launch Report Kit - Battlelabs - v1.zip",
-  expectedBytes: 87073,
-  viewerUrl: "https://drive.google.com/file/d/1c1E1XahWjvQ2T8Ea6z0Ovp6as1H6stMp/view?usp=drivesdk",
-  directDownloadUrl:
-    "https://drive.google.com/uc?export=download&id=1c1E1XahWjvQ2T8Ea6z0Ovp6as1H6stMp",
+  fileName: "kdp-launch-report-kit-battlelabs-v1.zip",
+  expectedBytes: 424775,
+  viewerUrl: "/products/kdp-niche-scorecard/kdp-launch-report-kit-battlelabs-v1.zip",
+  directDownloadUrl: "/products/kdp-niche-scorecard/kdp-launch-report-kit-battlelabs-v1.zip",
 } as const;
 
 const fallbackDeliveryKey = "kdp-report-delivery-XBV9JNJS6SPJE-v1";

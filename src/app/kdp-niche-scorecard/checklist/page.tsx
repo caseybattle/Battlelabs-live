@@ -1,5 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
+import MetricsPageView from "@/components/metrics-page-view";
+import TrackedLink from "@/components/tracked-link";
 import { calculateKdpScore, KDP_SCORECARD_OFFER } from "@/lib/kdp-scorecard";
 
 export const metadata: Metadata = {
@@ -60,6 +62,7 @@ const steps = [
 export default function KdpNicheScorecardChecklistPage() {
   return (
     <main style={pageStyle}>
+      <MetricsPageView page="/kdp-niche-scorecard/checklist" />
       <section style={heroStyle}>
         <div style={heroCopyStyle}>
           <p style={eyebrowStyle}>Battlelabs Agent Product Foundry / SKU 002</p>
@@ -72,9 +75,14 @@ export default function KdpNicheScorecardChecklistPage() {
             <a href="/kdp-niche-scorecard" style={primaryLinkStyle}>
               Use the free scorecard tool
             </a>
-            <a href="/products/kdp-niche-scorecard/free-sample.md" style={secondaryLinkStyle}>
+            <TrackedLink
+              href="/products/kdp-niche-scorecard/free-sample.md"
+              style={secondaryLinkStyle}
+              event="free_sample_click"
+              page="/kdp-niche-scorecard/checklist"
+            >
               Open free sample
-            </a>
+            </TrackedLink>
           </div>
           <p style={microcopyStyle}>{KDP_SCORECARD_OFFER.disclaimer}</p>
         </div>
@@ -446,4 +454,3 @@ const finalCopyStyle: CSSProperties = {
   fontSize: 18,
   lineHeight: 1.65,
 };
-

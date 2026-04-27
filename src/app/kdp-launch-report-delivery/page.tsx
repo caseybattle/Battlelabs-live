@@ -44,7 +44,8 @@ export default async function KdpLaunchReportDeliveryPage({ searchParams }: Deli
             <h1 style={titleStyle}>Your KDP Launch Report Kit is ready.</h1>
             <p style={copyStyle}>
               Download the ZIP below, then save a local copy. The package includes the report,
-              keyword clusters, checklist, listing copy starter, license terms, and source files.
+              keyword clusters, checklist, listing copy starter, and license terms in polished PDF
+              and HTML formats.
             </p>
 
             <div style={downloadCardStyle}>
@@ -70,11 +71,11 @@ export default async function KdpLaunchReportDeliveryPage({ searchParams }: Deli
               <div style={noteStyle}>
                 <h3 style={noteTitleStyle}>If the download does not start</h3>
                 <p style={noteCopyStyle}>
-                  Open the Drive viewer and use the download icon there. Some browsers ask for
-                  confirmation before downloading ZIP files from Drive.
+                  Open the direct file link in a new tab. Some browsers ask for confirmation before
+                  downloading ZIP files.
                 </p>
                 <a href={KDP_REPORT_DELIVERY.viewerUrl} style={inlineLinkStyle}>
-                  Open Drive viewer
+                  Open direct file
                 </a>
               </div>
               <div style={noteStyle}>

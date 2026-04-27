@@ -24,8 +24,10 @@ describe("kdp report delivery", () => {
     );
   });
 
-  it("points at the verified Google Drive delivery file", () => {
-    expect(KDP_REPORT_DELIVERY.directDownloadUrl).toContain("1c1E1XahWjvQ2T8Ea6z0Ovp6as1H6stMp");
-    expect(KDP_REPORT_DELIVERY.expectedBytes).toBe(87073);
+  it("points at the verified website-hosted delivery file", () => {
+    expect(KDP_REPORT_DELIVERY.directDownloadUrl).toBe(
+      "/products/kdp-niche-scorecard/kdp-launch-report-kit-battlelabs-v1.zip",
+    );
+    expect(KDP_REPORT_DELIVERY.expectedBytes).toBe(424775);
   });
 });
