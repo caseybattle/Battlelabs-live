@@ -204,6 +204,17 @@ const kdpListingRequiredFiles = [
   "ops/agent-native-revenue/portfolio-task-queue.csv",
 ];
 
+const kdpCoverBriefRequiredFiles = [
+  "src/app/kdp-cover-direction-brief/page.tsx",
+  "src/lib/kdp-cover-direction-brief.ts",
+  "public/products/kdp-cover-direction-brief/README.md",
+  "public/products/kdp-cover-direction-brief/free-cover-direction-prompt.md",
+  "public/products/kdp-cover-direction-brief/paid-brief-template.md",
+  "deliverables/kdp-cover-direction-brief/kdp-cover-direction-brief-workbook.md",
+  "ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv",
+  "ops/agent-native-revenue/portfolio-task-queue.csv",
+];
+
 console.log("Battlelabs product foundry evals");
 
 const passed = [
@@ -229,6 +240,19 @@ const passed = [
       "public/products/kdp-listing-copy-pack/README.md",
       "public/products/kdp-listing-copy-pack/free-listing-angle-checklist.md",
       "public/products/kdp-listing-copy-pack/paid-workbook-template.md",
+    ],
+    dashboardRows,
+    taskQueueText,
+  }),
+  runSkuEval({
+    sku: "KDP-COVER-001",
+    pageUrl: "/kdp-cover-direction-brief",
+    requiredFiles: kdpCoverBriefRequiredFiles,
+    pageTextFiles: ["src/app/kdp-cover-direction-brief/page.tsx", "src/lib/kdp-cover-direction-brief.ts"],
+    assetTextFiles: [
+      "public/products/kdp-cover-direction-brief/README.md",
+      "public/products/kdp-cover-direction-brief/free-cover-direction-prompt.md",
+      "public/products/kdp-cover-direction-brief/paid-brief-template.md",
     ],
     dashboardRows,
     taskQueueText,

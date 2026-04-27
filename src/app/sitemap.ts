@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { path: "/kdp-niche-scorecard", changeFrequency: "weekly", priority: 0.9 },
       { path: "/kdp-niche-scorecard/checklist", changeFrequency: "weekly", priority: 0.85 },
       { path: "/kdp-listing-copy-pack", changeFrequency: "weekly", priority: 0.82 },
+      { path: "/kdp-cover-direction-brief", changeFrequency: "weekly", priority: 0.81 },
       { path: "/memory-journal-gift-kit", changeFrequency: "weekly", priority: 0.8 },
       { path: "/memory-journal-gift-kit/checkout", changeFrequency: "weekly", priority: 0.6 },
     ];

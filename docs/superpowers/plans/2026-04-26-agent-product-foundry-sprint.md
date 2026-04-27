@@ -623,3 +623,37 @@ Status (2026-04-27 ET): shipped `/kdp-listing-copy-pack` with tracked events (`p
 - [ ] **Step 4: Activate checkout + delivery**
 
 Note: requires owner action to set `NEXT_PUBLIC_KDP_LISTING_COPY_PACK_CHECKOUT_URL` and validate a human-approved checkout-to-delivery flow (no agent spend).
+
+---
+
+### Task 10: Build KDP Cover Direction Brief (KDP-COVER-001)
+
+**Goal:** Keep shipping adjacent KDP SKUs while Product Hunt and payment validation are waiting states.
+
+**Files:**
+- Create: `ops/agent-native-revenue/kdp-cover-direction-brief-plan.md`
+- Create: `src/app/kdp-cover-direction-brief/page.tsx`
+- Create: `src/lib/kdp-cover-direction-brief.ts`
+- Create: `public/products/kdp-cover-direction-brief/`
+- Create: `deliverables/kdp-cover-direction-brief/`
+- Modify: `src/app/sitemap.ts`
+- Modify: `scripts/evaluate-product-foundry.mjs`
+- Modify: `ops/agent-native-revenue/portfolio-task-queue.csv`
+- Modify: `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv`
+- Modify: `ops/agent-native-revenue/next-sku-opportunity-backlog.csv`
+
+- [x] **Step 1: Define the adjacent SKU plan**
+
+Status (2026-04-27 ET): shipped the offer plan at `ops/agent-native-revenue/kdp-cover-direction-brief-plan.md`.
+
+- [x] **Step 2: Ship the free prompt hook**
+
+Status (2026-04-27 ET): added `public/products/kdp-cover-direction-brief/free-cover-direction-prompt.md` and linked it from the landing page.
+
+- [x] **Step 3: Publish the landing page + extend eval gates**
+
+Status (2026-04-27 ET): shipped `/kdp-cover-direction-brief` with tracked events (`page_view`, `free_sample_click`, `download_click`, `checkout_click`), added the route to `src/app/sitemap.ts`, and extended `npm run eval:products` to validate `KDP-COVER-001`.
+
+- [ ] **Step 4: Activate checkout + delivery**
+
+Note: requires owner action to set `NEXT_PUBLIC_KDP_COVER_DIRECTION_BRIEF_CHECKOUT_URL` and validate a human-approved checkout-to-delivery flow (no agent spend).
