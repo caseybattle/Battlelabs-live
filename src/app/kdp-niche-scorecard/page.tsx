@@ -91,6 +91,18 @@ export default function KdpNicheScorecardPage() {
             Intro report price {KDP_SCORECARD_OFFER.price}. Regular target price{" "}
             {KDP_SCORECARD_OFFER.regularPrice}. Checkout activates when the payment link is added.
           </p>
+          <p style={microcopyStyle}>
+            Already have a niche idea?{" "}
+            <TrackedLink
+              href="/kdp-listing-copy-pack"
+              event="download_click"
+              page="/kdp-niche-scorecard"
+              meta={{ target: "kdp-listing-copy-pack" }}
+            >
+              Use the free listing angle checklist
+            </TrackedLink>
+            .
+          </p>
         </div>
 
         <KdpScorecardWidget />

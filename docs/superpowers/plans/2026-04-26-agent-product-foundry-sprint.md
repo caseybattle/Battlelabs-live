@@ -591,3 +591,35 @@ Status (2026-04-26 ET): `/memory-journal-gift-kit` now routes to the checkout pa
 Status (2026-04-26 ET): marked `BL-005`/`BL-006` as `Accepted`, moved `BL-012` to `Pending`, and added a dashboard row for SKU 001.
 
 Status (2026-04-26 ET): shipped no-spend metric tracking and moved `BL-012` to `Done` (see `ops/agent-native-revenue/metrics-playbook.md`).
+
+---
+
+### Task 9: Build KDP Listing Copy Pack (KDP-LISTING-001)
+
+**Goal:** Start the next adjacent no-spend SKU while Product Hunt and payment validation are waiting states.
+
+**Files:**
+- Create: `src/app/kdp-listing-copy-pack/page.tsx`
+- Create: `src/lib/kdp-listing-copy-pack.ts`
+- Create: `public/products/kdp-listing-copy-pack/`
+- Create: `deliverables/kdp-listing-copy-pack/`
+- Modify: `src/app/sitemap.ts`
+- Modify: `scripts/evaluate-product-foundry.mjs`
+- Modify: `ops/agent-native-revenue/portfolio-task-queue.csv`
+- Modify: `ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv`
+
+- [x] **Step 1: Ship the free checklist hook**
+
+Status (2026-04-27 ET): added `public/products/kdp-listing-copy-pack/free-listing-angle-checklist.md` with platform rules + AI disclosure reminders and linked it from the landing page.
+
+- [x] **Step 2: Ship the paid workbook source + preview**
+
+Status (2026-04-27 ET): added a non-public workbook source at `deliverables/kdp-listing-copy-pack/kdp-listing-copy-workbook.md` plus a public preview template at `public/products/kdp-listing-copy-pack/paid-workbook-template.md`.
+
+- [x] **Step 3: Publish the landing page + extend eval gates**
+
+Status (2026-04-27 ET): shipped `/kdp-listing-copy-pack` with tracked events (`page_view`, `free_sample_click`, `download_click`, `checkout_click`), added the route to `src/app/sitemap.ts`, extended `npm run eval:products` to validate `KDP-LISTING-001`, and added a cross-link from `/kdp-niche-scorecard` to the free checklist. Gates: `npm test`, `npm run lint`, `npm run build`, `npm run eval:products` PASS.
+
+- [ ] **Step 4: Activate checkout + delivery**
+
+Note: requires owner action to set `NEXT_PUBLIC_KDP_LISTING_COPY_PACK_CHECKOUT_URL` and validate a human-approved checkout-to-delivery flow (no agent spend).

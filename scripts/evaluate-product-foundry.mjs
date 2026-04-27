@@ -149,7 +149,34 @@ function evaluateProductFoundrySku(input) {
   return { passed: checks.every((check) => check.passed), checks };
 }
 
-const requiredFiles = [
+function runSkuEval({ sku, pageUrl, requiredFiles, pageTextFiles, assetTextFiles, dashboardRows, taskQueueText }) {
+  for (const file of requiredFiles) {
+    readRequired(file);
+  }
+
+  const pageText = pageTextFiles.map((file) => readRequired(file)).join("\n");
+  const assetText = assetTextFiles.map((file) => readRequired(file)).join("\n");
+
+  const result = evaluateProductFoundrySku({
+    sku,
+    pageUrl,
+    requiredFiles,
+    pageText,
+    assetText,
+    dashboardRows,
+    taskQueueText,
+  });
+
+  console.log(`\nSKU eval: ${sku}`);
+  for (const check of result.checks) {
+    const marker = check.passed ? "PASS" : "FAIL";
+    console.log(`${marker} ${check.name}: ${check.detail}`);
+  }
+
+  return result.passed;
+}
+
+const kdpScorecardRequiredFiles = [
   "src/app/kdp-niche-scorecard/page.tsx",
   "src/lib/kdp-scorecard.ts",
   "public/products/kdp-niche-scorecard/README.md",
@@ -161,40 +188,53 @@ const requiredFiles = [
   "ops/agent-native-revenue/portfolio-task-queue.csv",
 ];
 
-for (const file of requiredFiles) {
-  readRequired(file);
-}
-
-const pageText = [
-  readRequired("src/app/kdp-niche-scorecard/page.tsx"),
-  readRequired("src/lib/kdp-scorecard.ts"),
-].join("\n");
-const assetText = [
-  readRequired("public/products/kdp-niche-scorecard/README.md"),
-  readRequired("public/products/kdp-niche-scorecard/free-sample.md"),
-  readRequired("public/products/kdp-niche-scorecard/paid-report-template.md"),
-].join("\n");
 const dashboardRows = parseSimpleCsv(
   readRequired("ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv"),
 );
 const taskQueueText = readRequired("ops/agent-native-revenue/portfolio-task-queue.csv");
 
-const result = evaluateProductFoundrySku({
-  sku: "KDP-SCORECARD-001",
-  pageUrl: "/kdp-niche-scorecard",
-  requiredFiles,
-  pageText,
-  assetText,
-  dashboardRows,
-  taskQueueText,
-});
+const kdpListingRequiredFiles = [
+  "src/app/kdp-listing-copy-pack/page.tsx",
+  "src/lib/kdp-listing-copy-pack.ts",
+  "public/products/kdp-listing-copy-pack/README.md",
+  "public/products/kdp-listing-copy-pack/free-listing-angle-checklist.md",
+  "public/products/kdp-listing-copy-pack/paid-workbook-template.md",
+  "deliverables/kdp-listing-copy-pack/kdp-listing-copy-workbook.md",
+  "ops/agent-native-revenue/battlelabs-agent-product-dashboard.csv",
+  "ops/agent-native-revenue/portfolio-task-queue.csv",
+];
 
 console.log("Battlelabs product foundry evals");
-for (const check of result.checks) {
-  const marker = check.passed ? "PASS" : "FAIL";
-  console.log(`${marker} ${check.name}: ${check.detail}`);
-}
 
-if (!result.passed) {
+const passed = [
+  runSkuEval({
+    sku: "KDP-SCORECARD-001",
+    pageUrl: "/kdp-niche-scorecard",
+    requiredFiles: kdpScorecardRequiredFiles,
+    pageTextFiles: ["src/app/kdp-niche-scorecard/page.tsx", "src/lib/kdp-scorecard.ts"],
+    assetTextFiles: [
+      "public/products/kdp-niche-scorecard/README.md",
+      "public/products/kdp-niche-scorecard/free-sample.md",
+      "public/products/kdp-niche-scorecard/paid-report-template.md",
+    ],
+    dashboardRows,
+    taskQueueText,
+  }),
+  runSkuEval({
+    sku: "KDP-LISTING-001",
+    pageUrl: "/kdp-listing-copy-pack",
+    requiredFiles: kdpListingRequiredFiles,
+    pageTextFiles: ["src/app/kdp-listing-copy-pack/page.tsx", "src/lib/kdp-listing-copy-pack.ts"],
+    assetTextFiles: [
+      "public/products/kdp-listing-copy-pack/README.md",
+      "public/products/kdp-listing-copy-pack/free-listing-angle-checklist.md",
+      "public/products/kdp-listing-copy-pack/paid-workbook-template.md",
+    ],
+    dashboardRows,
+    taskQueueText,
+  }),
+].every(Boolean);
+
+if (!passed) {
   process.exitCode = 1;
 }
