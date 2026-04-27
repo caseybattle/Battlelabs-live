@@ -5,7 +5,7 @@ Launch:
 - Product: KDP Niche Scorecard Generator
 - Scheduled: 2026-04-28 03:01 ET / 12:01 PT
 - Product Hunt status: scheduled
-- Evidence: `outputs/producthunt-scheduled-after-invoke.png`
+- Evidence: scheduled was confirmed in the Product Hunt maker UI on 2026-04-26 ET; re-capture a screenshot on launch day and save it as `outputs/producthunt-scheduled-2026-04-28.png`.
 
 Canonical URLs:
 

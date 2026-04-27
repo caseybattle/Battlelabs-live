@@ -47,7 +47,7 @@ Posting requires authenticated sessions:
 
 Product Hunt is no longer blocked. It was submitted through the authenticated browser session and Product Hunt confirmed it is **successfully scheduled**:
 
-- Product Hunt: scheduled for April 28, 2026 at 12:01am PT / 03:01am ET. Evidence: `outputs/producthunt-scheduled-after-invoke.png`.
+- Product Hunt: scheduled for April 28, 2026 at 12:01am PT / 03:01am ET. Screenshot of the scheduling confirmation was not saved; re-capture on 2026-04-28 and save it as `outputs/producthunt-scheduled-2026-04-28.png`.
 - Hacker News: blocked after authentication by HN's Show HN limit page (`/showlim`). Do not repost or evade. Defer until the account has normal participation history.
 - Reddit: submitted to r/SideProject as a text-first feedback post with one clean link, then removed by Reddit's filters. Placement URL: `https://www.reddit.com/r/SideProject/comments/1sw788w/i_built_a_free_kdp_niche_scorecard_and_want/`. Do not immediately repost.
 
