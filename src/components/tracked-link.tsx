@@ -9,6 +9,7 @@ type TrackedLinkProps = {
   event: MetricEventName;
   meta?: Record<string, string>;
   children: ReactNode;
+  className?: string;
   style?: CSSProperties;
   target?: string;
   rel?: string;
